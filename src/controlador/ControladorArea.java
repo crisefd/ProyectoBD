@@ -8,8 +8,11 @@ package controlador;
 
 import accesoDatos.DaoArea;
 import accesoDatos.DaoEmpleado;
+import accesoDatos.DaoPrograma;
+import java.util.ArrayList;
 import java.util.Vector;
 import logica.Area;
+import logica.Empleado;
 
 /**
  *
@@ -42,14 +45,20 @@ public class ControladorArea{
 
     public Area consultarArea(String id_area){
 
-        Area a = new Area();
-        
-         System.out.println("Se va a consultar un empleado");
-
+        Area a = new Area();        
         a = daoArea.consultarArea(id_area);
       
        return a;
     }
+    
+    public ArrayList<Area> consultarAreas(){
+        Area a = new Area();
+        ArrayList<Area> lista = daoArea.consultarAreas();
+      
+       return lista;
+    }
+    
+    
 
     public void cerrarConexionBD(){
         daoArea.cerrarConexionBD();
