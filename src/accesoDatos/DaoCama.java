@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import logica.Cama;
 import logica.Empleado;
 
@@ -43,27 +44,29 @@ public class DaoCama {
         return -1;
     }//fin guardar
 
-    public void consultarCama(){
-        
+   public ArrayList<Cama> consultarCamas(){
+        ArrayList<Cama> array= new ArrayList<Cama>();
         String sql_select;
-        sql_select="SELECT id_cama, descripcion, estado FROM Cama";
+        sql_select="SELECT id_cama, id_area_fk,descripcion, estado FROM Cama";
          try{
             Connection conn= fachada.conectar();
             Statement sentencia = conn.createStatement();
             ResultSet tabla = sentencia.executeQuery(sql_select);
-            System.out.println("IdCama\tDescripcion\tEstado");
+            
             //
             while(tabla.next()){
-               System.out.println("id_cama: " + tabla.getString(1) + " Descripcion: " + tabla.getString(2) + " Estado:" +  tabla.getString(3));
-
+               Cama c= new Cama(tabla.getString(1), tabla.getString(2), tabla.getString(3), tabla.getString(4));
+               array.add(c);
+               System.out.println(tabla.getString(2));
             }
-            conn.close();
+             conn.close();
              System.out.println("Conexion cerrada");
 
          }
          catch(SQLException e){ System.out.println(e); }
          catch(Exception e){ System.out.println(e); }
-    } 
+         return array;
+    }
     
     
     public Cama consultarCama(String id_cama){
