@@ -20,7 +20,9 @@ public class Empleado extends Persona {
         this.salario = salario;
         this.id_area = id_area;
     }
-    
+    public Empleado(){
+        
+    }
     public String obtCargo(){
         return cargo;
     }
@@ -33,5 +35,35 @@ public class Empleado extends Persona {
     public String obtIdArea(){
         return id_area;
     }
+
+    /**
+     * @param cargo the cargo to set
+     */
+    public void setCargo(String cargo) {
+        this.cargo = cargo;
+    }
+
+    /**
+     * @param email the email to set
+     */
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    /**
+     * @param id_area the id_area to set
+     */
+    public void setId_area(String id_area) {
+        this.id_area = id_area;
+    }
+
+    /**
+     * @param salario the salario to set
+     */
+    public void setSalario(double salario) {
+        this.salario = salario;
+    }
+
+    
     
 }

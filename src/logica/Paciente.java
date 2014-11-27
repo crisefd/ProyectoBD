@@ -28,6 +28,9 @@ public class Paciente extends Persona {
         this.fechaAsigCama= fechaAsigCama;
     }   
 
+    public Paciente(){
+        
+    }
     /**
      * @return the num_seg_soc
      */
@@ -61,6 +64,41 @@ public class Paciente extends Persona {
      */
     public String obtFechaAsigCama() {
         return fechaAsigCama;
+    }
+
+    /**
+     * @param num_seg_soc the num_seg_soc to set
+     */
+    public void setNum_seg_soc(String num_seg_soc) {
+        this.num_seg_soc = num_seg_soc;
+    }
+
+    /**
+     * @param actEconomica the actEconomica to set
+     */
+    public void setActEconomica(String actEconomica) {
+        this.actEconomica = actEconomica;
+    }
+
+    /**
+     * @param id_cama the id_cama to set
+     */
+    public void setId_cama(String id_cama) {
+        this.id_cama = id_cama;
+    }
+
+    /**
+     * @param fechaNaci the fechaNaci to set
+     */
+    public void setFechaNaci(Calendar fechaNaci) {
+        this.fechaNaci = fechaNaci;
+    }
+
+    /**
+     * @param fechaAsigCama the fechaAsigCama to set
+     */
+    public void setFechaAsigCama(Calendar fechaAsigCama) {
+        this.fechaAsigCama = fechaAsigCama;
     }
     
     public static void main(String args[] ){
