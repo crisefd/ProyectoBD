@@ -18,7 +18,10 @@ public class Campana {
         this.objetivo = objetivo;
         this.id_medico = id_medico;
     }
-
+    
+    public Campana(){
+        
+    }
     /**
      * @return the id
      */
@@ -45,6 +48,34 @@ public class Campana {
      */
     public String obtId_medico() {
         return id_medico;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    /**
+     * @param nombre the nombre to set
+     */
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    /**
+     * @param objetivo the objetivo to set
+     */
+    public void setObjetivo(String objetivo) {
+        this.objetivo = objetivo;
+    }
+
+    /**
+     * @param id_medico the id_medico to set
+     */
+    public void setId_medico(String id_medico) {
+        this.id_medico = id_medico;
     }
     
     
