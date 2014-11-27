@@ -19,6 +19,10 @@ public class Medicamento {
         this.descripcion = descripcion;
         this.costo = costo;
     }
+    
+    public Medicamento(){
+        
+    }
 
     /**
      * @return the id
@@ -46,6 +50,34 @@ public class Medicamento {
      */
     public double obtCosto() {
         return costo;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    /**
+     * @param nombre the nombre to set
+     */
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    /**
+     * @param descripcion the descripcion to set
+     */
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    /**
+     * @param costo the costo to set
+     */
+    public void setCosto(double costo) {
+        this.costo = costo;
     }
     
     
