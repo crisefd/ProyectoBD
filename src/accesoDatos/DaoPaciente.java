@@ -43,7 +43,8 @@ public class DaoPaciente {
     public Paciente consultarPaciente(String id_persona){
         Paciente p = new Paciente();
         String sql_select;
-        sql_select = "SELECT id_persona,nombre,direccion,telefono,num_seg_soc, fecha_naci, actividad_economica, id_cama,fecha_asig_cama FROM Paciente WHERE id_persona='" + id_persona + "'";
+       
+        sql_select = "SELECT id_persona,nombre,direccion,telefono,num_seg_soc, fecha_naci, actividad_economica, id_cama,fecha_asig_cama FROM Paciente WHERE  id_persona='" + id_persona + "'";
         try {
             Connection conn = fachada.conectar();
             System.out.println("consultando en la bd");
