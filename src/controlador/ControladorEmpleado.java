@@ -5,6 +5,7 @@
 package controlador;
 
 import accesoDatos.DaoEmpleado;
+import java.util.ArrayList;
 import java.util.Vector;
 import logica.Empleado;
 
@@ -46,6 +47,16 @@ public class ControladorEmpleado {
         e = daoEmpleado.consultarEmpleado(id_persona);
       
        return e;
+    }
+    
+    public ArrayList<Empleado> consultarEmpleados(){
+        Empleado e = new Empleado();
+        
+         System.out.println("Se va a consultar un empleado");
+
+        ArrayList<Empleado> lista = daoEmpleado.consultarEmpleados();
+      
+       return lista;
     }
 
     public void cerrarConexionBD(){
