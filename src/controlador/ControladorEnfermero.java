@@ -47,9 +47,9 @@ public class ControladorEnfermero {
         
          System.out.println("Se va a consultar un empleado");
 
-        ArrayList<Enfermero> lista = daoEnfermero.consultarEnfermero();
+       // ArrayList<Enfermero> lista = daoEnfermero.consultarEnfermero();
       
-       return lista;
+       return null;
     }
     
 
