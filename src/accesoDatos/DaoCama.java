@@ -98,4 +98,8 @@ public class DaoCama {
         }
         return null;
 }
+    
+    public void cerrarConexionBD() {
+        fachada.closeConection(fachada.getConnetion());
+    }
 }
