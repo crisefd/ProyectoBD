@@ -40,25 +40,41 @@ public class DaoPaciente {
         return -1;
     }//fin guardar
 
-    public void consultarEstudiantes(){
-        Programa p= new Programa();
+    public Paciente consultarPaciente(String id_persona){
+        Paciente p = new Paciente();
         String sql_select;
-        sql_select="SELECT codigo, nombre, codigo_programa FROM estudiante";
-         try{
-            Connection conn= fachada.conectar();
+        sql_select = "SELECT id_persona,nombre,direccion,telefono,num_seg_soc, fecha_naci, actividad_economica, id_cama,fecha_asig_cama FROM Paciente WHERE id_persona='" + id_persona + "'";
+        try {
+            Connection conn = fachada.conectar();
+            System.out.println("consultando en la bd");
             Statement sentencia = conn.createStatement();
             ResultSet tabla = sentencia.executeQuery(sql_select);
-            System.out.println("Codigo\tNombre\tPrograma");
-            //
-            while(tabla.next()){
-               System.out.println("Codigo: " + tabla.getString(1) + " Nombre: " + tabla.getString(2) + " Plan:" +  tabla.getString(3));
 
+            while (tabla.next()) {
+                p.setId_persona(tabla.getString(1));
+                p.setNombre(tabla.getString(2));
+                p.setDireccion(tabla.getString(3));
+                p.setTelefono(tabla.getString(4));
+                p.setNum_seg_soc(tabla.getString(5));
+                p.setFechaNaci(tabla.getString(6));
+                p.setActEconomica(tabla.getString(7));
+                p.setId_cama(tabla.getString(8));
+                p.setFechaAsigCama(tabla.getString(9));
+//
+//                e.setNombre(tabla.getString(2));
+//
+//                e.setNivel(tabla.getString(3));
+//                e.setCreditos(tabla.getInt(4));
+
+                System.out.println("OK");
             }
-            conn.close();
-             System.out.println("Conexion cerrada");
 
-         }
-         catch(SQLException e){ System.out.println(e); }
-         catch(Exception e){ System.out.println(e); }
-    } 
+            return e;
+        } catch (SQLException s) {
+            System.out.println(s);
+        } catch (Exception s) {
+            System.out.println(s);
+        }
+        return null;
+}
 }
