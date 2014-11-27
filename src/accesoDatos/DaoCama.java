@@ -66,10 +66,10 @@ public class DaoCama {
     } 
     
     
-    public Empleado consultarCama(String id_cama){
-        Empleado e = new Empleado();
+    public Cama consultarCama(String id_cama){
+        Cama c = new Cama();
         String sql_select;
-        sql_select = "SELECT id_empleado, nombre, telefono, email, cargo, id_area_fk FROM Cama WHERE id_cama='" + id_cama + "'";
+        sql_select = "SELECT id_cama,id_area, descripcion,estado FROM Cama WHERE id_cama='" + id_cama + "'";
         try {
             Connection conn = fachada.conectar();
             System.out.println("consultando en la bd");
@@ -77,12 +77,10 @@ public class DaoCama {
             ResultSet tabla = sentencia.executeQuery(sql_select);
 
             while (tabla.next()) {
-                e.setId_persona(tabla.getString(1));
-                e.setNombre(tabla.getString(2));
-                e.setTelefono(tabla.getString(3));
-                e.setEmail(tabla.getString(4));
-                e.setCargo(tabla.getString(5));
-                e.setId_area(tabla.getString(6));
+                c.setId_cama(tabla.getString(1));
+                c.setId_area(tabla.getString(2));
+                c.setDescripcion(tabla.getString(3));
+                c.setEstado(tabla.getString(4));
 //
 //                e.setNombre(tabla.getString(2));
 //
@@ -92,7 +90,7 @@ public class DaoCama {
                 System.out.println("OK");
             }
 
-            return e;
+            return c;
         } catch (SQLException s) {
             System.out.println(s);
         } catch (Exception s) {
