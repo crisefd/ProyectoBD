@@ -12,6 +12,7 @@ package logica;
 public class Enfermero extends Empleado{
     private int anosExp;
     private String []habilidades;
+    private String idEnfermero;
 
     public Enfermero(String id_persona, String nombre, String direccion, 
                     String telefono, String id_area, String cargo, String email, 
@@ -37,6 +38,34 @@ public class Enfermero extends Empleado{
      */
     public String[] obtHabilidades() {
         return habilidades;
+    }
+
+    /**
+     * @param anosExp the anosExp to set
+     */
+    public void setAnosExp(int anosExp) {
+        this.anosExp = anosExp;
+    }
+
+    /**
+     * @param habilidades the habilidades to set
+     */
+    public void setHabilidades(String[] habilidades) {
+        this.habilidades = habilidades;
+    }
+
+    /**
+     * @return the idEnfermero
+     */
+    public String getIdEnfermero() {
+        return idEnfermero;
+    }
+
+    /**
+     * @param idEnfermero the idEnfermero to set
+     */
+    public void setIdEnfermero(String idEnfermero) {
+        this.idEnfermero = idEnfermero;
     }
     
 }

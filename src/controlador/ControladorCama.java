@@ -5,6 +5,8 @@
 package controlador;
 
 import accesoDatos.DaoCama;
+import java.util.ArrayList;
+import logica.Area;
 import logica.Cama;
 
 /**
@@ -36,15 +38,21 @@ public class ControladorCama{
 
     }//end
 
-    public Cama consultarArea(String id_cama){
+    public Cama consultarCama(String id_cama){
 
-        Cama c = new Cama();
-        
-         System.out.println("Se va a consultar un cama");
+        Cama c = new Cama();    
 
         c = daoCama.consultarCama(id_cama);
       
        return c;
+    }
+    
+    
+    public ArrayList<Cama> consultarCamas(){
+        Area a = new Area();
+        ArrayList<Cama> lista = daoCama.consultarCamas();
+      
+       return lista;
     }
 
     public void cerrarConexionBD(){
