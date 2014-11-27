@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import logica.Area;
 import logica.Empleado;
 
@@ -42,27 +43,28 @@ public class DaoArea {
         return -1;
     }//fin guardar
 
-    public void consultarArea(){
-        
+    public ArrayList<Area> consultarAreas(){
+        ArrayList<Area> array= new ArrayList<Area>();
         String sql_select;
         sql_select="SELECT id_area, nombre, descripcion FROM Area";
          try{
             Connection conn= fachada.conectar();
             Statement sentencia = conn.createStatement();
             ResultSet tabla = sentencia.executeQuery(sql_select);
-            System.out.println("Id cama\tNombre\tDescripcion");
+            
             //
             while(tabla.next()){
-               System.out.println("id_area: " + tabla.getString(1) + " Nombre: " + tabla.getString(2) + " Descripcion:" +  tabla.getString(3));
-
+               Area a= new Area(tabla.getString(1), tabla.getString(2), tabla.getString(3));
+               array.add(a);
             }
-            conn.close();
+             conn.close();
              System.out.println("Conexion cerrada");
 
          }
          catch(SQLException e){ System.out.println(e); }
          catch(Exception e){ System.out.println(e); }
-}
+         return array;
+    }
     
     public Area consultarArea(String id_area){
         Area a = new Area();

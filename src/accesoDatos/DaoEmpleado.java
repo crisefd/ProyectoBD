@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import logica.Empleado;
 import logica.Programa;
 
@@ -28,10 +29,11 @@ public class DaoEmpleado {
         String sql_guardar;
         sql_guardar="INSERT INTO Persona(id_persona, nombre,direccion, telefono) VALUES ('" 
                 +emp.obtIdPersona() + "', '" + emp.obtNombre() +  "', '" + emp.obtDireccion() + "', '" + emp.obtTelefono() +"');";
-        sql_guardar+="INSERT INTO Empleado(id_persona, nombre,id_empleado,direccion, telefono, cargo, salario, email, id_area_fk) VALUES ('" 
+        sql_guardar+="INSERT INTO Empleado(id_persona, nombre,id_empleado,direccion, telefono, cargo, salario, email, id_area_fk, perfil_seguridad) VALUES ('" 
                 +emp.obtIdPersona() + "', '" + emp.obtNombre() + "', '" + emp.obtIdPersona() +  "', '" + emp.obtDireccion() + "', '" + emp.obtTelefono() +"', '"+emp.obtCargo() + "', '" + emp.obtSalario() +  "', '" +
                  emp.obtEmail() + "', '"  +
-                 emp.obtIdArea() + "')";
+                 emp.obtIdArea() + "', '"  +
+                 "0" +"')";
         try{
             Connection conn= fachada.conectar();
             Statement sentencia = conn.createStatement();
@@ -44,33 +46,35 @@ public class DaoEmpleado {
         return -1;
     }//fin guardar
 
-    public void consultarEmpleados(){
-        
+    public ArrayList<Empleado> consultarEmpleados(){
+        ArrayList<Empleado> array= new ArrayList<Empleado>();
         String sql_select;
-        sql_select="SELECT id_empleado, nombre, telefono, email, cargo, id_area_fk FROM Empleado";
+        sql_select="SELECT id_empleado, nombre,direccion, telefono, id_area_fk, cargo, email, salario FROM Empleado";
          try{
             Connection conn= fachada.conectar();
             Statement sentencia = conn.createStatement();
             ResultSet tabla = sentencia.executeQuery(sql_select);
-            System.out.println("Email\tSalario\tCargo\tId area");
+            
             //
             while(tabla.next()){
-               System.out.println("id_empleado: " + tabla.getString(1) + " Nombre: " + tabla.getString(2) + " Telefono:" +  tabla.getString(3)+"email: "+tabla.getString(4));
-
+               Empleado e= new Empleado(tabla.getString(1), tabla.getString(2), tabla.getString(3), tabla.getString(4),tabla.getString(5),tabla.getString(6),  tabla.getString(7), tabla.getDouble(8));
+               array.add(e);
+               System.out.println(tabla.getString(2));
             }
-            conn.close();
+             conn.close();
              System.out.println("Conexion cerrada");
 
          }
          catch(SQLException e){ System.out.println(e); }
          catch(Exception e){ System.out.println(e); }
+         return array;
     }
 
 
 public Empleado consultarEmpleado(String id_empleado){
         Empleado e = new Empleado();
         String sql_select;
-        sql_select = "SELECT id_empleado, nombre, telefono, email, cargo, id_area_fk FROM Empleado WHERE id_empleado='" + id_empleado + "'";
+        sql_select = "SELECT id_empleado, nombre, telefono, email, cargo,perfil_seguridad, id_area_fk, salario FROM Empleado WHERE id_empleado='" + id_empleado + "'";
         try {
             Connection conn = fachada.conectar();
             System.out.println("consultando en la bd");
@@ -83,7 +87,9 @@ public Empleado consultarEmpleado(String id_empleado){
                 e.setTelefono(tabla.getString(3));
                 e.setEmail(tabla.getString(4));
                 e.setCargo(tabla.getString(5));
-                e.setId_area(tabla.getString(6));
+                e.setPerfilSeguridad(tabla.getString(6));
+                e.setId_area(tabla.getString(7));
+                e.setSalario(tabla.getDouble(8));
 //
 //                e.setNombre(tabla.getString(2));
 //
@@ -92,6 +98,9 @@ public Empleado consultarEmpleado(String id_empleado){
 
                 System.out.println("OK");
             }
+            conn.close();
+            System.out.println("Conexion cerrada");
+
 
             return e;
         } catch (SQLException s) {
@@ -105,6 +114,4 @@ public Empleado consultarEmpleado(String id_empleado){
  public void cerrarConexionBD() {
         fachada.closeConection(fachada.getConnetion());
     }
-
- 
 }
