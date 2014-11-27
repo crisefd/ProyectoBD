@@ -6,6 +6,7 @@
 package logica;
 
 import java.util.Calendar;
+import java.util.Date;
 
 /**
  *
@@ -13,12 +14,12 @@ import java.util.Calendar;
  */
 public class Paciente extends Persona {
     private String num_seg_soc, actEconomica, id_cama;
-    private Calendar fechaNaci, fechaAsigCama;
+    private String fechaNaci, fechaAsigCama;
     
 
     public Paciente(String id_persona, String nombre, String direccion, 
                      String telefono, String num_seg_soc, String actEconomica,
-                     String id_cama, Calendar fechaNaci, Calendar fechaAsigCama) {
+                     String id_cama, String fechaNaci, String fechaAsigCama) {
         super(id_persona, nombre, direccion, telefono);
         this.num_seg_soc = num_seg_soc;
         this.actEconomica= actEconomica;
@@ -51,15 +52,21 @@ public class Paciente extends Persona {
     /**
      * @return the fechaNaci
      */
-    public Calendar obtFechaNaci() {
+    public String obtFechaNaci() {
         return fechaNaci;
     }
 
     /**
      * @return the fechaAsigCama
      */
-    public Calendar obtFechaAsigCama() {
+    public String obtFechaAsigCama() {
         return fechaAsigCama;
+    }
+    
+    public static void main(String args[] ){
+        Paciente p =new Paciente("1123054","daniel","direccion","telefono","numseg","act","12","2014-4-4","2014-4-4");
+        
+        System.out.println(p.obtFechaNaci());
     }
     
 }
