@@ -90,14 +90,14 @@ public class Paciente extends Persona {
     /**
      * @param fechaNaci the fechaNaci to set
      */
-    public void setFechaNaci(Calendar fechaNaci) {
+    public void setFechaNaci(String fechaNaci) {
         this.fechaNaci = fechaNaci;
     }
 
     /**
      * @param fechaAsigCama the fechaAsigCama to set
      */
-    public void setFechaAsigCama(Calendar fechaAsigCama) {
+    public void setFechaAsigCama(String fechaAsigCama) {
         this.fechaAsigCama = fechaAsigCama;
     }
     
