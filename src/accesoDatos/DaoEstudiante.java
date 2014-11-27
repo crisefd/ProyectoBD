@@ -18,7 +18,7 @@ import logica.*;
 public class DaoEstudiante {
     FachadaBD fachada;
 
-    DaoEstudiante(){
+    public DaoEstudiante(){
         fachada= new FachadaBD();
     }//
 

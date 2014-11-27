@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import logica.Empleado;
+import logica.Programa;
 
 
 /**
@@ -19,11 +20,11 @@ import logica.Empleado;
 public class DaoEmpleado {
     FachadaBD fachada;
 
-    DaoEmpleado(){
+    public DaoEmpleado(){
         fachada= new FachadaBD();
     }//
 
-     public int guardarEstudiante(Empleado emp){
+     public int guardarEmpleado(Empleado emp){
         String sql_guardar;
         sql_guardar="INSERT INTO Empleado(cargo, salario, email, id_area) VALUES ('" +
                 emp.obtCargo() + "', '" + emp.obtSalario() +  "', '" +
@@ -41,7 +42,7 @@ public class DaoEmpleado {
         return -1;
     }//fin guardar
 
-    public void consultarEmpleado(){
+    public void consultarEmpleados(){
         
         String sql_select;
         sql_select="SELECT email, salario, cargo, id_area FROM Empleado";
@@ -62,4 +63,45 @@ public class DaoEmpleado {
          catch(SQLException e){ System.out.println(e); }
          catch(Exception e){ System.out.println(e); }
     }
+
+
+public Empleado consultarEmpleado(String id_persona){
+        Empleado e = new Empleado();
+        String sql_select;
+        sql_select = "SELECT id_persona, nombre, telefono, email, cargo, id_area_fk FROM Empleado WHERE id_persona='" + id_persona + "'";
+        try {
+            Connection conn = fachada.conectar();
+            System.out.println("consultando en la bd");
+            Statement sentencia = conn.createStatement();
+            ResultSet tabla = sentencia.executeQuery(sql_select);
+
+            while (tabla.next()) {
+                e.setId_persona(tabla.getString(1));
+                e.setNombre(tabla.getString(2));
+                e.setTelefono(tabla.getString(3));
+                e.setEmail(tabla.getString(4));
+                e.setCargo(tabla.getString(5));
+                e.setId_area(tabla.getString(6));
+//
+//                e.setNombre(tabla.getString(2));
+//
+//                e.setNivel(tabla.getString(3));
+//                e.setCreditos(tabla.getInt(4));
+
+                System.out.println("OK");
+            }
+
+            return e;
+        } catch (SQLException s) {
+            System.out.println(s);
+        } catch (Exception s) {
+            System.out.println(s);
+        }
+        return null;
+}
+
+ public void cerrarConexionBD() {
+        fachada.closeConection(fachada.getConnetion());
+    }
+
 }

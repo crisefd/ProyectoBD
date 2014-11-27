@@ -9,7 +9,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import logica.Estudiante;
+import logica.Paciente;
 import logica.Programa;
 
 /**
@@ -23,12 +23,12 @@ public class DaoPaciente {
         fachada= new FachadaBD();
     }//
 
-     public int guardarEstudiante(Estudiante est){
+     public int guardarPaciente(Paciente pac){
         String sql_guardar;
         sql_guardar="INSERT INTO Paciente(num_seg_soc, fecha_naci, actividad_economica, id_cama,fecha_asig_cama) VALUES ('" +
-                est.getCodigo() + "', '" + est.getNombre() +  "', '" +
-                  est.getSexo() + "', '"  +
-                 est.getPrograma().getCodigo() + "')";
+                pac.getCodigo() + "', '" + est.getNombre() +  "', '" +
+                est.getSexo() + "', '"  +
+                est.getPrograma().getCodigo() + "')";
         try{
             Connection conn= fachada.conectar();
             Statement sentencia = conn.createStatement();
