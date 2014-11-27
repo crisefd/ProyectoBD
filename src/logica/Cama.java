@@ -20,6 +20,9 @@ public class Cama {
         this.id_area = id_area;
         
     }
+    public Cama(){
+        
+    }
     
     public String obtIdCama(){
         return id_cama;
@@ -32,6 +35,34 @@ public class Cama {
     }
     public String obtIdArea(){
         return id_area;
+    }
+
+    /**
+     * @param id_cama the id_cama to set
+     */
+    public void setId_cama(String id_cama) {
+        this.id_cama = id_cama;
+    }
+
+    /**
+     * @param descripcion the descripcion to set
+     */
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    /**
+     * @param estado the estado to set
+     */
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    /**
+     * @param id_area the id_area to set
+     */
+    public void setId_area(String id_area) {
+        this.id_area = id_area;
     }
     
 }
