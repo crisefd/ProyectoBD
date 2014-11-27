@@ -69,7 +69,7 @@ public class DaoPaciente {
                 System.out.println("OK");
             }
 
-            return e;
+            return p;
         } catch (SQLException s) {
             System.out.println(s);
         } catch (Exception s) {
