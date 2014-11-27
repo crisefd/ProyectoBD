@@ -25,10 +25,9 @@ public class DaoPaciente {
 
      public int guardarPaciente(Paciente pac){
         String sql_guardar;
-        sql_guardar="INSERT INTO Paciente(num_seg_soc, fecha_naci, actividad_economica, id_cama,fecha_asig_cama) VALUES ('" +
-                pac.getCodigo() + "', '" + est.getNombre() +  "', '" +
-                est.getSexo() + "', '"  +
-                est.getPrograma().getCodigo() + "')";
+        sql_guardar="INSERT INTO Paciente(num_seg_soc, fecha_naci, actividad_economica, id_cama,fecha_asig_cama,id_persona,,nombre,direccion,telefono) VALUES ('" +
+                pac.obtyNum_seg_soc() + "', '" + pac.obtFechaNaci() +  "', '" + pac.obtActEconomica() + "', '"  + pac.obtId_cama() + "', '"+ pac.obtFechaAsigCama()+
+                "', '"+ pac.obtIdPersona() +"', '"+pac.obtNombre()+"', '"+pac.obtDireccion()+"', '"+pac.obtTelefono()+"')";
         try{
             Connection conn= fachada.conectar();
             Statement sentencia = conn.createStatement();
