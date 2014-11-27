@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import logica.Cama;
+import logica.Empleado;
 
 
 
@@ -20,7 +21,7 @@ import logica.Cama;
 public class DaoCama {
    FachadaBD fachada;
 
-    DaoCama(){
+    public DaoCama(){
         fachada= new FachadaBD();
     }//
 
@@ -63,4 +64,40 @@ public class DaoCama {
          catch(SQLException e){ System.out.println(e); }
          catch(Exception e){ System.out.println(e); }
     } 
+    
+    
+    public Empleado consultarCama(String id_cama){
+        Empleado e = new Empleado();
+        String sql_select;
+        sql_select = "SELECT id_empleado, nombre, telefono, email, cargo, id_area_fk FROM Cama WHERE id_cama='" + id_cama + "'";
+        try {
+            Connection conn = fachada.conectar();
+            System.out.println("consultando en la bd");
+            Statement sentencia = conn.createStatement();
+            ResultSet tabla = sentencia.executeQuery(sql_select);
+
+            while (tabla.next()) {
+                e.setId_persona(tabla.getString(1));
+                e.setNombre(tabla.getString(2));
+                e.setTelefono(tabla.getString(3));
+                e.setEmail(tabla.getString(4));
+                e.setCargo(tabla.getString(5));
+                e.setId_area(tabla.getString(6));
+//
+//                e.setNombre(tabla.getString(2));
+//
+//                e.setNivel(tabla.getString(3));
+//                e.setCreditos(tabla.getInt(4));
+
+                System.out.println("OK");
+            }
+
+            return e;
+        } catch (SQLException s) {
+            System.out.println(s);
+        } catch (Exception s) {
+            System.out.println(s);
+        }
+        return null;
+}
 }
