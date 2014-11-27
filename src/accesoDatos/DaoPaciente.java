@@ -19,7 +19,7 @@ import logica.Programa;
 public class DaoPaciente {
    FachadaBD fachada;
 
-    DaoPaciente(){
+    public DaoPaciente(){
         fachada= new FachadaBD();
     }//
 
@@ -42,6 +42,29 @@ public class DaoPaciente {
         catch(Exception e){ System.out.println(e); }
         return -1;
     }//fin guardar
+     
+     public void consultarPacientes(){
+        
+        String sql_select;
+        sql_select="SELECT id_persona,nombre,direccion,telefono,num_seg_soc, fecha_naci, actividad_economica, id_cama,fecha_asig_cama FROM Paciente";
+         try{
+            Connection conn= fachada.conectar();
+            Statement sentencia = conn.createStatement();
+            ResultSet tabla = sentencia.executeQuery(sql_select);
+            System.out.println("Email\tSalario\tCargo\tId area");
+            //
+            while(tabla.next()){
+               System.out.println("Id_persona: " + tabla.getString(1) + " Nombre: " + tabla.getString(2) + " Direccion:" +  tabla.getString(3)+"Telefono: "+tabla.getString(4)+"Num seg soc: "+tabla.getString(5)
+                       +"Fecha nacimiento: "+tabla.getString(6)+"Actividad economica: "+tabla.getString(7)+"Cama: "+tabla.getString(8)+"Fecha cama: "+tabla.getString(9));
+
+            }
+            conn.close();
+             System.out.println("Conexion cerrada");
+
+         }
+         catch(SQLException e){ System.out.println(e); }
+         catch(Exception e){ System.out.println(e); }
+    }
 
     public Paciente consultarPaciente(String id_persona){
         Paciente p = new Paciente();
@@ -81,4 +104,7 @@ public class DaoPaciente {
         }
         return null;
 }
+    public void cerrarConexionBD() {
+        fachada.closeConection(fachada.getConnetion());
+    }
 }
