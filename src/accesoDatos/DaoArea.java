@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import logica.Area;
+import logica.Empleado;
 
 
 
@@ -20,7 +21,7 @@ import logica.Area;
 public class DaoArea {
     FachadaBD fachada;
 
-    DaoArea(){
+    public DaoArea(){
         fachada= new FachadaBD();
     }//
 
@@ -62,4 +63,41 @@ public class DaoArea {
          catch(SQLException e){ System.out.println(e); }
          catch(Exception e){ System.out.println(e); }
 }
+    
+    public Area consultarArea(String id_area){
+        Area a = new Area();
+        String sql_select;
+        sql_select = "SELECT id_area, nombre, descripcion from Area WHERE id_area='" + id_area + "'";
+        try {
+            Connection conn = fachada.conectar();
+            System.out.println("consultando en la bd");
+            Statement sentencia = conn.createStatement();
+            ResultSet tabla = sentencia.executeQuery(sql_select);
+
+            while (tabla.next()) {
+                a.setId_area(tabla.getString(1));
+                a.setNombre(tabla.getString(2));
+                a.setDescripcion(tabla.getString(3));
+//
+//                e.setNombre(tabla.getString(2));
+//
+//                e.setNivel(tabla.getString(3));
+//                e.setCreditos(tabla.getInt(4));
+
+                System.out.println("OK");
+            }
+
+            return a;
+        } catch (SQLException s) {
+            System.out.println(s);
+        } catch (Exception s) {
+            System.out.println(s);
+        }
+        return null;
+}
+    
+     public void cerrarConexionBD() {
+        fachada.closeConection(fachada.getConnetion());
+    }
+  
 }
