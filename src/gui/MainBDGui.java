@@ -5,6 +5,11 @@
  */
 package gui;
 
+import controlador.*;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+import logica.Empleado;
+
 /**
  *
  * @author Shaitan
@@ -812,7 +817,7 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton11)
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout Internal_Gestion_Panel_EmployLayout = new javax.swing.GroupLayout(Internal_Gestion_Panel_Employ);
@@ -858,6 +863,11 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
         Global_Panel.addTab("GESTION", Gestion_Panel);
 
         Generate_Employ_Table.setText("Generate");
+        Generate_Employ_Table.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Generate_Employ_TableActionPerformed(evt);
+            }
+        });
 
         Employ_Table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -898,13 +908,13 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
         Internal_Reports_Panel_Employ_ListLayout.setHorizontalGroup(
             Internal_Reports_Panel_Employ_ListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Internal_Reports_Panel_Employ_ListLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1)
-                .addContainerGap())
-            .addGroup(Internal_Reports_Panel_Employ_ListLayout.createSequentialGroup()
                 .addGap(276, 276, 276)
                 .addComponent(Generate_Employ_Table)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(472, Short.MAX_VALUE))
+            .addGroup(Internal_Reports_Panel_Employ_ListLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1)
+                .addGap(239, 239, 239))
         );
         Internal_Reports_Panel_Employ_ListLayout.setVerticalGroup(
             Internal_Reports_Panel_Employ_ListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1319,6 +1329,28 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton11ActionPerformed
 
+    private void Generate_Employ_TableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Generate_Employ_TableActionPerformed
+        // TODO add your handling code here:
+       ControladorEmpleado ce = new ControladorEmpleado();
+       ArrayList<Empleado> arr = ce.consultarEmpleados();
+       Object[][] matrix = new Object[arr.size()][4];
+        DefaultTableModel t; int k = 0;
+       for(Empleado emp: arr){
+           Object[] row = new Object[4];
+           row[0] = emp.obtIdPersona();
+           row[1] = emp.obtNombre();
+           row[2] = emp.obtCargo();
+           row[3] = emp.obtIdArea();
+           matrix[k] = row;
+           k++;
+       }
+       t = new DefaultTableModel(matrix, new String [] {
+        "ID", "Name", "Charge", "Area"
+    });
+       Employ_Table.setModel(t);
+        
+    }//GEN-LAST:event_Generate_Employ_TableActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable Count_Dates_Table;
@@ -1391,25 +1423,10 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
-    private javax.swing.JLabel jLabel32;
-    private javax.swing.JLabel jLabel33;
-    private javax.swing.JLabel jLabel34;
-    private javax.swing.JLabel jLabel35;
-    private javax.swing.JLabel jLabel36;
-    private javax.swing.JLabel jLabel37;
-    private javax.swing.JLabel jLabel38;
-    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel40;
-    private javax.swing.JLabel jLabel41;
-    private javax.swing.JLabel jLabel42;
-    private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel46;
@@ -1418,11 +1435,6 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
@@ -1445,22 +1457,7 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField13;
-    private javax.swing.JTextField jTextField14;
-    private javax.swing.JTextField jTextField15;
-    private javax.swing.JTextField jTextField16;
-    private javax.swing.JTextField jTextField17;
-    private javax.swing.JTextField jTextField18;
-    private javax.swing.JTextField jTextField19;
     private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField20;
-    private javax.swing.JTextField jTextField21;
-    private javax.swing.JTextField jTextField22;
-    private javax.swing.JTextField jTextField23;
-    private javax.swing.JTextField jTextField24;
-    private javax.swing.JTextField jTextField25;
-    private javax.swing.JTextField jTextField26;
-    private javax.swing.JTextField jTextField27;
     private javax.swing.JTextField jTextField28;
     private javax.swing.JTextField jTextField29;
     private javax.swing.JTextField jTextField3;
