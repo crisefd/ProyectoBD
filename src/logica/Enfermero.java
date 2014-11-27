@@ -20,6 +20,10 @@ public class Enfermero extends Empleado{
         this.anosExp = anos_exp;
         this.habilidades = habilidades;
     }
+    
+    public Enfermero(){
+        
+    }
 
     /**
      * @return the anos_exp
