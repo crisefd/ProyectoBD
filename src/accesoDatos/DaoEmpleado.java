@@ -26,9 +26,11 @@ public class DaoEmpleado {
 
      public int guardarEmpleado(Empleado emp){
         String sql_guardar;
-        sql_guardar="INSERT INTO Empleado(cargo, salario, email, id_area) VALUES ('" +
-                emp.obtCargo() + "', '" + emp.obtSalario() +  "', '" +
-                  emp.obtEmail() + "', '"  +
+        sql_guardar="INSERT INTO Persona(id_persona, nombre,direccion, telefono) VALUES ('" 
+                +emp.obtIdPersona() + "', '" + emp.obtNombre() +  "', '" + emp.obtDireccion() + "', '" + emp.obtTelefono() +"');";
+        sql_guardar+="INSERT INTO Empleado(id_persona, nombre,id_empleado,direccion, telefono, cargo, salario, email, id_area_fk) VALUES ('" 
+                +emp.obtIdPersona() + "', '" + emp.obtNombre() + "', '" + emp.obtIdPersona() +  "', '" + emp.obtDireccion() + "', '" + emp.obtTelefono() +"', '"+emp.obtCargo() + "', '" + emp.obtSalario() +  "', '" +
+                 emp.obtEmail() + "', '"  +
                  emp.obtIdArea() + "')";
         try{
             Connection conn= fachada.conectar();
@@ -45,7 +47,7 @@ public class DaoEmpleado {
     public void consultarEmpleados(){
         
         String sql_select;
-        sql_select="SELECT email, salario, cargo, id_area FROM Empleado";
+        sql_select="SELECT id_empleado, nombre, telefono, email, cargo, id_area_fk FROM Empleado";
          try{
             Connection conn= fachada.conectar();
             Statement sentencia = conn.createStatement();
@@ -53,7 +55,7 @@ public class DaoEmpleado {
             System.out.println("Email\tSalario\tCargo\tId area");
             //
             while(tabla.next()){
-               System.out.println("Email: " + tabla.getString(1) + " Salario: " + tabla.getString(2) + " Cargo:" +  tabla.getString(3)+"Id area"+tabla.getString(4));
+               System.out.println("id_empleado: " + tabla.getString(1) + " Nombre: " + tabla.getString(2) + " Telefono:" +  tabla.getString(3)+"email: "+tabla.getString(4));
 
             }
             conn.close();
@@ -65,10 +67,10 @@ public class DaoEmpleado {
     }
 
 
-public Empleado consultarEmpleado(String id_persona){
+public Empleado consultarEmpleado(String id_empleado){
         Empleado e = new Empleado();
         String sql_select;
-        sql_select = "SELECT id_persona, nombre, telefono, email, cargo, id_area_fk FROM Empleado WHERE id_persona='" + id_persona + "'";
+        sql_select = "SELECT id_empleado, nombre, telefono, email, cargo, id_area_fk FROM Empleado WHERE id_empleado='" + id_empleado + "'";
         try {
             Connection conn = fachada.conectar();
             System.out.println("consultando en la bd");
@@ -104,4 +106,5 @@ public Empleado consultarEmpleado(String id_persona){
         fachada.closeConection(fachada.getConnetion());
     }
 
+ 
 }
