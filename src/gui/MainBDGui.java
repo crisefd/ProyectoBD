@@ -147,6 +147,7 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
         jLabel37 = new javax.swing.JLabel();
         jButton16 = new javax.swing.JButton();
         jFormattedTextField1 = new javax.swing.JFormattedTextField();
+        jPanel2 = new javax.swing.JPanel();
         Report_Panel = new javax.swing.JPanel();
         Internal_Reports_Panel = new javax.swing.JTabbedPane();
         Internal_Reports_Panel_Employ_List = new javax.swing.JPanel();
@@ -1222,14 +1223,26 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
 
         Internal_Gestion_Panel.addTab("Patient", jPanel1);
 
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 651, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 807, Short.MAX_VALUE)
+        );
+
+        Internal_Gestion_Panel.addTab("Beds", jPanel2);
+
         javax.swing.GroupLayout Gestion_PanelLayout = new javax.swing.GroupLayout(Gestion_Panel);
         Gestion_Panel.setLayout(Gestion_PanelLayout);
         Gestion_PanelLayout.setHorizontalGroup(
             Gestion_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Gestion_PanelLayout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(Internal_Gestion_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, 656, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addGap(0, 44, Short.MAX_VALUE))
         );
         Gestion_PanelLayout.setVerticalGroup(
             Gestion_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1861,6 +1874,7 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
