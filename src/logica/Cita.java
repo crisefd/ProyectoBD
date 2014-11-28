@@ -13,11 +13,12 @@ import java.util.Date;
  * @author crisefd
  */
 public class Cita {
-    private Date tiempo;
+    private String tiempo;
     private String tipo, id_medico, id_paciente;
-    private Calendar fecha;
+    private String fecha;
+    private double costo=2500;
     
-    public Cita(Date tiempo, Calendar fecha, String tipo, String id_medico, String id_paciente){
+    public Cita(String tiempo, String fecha, String tipo, String id_medico, String id_paciente){
        this.tiempo = tiempo;
        this.fecha = fecha;
        this.tipo = tipo;
@@ -25,11 +26,15 @@ public class Cita {
        this.id_paciente = id_paciente;
         
     }
+    
+    public Cita(){
+        
+    }
 
     /**
      * @return the time
      */
-    public Date obtTiempo() {
+    public String obtTiempo() {
         return tiempo;
     }
 
@@ -57,8 +62,50 @@ public class Cita {
     /**
      * @return the fecha
      */
-    public Calendar getFecha() {
+    public String getFecha() {
         return fecha;
+    }
+
+    /**
+     * @param tiempo the tiempo to set
+     */
+    public void setTiempo(String tiempo) {
+        this.tiempo = tiempo;
+    }
+
+    /**
+     * @param tipo the tipo to set
+     */
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    /**
+     * @param id_medico the id_medico to set
+     */
+    public void setId_medico(String id_medico) {
+        this.id_medico = id_medico;
+    }
+
+    /**
+     * @param id_paciente the id_paciente to set
+     */
+    public void setId_paciente(String id_paciente) {
+        this.id_paciente = id_paciente;
+    }
+
+    /**
+     * @param fecha the fecha to set
+     */
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
+
+    /**
+     * @param costo the costo to set
+     */
+    public void setCosto(double costo) {
+        this.costo = costo;
     }
     
     

@@ -10,7 +10,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import logica.Area;
+import logica.Cama;
+import logica.Cita;
 import logica.Empleado;
 
 
@@ -19,18 +20,19 @@ import logica.Empleado;
  *
  * @author daniel
  */
-public class DaoArea {
-    FachadaBD fachada;
+public class DaoCita {
+   FachadaBD fachada;
 
-    public DaoArea(){
+    public DaoCita(){
         fachada= new FachadaBD();
     }//
 
-     public int guardarArea(Area a){
+     public int guardarCita(Cita c){
         String sql_guardar;
-        sql_guardar="INSERT INTO Area(id_area, nombre, descripcion) VALUES ('" +
-                a.obtIdArea() + "', '" + a.obtNombre() +  "', '" +
-                  a.descripcion() + "')";
+        sql_guardar="INSERT INTO Cita(hora, tipo, fecha, id_medico_fk, id_paciente_fk,costo_cita) VALUES ('" +
+                c.obtTiempo() + "', '" + c.getTipo() +  "', '" +
+                  c.getFecha()+ "', '"  + "', '" + c.getId_medico() +  "', '" + "', '" + c.getId_paciente() +  "', '"+
+                 "2500" + "')";
         try{
             Connection conn= fachada.conectar();
             Statement sentencia = conn.createStatement();
@@ -43,10 +45,10 @@ public class DaoArea {
         return -1;
     }//fin guardar
 
-    public ArrayList<Area> consultarAreas(){
-        ArrayList<Area> array= new ArrayList<Area>();
+   public ArrayList<Cita> consultarCitas(){
+        ArrayList<Cita> array= new ArrayList<Cita>();
         String sql_select;
-        sql_select="SELECT id_area, nombre, descripcion FROM Area";
+        sql_select="SELECT hora, tipo, fecha, id_medico_fk, id_paciente_fk,costo_cita FROM Cita";
          try{
             Connection conn= fachada.conectar();
             Statement sentencia = conn.createStatement();
@@ -54,8 +56,9 @@ public class DaoArea {
             
             //
             while(tabla.next()){
-               Area a= new Area(tabla.getString(1), tabla.getString(2), tabla.getString(3));
-               array.add(a);
+               Cita c= new Cita(tabla.getString(1), tabla.getString(2), tabla.getString(3), tabla.getString(4), tabla.getString(5));
+               array.add(c);
+               System.out.println(tabla.getString(2));
             }
              conn.close();
              System.out.println("Conexion cerrada");
@@ -66,10 +69,11 @@ public class DaoArea {
          return array;
     }
     
-    public Area consultarArea(String id_area){
-        Area a = new Area();
+    
+    public Cita consultarCita(String id_cita){
+        Cita c = new Cita();
         String sql_select;
-        sql_select = "SELECT id_area, nombre, descripcion from Area WHERE id_area='" + id_area + "'";
+        sql_select = "SELECT hora, tipo, fecha, id_medico_fk, id_paciente_fk,costo_cita FROM Cita WHERE id_medico='" + id_cita + "'";
         try {
             Connection conn = fachada.conectar();
             System.out.println("consultando en la bd");
@@ -77,19 +81,16 @@ public class DaoArea {
             ResultSet tabla = sentencia.executeQuery(sql_select);
 
             while (tabla.next()) {
-                a.setId_area(tabla.getString(1));
-                a.setNombre(tabla.getString(2));
-                a.setDescripcion(tabla.getString(3));
-//
-//                e.setNombre(tabla.getString(2));
-//
-//                e.setNivel(tabla.getString(3));
-//                e.setCreditos(tabla.getInt(4));
-
+                c.setTiempo(tabla.getString(1));
+                c.setTipo(tabla.getString(2));
+                c.setFecha(tabla.getString(3));
+                c.setId_medico(tabla.getString(4));
+                c.setId_paciente(tabla.getString(5));
+                c.setCosto(tabla.getDouble(6));
                 System.out.println("OK");
             }
 
-            return a;
+            return c;
         } catch (SQLException s) {
             System.out.println(s);
         } catch (Exception s) {
@@ -98,8 +99,7 @@ public class DaoArea {
         return null;
 }
     
-     public void cerrarConexionBD() {
+    public void cerrarConexionBD() {
         fachada.closeConection(fachada.getConnetion());
     }
-  
 }
