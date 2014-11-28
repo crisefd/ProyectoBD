@@ -16,6 +16,7 @@ public class Cita {
     private String tiempo;
     private String tipo, id_medico, id_paciente;
     private String fecha;
+    private double costo=2500;
     
     public Cita(String tiempo, String fecha, String tipo, String id_medico, String id_paciente){
        this.tiempo = tiempo;
@@ -23,6 +24,10 @@ public class Cita {
        this.tipo = tipo;
        this.id_medico = id_medico;
        this.id_paciente = id_paciente;
+        
+    }
+    
+    public Cita(){
         
     }
 
@@ -59,6 +64,48 @@ public class Cita {
      */
     public String getFecha() {
         return fecha;
+    }
+
+    /**
+     * @param tiempo the tiempo to set
+     */
+    public void setTiempo(String tiempo) {
+        this.tiempo = tiempo;
+    }
+
+    /**
+     * @param tipo the tipo to set
+     */
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    /**
+     * @param id_medico the id_medico to set
+     */
+    public void setId_medico(String id_medico) {
+        this.id_medico = id_medico;
+    }
+
+    /**
+     * @param id_paciente the id_paciente to set
+     */
+    public void setId_paciente(String id_paciente) {
+        this.id_paciente = id_paciente;
+    }
+
+    /**
+     * @param fecha the fecha to set
+     */
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
+
+    /**
+     * @param costo the costo to set
+     */
+    public void setCosto(double costo) {
+        this.costo = costo;
     }
     
     
