@@ -350,7 +350,7 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
 
         jLabel17.setText("Security Level");
 
-        jButton6.setText("jButton6");
+        jButton6.setText("Create");
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "0", "1", "2", "3", "4" }));
 
