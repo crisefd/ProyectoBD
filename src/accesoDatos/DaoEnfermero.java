@@ -26,10 +26,20 @@ public class DaoEnfermero {
         String sql_guardar;
         sql_guardar="INSERT INTO Persona(id_persona, nombre,direccion, telefono) VALUES ('" 
                 +emf.obtIdPersona() + "', '" + emf.obtNombre() +  "', '" + emf.obtDireccion() + "', '" + emf.obtTelefono() +"');";
-        sql_guardar+="INSERT INTO Enfermero(id_persona, nombre,id_empleado,direccion, telefono, cargo, salario, email, id_area_fk,anos_exp,id_enfermero) VALUES ('" 
+        sql_guardar="INSERT INTO Empleado(id_persona, nombre,id_empleado,direccion, telefono, cargo, salario, email, id_area_fk, perfil_seguridad) VALUES ('" 
+                +emf.obtIdPersona() + "', '" + emf.obtNombre() + "', '" + emf.obtIdPersona() +  "', '" + emf.obtDireccion() + "', '" + emf.obtTelefono() +"', '"+emf.obtCargo() + "', '" + emf.obtSalario() +  "', '" +
+                 emf.obtEmail() + "', '"  +
+                 emf.obtIdArea() + "', '"  +
+                 emf.obtSeguridad() +"');";
+        sql_guardar="INSERT INTO Enfermero(id_persona, nombre,id_empleado,direccion, telefono, cargo, salario, email, id_area_fk,id_enfermero,anos_exp,perfil_seguridad) VALUES ('" 
                 +emf.obtIdPersona() + "', '" + emf.obtNombre() + "', '" + emf.obtIdPersona() +  "', '" + emf.obtDireccion() + "', '" + emf.obtTelefono() +"', '"+emf.obtCargo() + "', " + emf.obtSalario() +  ", '" +
                  emf.obtEmail() + "', '"  +
-                 emf.obtIdArea() +"', '"+emf.getIdEnfermero()+"', "+emf.obtAnos_exp()+ ")";
+                 emf.obtIdArea() +"', '"+emf.getIdEnfermero()+"', "+emf.obtAnos_exp()+", '"+emf.obtSeguridad()+ "')";
+        System.out.print(sql_guardar);
+        String habilidades[] = emf.obtHabilidades();
+        for(String habilidad: habilidades){
+            asignarHabilidadEnfermero(emf.obtIdPersona(), habilidad);
+        }
         try{
             Connection conn= fachada.conectar();
             Statement sentencia = conn.createStatement();
@@ -41,6 +51,21 @@ public class DaoEnfermero {
         catch(Exception e){ System.out.println(e); }
         return -1;
     }//fin guardar
+     
+     private int asignarHabilidadEnfermero(String id, String hab){
+         String sql_insert;
+         sql_insert="INSERT INTO Habilidades_Enfermero( id_enfermero_fk,habilidad) VALUES ('"+id+"','"+hab+"');";
+         try{
+            Connection conn= fachada.conectar();
+            Statement sentencia = conn.createStatement();
+            int numFilas = sentencia.executeUpdate(sql_insert);
+            conn.close();
+            return numFilas;
+        }
+        catch(SQLException e){ System.out.println(e); }
+        catch(Exception e){ System.out.println(e); }
+        return -1;
+     }
      
     private Object[] consultarHabilidadEnfermero(String idEnfermero){
        String sql_select;
@@ -92,6 +117,7 @@ public class DaoEnfermero {
                 e.setId_area(tabla.getString(6));
                 e.setAnosExp(tabla.getInt(7));
                 e.setIdEnfermero(tabla.getString(8));
+                array.add(e);
                //System.out.println("id_empleado: " + tabla.getString(1) + " Nombre: " + tabla.getString(2) + " Telefono:" +  tabla.getString(3)+"email: "+tabla.getString(4));
 
             }
@@ -108,6 +134,13 @@ public Enfermero consultarEnfermero(String id_empleado){
         Enfermero e = new Enfermero();
         String sql_select;
         sql_select = "SELECT id_empleado, nombre, telefono, email, cargo, id_area_fk,anos_exp,id_enfermero FROM Enfermero WHERE id_empleado='" + id_empleado + "'";
+        Object h[];
+        h=consultarHabilidadEnfermero(id_empleado);
+        String habilidades[] = new String[h.length];
+        for (int i = 0; i < h.length; i++) {
+        habilidades[i] = (String)h[i];
+    }
+        
         try {
             Connection conn = fachada.conectar();
             System.out.println("consultando en la bd");
@@ -123,6 +156,7 @@ public Enfermero consultarEnfermero(String id_empleado){
                 e.setId_area(tabla.getString(6));
                 e.setAnosExp(tabla.getInt(7));
                 e.setIdEnfermero(tabla.getString(8));
+                
 //
 //                e.setNombre(tabla.getString(2));
 //
@@ -131,6 +165,7 @@ public Enfermero consultarEnfermero(String id_empleado){
 
                 System.out.println("OK");
             }
+            e.setHabilidades(habilidades);
 
             return e;
         } catch (SQLException s) {
@@ -144,4 +179,24 @@ public Enfermero consultarEnfermero(String id_empleado){
  public void cerrarConexionBD() {
         fachada.closeConection(fachada.getConnetion());
     }
+ public static void main(String args[]){
+     DaoEnfermero dao=new DaoEnfermero();
+     Enfermero e =new Enfermero();
+     e.setId_persona("123");
+     e.setId_area("444");
+     e.setAnosExp(14);
+     e.setCargo("general");
+     e.setDireccion("qw21");
+     e.setEmail("es34rr");
+     e.setIdEnfermero("123");
+     e.setNombre("luis");
+     e.setPerfilSeguridad("1");
+     e.setTelefono("12345678");
+     
+     e.setSalario(123000);
+     e.setHabilidades(new String[]{"injecccion","pediatria"});
+     dao.guardarEnfermero(e);
+     
+     
+ }
 }
