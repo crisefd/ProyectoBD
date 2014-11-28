@@ -153,6 +153,8 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
 
+        jScrollPane10.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+
         Internal_Gestion_Panel_User_Security.setName("Serch"); // NOI18N
 
         User_Security_Search.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Search", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 3, 11))); // NOI18N
@@ -284,7 +286,7 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
                         .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addContainerGap(13, Short.MAX_VALUE))
         );
         User_Security_Update_DeleteLayout.setVerticalGroup(
             User_Security_Update_DeleteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -546,7 +548,7 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
                     .addGroup(Employ_Update_DeleteLayout.createSequentialGroup()
                         .addGap(42, 42, 42)
                         .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 523, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(58, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         Employ_Update_DeleteLayout.setVerticalGroup(
             Employ_Update_DeleteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -713,17 +715,17 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
             .addGroup(Employ_CreateLayout.createSequentialGroup()
                 .addGroup(Employ_CreateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(Employ_CreateLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
+                        .addContainerGap()
                         .addGroup(Employ_CreateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel12)
                             .addComponent(jLabel20))
                         .addGap(18, 18, 18)
-                        .addGroup(Employ_CreateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField7, javax.swing.GroupLayout.DEFAULT_SIZE, 79, Short.MAX_VALUE)
-                            .addComponent(jTextField2))
+                        .addGroup(Employ_CreateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(8, 8, 8)
                         .addGroup(Employ_CreateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(Employ_CreateLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(Employ_CreateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(Employ_CreateLayout.createSequentialGroup()
                                         .addComponent(jLabel13)
@@ -741,7 +743,7 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
                                 .addGroup(Employ_CreateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(Employ_CreateLayout.createSequentialGroup()
                                         .addComponent(jLabel14)
-                                        .addGap(18, 18, 18)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(Employ_CreateLayout.createSequentialGroup()
                                         .addGap(1, 1, 1)
@@ -749,16 +751,18 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
                                             .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGroup(Employ_CreateLayout.createSequentialGroup()
                                                 .addComponent(jLabel23)
-                                                .addGap(34, 34, 34)
-                                                .addComponent(jTextField10)))))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                                 .addGap(18, 18, 18)
                                 .addGroup(Employ_CreateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel25)
-                                    .addComponent(jLabel24))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(Employ_CreateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jComboBox4, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jTextField11)))
+                                    .addGroup(Employ_CreateLayout.createSequentialGroup()
+                                        .addComponent(jLabel25)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(Employ_CreateLayout.createSequentialGroup()
+                                        .addComponent(jLabel24)
+                                        .addGap(54, 54, 54)
+                                        .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(Employ_CreateLayout.createSequentialGroup()
                                 .addGap(103, 103, 103)
                                 .addComponent(jButton9))))
@@ -850,10 +854,10 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
         Gestion_Panel.setLayout(Gestion_PanelLayout);
         Gestion_PanelLayout.setHorizontalGroup(
             Gestion_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Gestion_PanelLayout.createSequentialGroup()
+            .addGroup(Gestion_PanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(Internal_Gestion_Panel)
-                .addContainerGap())
+                .addComponent(Internal_Gestion_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, 629, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(61, Short.MAX_VALUE))
         );
         Gestion_PanelLayout.setVerticalGroup(
             Gestion_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -909,12 +913,12 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
             Internal_Reports_Panel_Employ_ListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Internal_Reports_Panel_Employ_ListLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 805, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 611, Short.MAX_VALUE)
                 .addContainerGap())
-            .addGroup(Internal_Reports_Panel_Employ_ListLayout.createSequentialGroup()
-                .addGap(371, 371, 371)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Internal_Reports_Panel_Employ_ListLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(Generate_Employ_Table)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(276, 276, 276))
         );
         Internal_Reports_Panel_Employ_ListLayout.setVerticalGroup(
             Internal_Reports_Panel_Employ_ListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -981,22 +985,24 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
         Internal_Reports_Panel_Schedule_MedicalLayout.setHorizontalGroup(
             Internal_Reports_Panel_Schedule_MedicalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Internal_Reports_Panel_Schedule_MedicalLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 805, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(Internal_Reports_Panel_Schedule_MedicalLayout.createSequentialGroup()
-                .addGap(256, 256, 256)
-                .addGroup(Internal_Reports_Panel_Schedule_MedicalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(Generate_Schedule_Medical)
+                .addGroup(Internal_Reports_Panel_Schedule_MedicalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(Internal_Reports_Panel_Schedule_MedicalLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 611, Short.MAX_VALUE))
+                    .addGroup(Internal_Reports_Panel_Schedule_MedicalLayout.createSequentialGroup()
+                        .addGap(136, 136, 136)
                         .addComponent(Doctor_Name_Schedule_Label)
-                        .addGap(18, 18, 18)
+                        .addGap(27, 27, 27)
                         .addComponent(Doctor_Name_Schedule_Field, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(Doctor_Month_Schedule_Labe)))
-                .addGap(16, 16, 16)
-                .addComponent(Doctor_Month_Schedule_ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(29, 29, 29)
+                        .addComponent(Doctor_Month_Schedule_Labe)
+                        .addGap(37, 37, 37)
+                        .addComponent(Doctor_Month_Schedule_ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(Internal_Reports_Panel_Schedule_MedicalLayout.createSequentialGroup()
+                        .addGap(277, 277, 277)
+                        .addComponent(Generate_Schedule_Medical)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         Internal_Reports_Panel_Schedule_MedicalLayout.setVerticalGroup(
             Internal_Reports_Panel_Schedule_MedicalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1007,7 +1013,7 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
                     .addComponent(Doctor_Month_Schedule_Labe)
                     .addComponent(Doctor_Name_Schedule_Field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Doctor_Month_Schedule_ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(11, 11, 11)
                 .addComponent(Generate_Schedule_Medical)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 701, Short.MAX_VALUE)
@@ -1066,20 +1072,23 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
         Internal_Reports_Panel_Medical_Record.setLayout(Internal_Reports_Panel_Medical_RecordLayout);
         Internal_Reports_Panel_Medical_RecordLayout.setHorizontalGroup(
             Internal_Reports_Panel_Medical_RecordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Internal_Reports_Panel_Medical_RecordLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Medical_Record_IdPatient_Label)
-                .addGap(105, 105, 105)
-                .addComponent(Medical_Record_IdPatient_Field, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(285, 285, 285))
             .addGroup(Internal_Reports_Panel_Medical_RecordLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 805, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(Internal_Reports_Panel_Medical_RecordLayout.createSequentialGroup()
-                .addGap(370, 370, 370)
-                .addComponent(Generate_Medical_Record)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(Internal_Reports_Panel_Medical_RecordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(Internal_Reports_Panel_Medical_RecordLayout.createSequentialGroup()
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 611, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Internal_Reports_Panel_Medical_RecordLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(Internal_Reports_Panel_Medical_RecordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Internal_Reports_Panel_Medical_RecordLayout.createSequentialGroup()
+                                .addComponent(Generate_Medical_Record)
+                                .addGap(274, 274, 274))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Internal_Reports_Panel_Medical_RecordLayout.createSequentialGroup()
+                                .addComponent(Medical_Record_IdPatient_Label)
+                                .addGap(32, 32, 32)
+                                .addComponent(Medical_Record_IdPatient_Field, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(226, 226, 226))))))
         );
         Internal_Reports_Panel_Medical_RecordLayout.setVerticalGroup(
             Internal_Reports_Panel_Medical_RecordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1088,9 +1097,9 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
                 .addGroup(Internal_Reports_Panel_Medical_RecordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Medical_Record_IdPatient_Label)
                     .addComponent(Medical_Record_IdPatient_Field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(11, 11, 11)
-                .addComponent(Generate_Medical_Record)
                 .addGap(18, 18, 18)
+                .addComponent(Generate_Medical_Record)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 693, Short.MAX_VALUE)
                 .addContainerGap())
         );
@@ -1139,12 +1148,12 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
             .addGroup(Internal_Reports_Panel_DatesLayout.createSequentialGroup()
                 .addGroup(Internal_Reports_Panel_DatesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(Internal_Reports_Panel_DatesLayout.createSequentialGroup()
-                        .addGap(173, 173, 173)
+                        .addGap(79, 79, 79)
                         .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(Internal_Reports_Panel_DatesLayout.createSequentialGroup()
-                        .addGap(362, 362, 362)
+                        .addGap(259, 259, 259)
                         .addComponent(Generate_Count_Dates)))
-                .addContainerGap(200, Short.MAX_VALUE))
+                .addContainerGap(100, Short.MAX_VALUE))
         );
         Internal_Reports_Panel_DatesLayout.setVerticalGroup(
             Internal_Reports_Panel_DatesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1197,24 +1206,22 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
         Internal_Reports_Panel_Average_CostsLayout.setHorizontalGroup(
             Internal_Reports_Panel_Average_CostsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Internal_Reports_Panel_Average_CostsLayout.createSequentialGroup()
+                .addGap(155, 155, 155)
                 .addGroup(Internal_Reports_Panel_Average_CostsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(Internal_Reports_Panel_Average_CostsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, Internal_Reports_Panel_Average_CostsLayout.createSequentialGroup()
+                            .addComponent(jLabel2)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel8))
+                        .addGroup(Internal_Reports_Panel_Average_CostsLayout.createSequentialGroup()
+                            .addComponent(jLabel1)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel7)))
                     .addGroup(Internal_Reports_Panel_Average_CostsLayout.createSequentialGroup()
-                        .addGap(155, 155, 155)
-                        .addGroup(Internal_Reports_Panel_Average_CostsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, Internal_Reports_Panel_Average_CostsLayout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel8))
-                            .addGroup(Internal_Reports_Panel_Average_CostsLayout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 426, Short.MAX_VALUE)
-                                .addComponent(jLabel7))))
-                    .addGroup(Internal_Reports_Panel_Average_CostsLayout.createSequentialGroup()
-                        .addGap(23, 23, 23)
                         .addGroup(Internal_Reports_Panel_Average_CostsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel3))
-                        .addGap(426, 426, 426)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4))
+                        .addGap(294, 294, 294)
                         .addGroup(Internal_Reports_Panel_Average_CostsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel10)
                             .addComponent(jLabel9))))
@@ -1222,15 +1229,16 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
             .addGroup(Internal_Reports_Panel_Average_CostsLayout.createSequentialGroup()
                 .addGroup(Internal_Reports_Panel_Average_CostsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(Internal_Reports_Panel_Average_CostsLayout.createSequentialGroup()
-                        .addGap(358, 358, 358)
+                        .addGap(250, 250, 250)
+                        .addComponent(jLabel5))
+                    .addGroup(Internal_Reports_Panel_Average_CostsLayout.createSequentialGroup()
+                        .addGap(284, 284, 284)
                         .addComponent(jButton1))
                     .addGroup(Internal_Reports_Panel_Average_CostsLayout.createSequentialGroup()
-                        .addGap(322, 322, 322)
-                        .addGroup(Internal_Reports_Panel_Average_CostsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel5)))
+                        .addGap(259, 259, 259)
+                        .addComponent(jLabel6))
                     .addGroup(Internal_Reports_Panel_Average_CostsLayout.createSequentialGroup()
-                        .addGap(349, 349, 349)
+                        .addGap(281, 281, 281)
                         .addComponent(jButton2)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -1247,11 +1255,11 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
                 .addGroup(Internal_Reports_Panel_Average_CostsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jLabel8))
-                .addGap(30, 30, 30)
+                .addGap(18, 18, 18)
                 .addComponent(jButton1)
-                .addGap(38, 38, 38)
+                .addGap(47, 47, 47)
                 .addComponent(jLabel6)
-                .addGap(72, 72, 72)
+                .addGap(75, 75, 75)
                 .addGroup(Internal_Reports_Panel_Average_CostsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(Internal_Reports_Panel_Average_CostsLayout.createSequentialGroup()
                         .addGap(147, 147, 147)
@@ -1261,9 +1269,9 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
                     .addGroup(Internal_Reports_Panel_Average_CostsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel9)
                         .addComponent(jLabel3)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                 .addComponent(jButton2)
-                .addGap(192, 192, 192))
+                .addGap(203, 203, 203))
         );
 
         Internal_Reports_Panel.addTab("Average Costs", Internal_Reports_Panel_Average_Costs);
@@ -1272,7 +1280,9 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
         Report_Panel.setLayout(Report_PanelLayout);
         Report_PanelLayout.setHorizontalGroup(
             Report_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Internal_Reports_Panel)
+            .addGroup(Report_PanelLayout.createSequentialGroup()
+                .addComponent(Internal_Reports_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, 636, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(64, Short.MAX_VALUE))
         );
         Report_PanelLayout.setVerticalGroup(
             Report_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1287,21 +1297,13 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane10, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 662, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane10, javax.swing.GroupLayout.Alignment.TRAILING)
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void Doctor_Name_Schedule_FieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Doctor_Name_Schedule_FieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Doctor_Name_Schedule_FieldActionPerformed
-
-    private void Medical_Record_IdPatient_FieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Medical_Record_IdPatient_FieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Medical_Record_IdPatient_FieldActionPerformed
 
     private void Search_Employ_FieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Search_Employ_FieldActionPerformed
         // TODO add your handling code here:
@@ -1331,26 +1333,34 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton11ActionPerformed
 
+    private void Medical_Record_IdPatient_FieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Medical_Record_IdPatient_FieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Medical_Record_IdPatient_FieldActionPerformed
+
+    private void Doctor_Name_Schedule_FieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Doctor_Name_Schedule_FieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Doctor_Name_Schedule_FieldActionPerformed
+
     private void Generate_Employ_TableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Generate_Employ_TableActionPerformed
         // TODO add your handling code here:
-       ControladorEmpleado ce = new ControladorEmpleado();
-       ArrayList<Empleado> arr = ce.consultarEmpleados();
-       Object[][] matrix = new Object[arr.size()][4];
+        ControladorEmpleado ce = new ControladorEmpleado();
+        ArrayList<Empleado> arr = ce.consultarEmpleados();
+        Object[][] matrix = new Object[arr.size()][4];
         DefaultTableModel t; int k = 0;
-       for(Empleado emp: arr){
-           Object[] row = new Object[4];
-           row[0] = emp.obtIdPersona();
-           row[1] = emp.obtNombre();
-           row[2] = emp.obtCargo();
-           row[3] = emp.obtIdArea();
-           matrix[k] = row;
-           k++;
-       }
-       t = new DefaultTableModel(matrix, new String [] {
-        "ID", "Name", "Charge", "Area"
-    });
-       Employ_Table.setModel(t);
-        
+        for(Empleado emp: arr){
+            Object[] row = new Object[4];
+            row[0] = emp.obtIdPersona();
+            row[1] = emp.obtNombre();
+            row[2] = emp.obtCargo();
+            row[3] = emp.obtIdArea();
+            matrix[k] = row;
+            k++;
+        }
+        t = new DefaultTableModel(matrix, new String [] {
+            "ID", "Name", "Charge", "Area"
+        });
+        Employ_Table.setModel(t);
+
     }//GEN-LAST:event_Generate_Employ_TableActionPerformed
 
 
