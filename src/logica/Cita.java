@@ -13,11 +13,11 @@ import java.util.Date;
  * @author crisefd
  */
 public class Cita {
-    private Date tiempo;
+    private String tiempo;
     private String tipo, id_medico, id_paciente;
     private Calendar fecha;
     
-    public Cita(Date tiempo, Calendar fecha, String tipo, String id_medico, String id_paciente){
+    public Cita(String tiempo, Calendar fecha, String tipo, String id_medico, String id_paciente){
        this.tiempo = tiempo;
        this.fecha = fecha;
        this.tipo = tipo;
@@ -29,7 +29,7 @@ public class Cita {
     /**
      * @return the time
      */
-    public Date obtTiempo() {
+    public String obtTiempo() {
         return tiempo;
     }
 
