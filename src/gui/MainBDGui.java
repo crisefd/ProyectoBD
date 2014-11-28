@@ -458,7 +458,7 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
                         .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addContainerGap(63, Short.MAX_VALUE))
         );
         User_Security_Update_DeleteLayout.setVerticalGroup(
             User_Security_Update_DeleteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -945,7 +945,7 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
         Employ_CreateLayout.setVerticalGroup(
             Employ_CreateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Employ_CreateLayout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(Employ_CreateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel22)
                     .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -986,8 +986,7 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton11)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jButton11))
         );
 
         javax.swing.GroupLayout Internal_Gestion_Panel_EmployLayout = new javax.swing.GroupLayout(Internal_Gestion_Panel_Employ);
@@ -1010,8 +1009,8 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Employ_Update_Delete, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(Employ_Create, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(Employ_Create, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(197, Short.MAX_VALUE))
         );
 
         Internal_Gestion_Panel.addTab("Employees", Internal_Gestion_Panel_Employ);
@@ -1614,7 +1613,7 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(Internal_Gestion_Panel_Employ2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 8, Short.MAX_VALUE))
+                .addGap(0, 31, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1895,7 +1894,7 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addComponent(Internal_Gestion_Panel_Employ3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 47, Short.MAX_VALUE))
+                .addGap(0, 70, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2197,7 +2196,7 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addComponent(Internal_Gestion_Panel_Employ4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 8, Short.MAX_VALUE))
+                .addGap(0, 31, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3122,7 +3121,7 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
                         .addGap(259, 259, 259)
                         .addComponent(jLabel6))
                     .addGroup(Internal_Reports_Panel_Average_CostsLayout.createSequentialGroup()
-                        .addGap(281, 281, 281)
+                        .addGap(299, 299, 299)
                         .addComponent(jButton2)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -3153,9 +3152,9 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
                     .addGroup(Internal_Reports_Panel_Average_CostsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel9)
                         .addComponent(jLabel3)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 212, Short.MAX_VALUE)
+                .addGap(65, 65, 65)
                 .addComponent(jButton2)
-                .addGap(203, 203, 203))
+                .addContainerGap(350, Short.MAX_VALUE))
         );
 
         Internal_Reports_Panel.addTab("Average Costs", Internal_Reports_Panel_Average_Costs);
