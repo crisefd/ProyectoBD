@@ -15,9 +15,9 @@ import java.util.Date;
 public class Cita {
     private String tiempo;
     private String tipo, id_medico, id_paciente;
-    private Calendar fecha;
+    private String fecha;
     
-    public Cita(String tiempo, Calendar fecha, String tipo, String id_medico, String id_paciente){
+    public Cita(String tiempo, String fecha, String tipo, String id_medico, String id_paciente){
        this.tiempo = tiempo;
        this.fecha = fecha;
        this.tipo = tipo;
@@ -57,7 +57,7 @@ public class Cita {
     /**
      * @return the fecha
      */
-    public Calendar getFecha() {
+    public String getFecha() {
         return fecha;
     }
     
