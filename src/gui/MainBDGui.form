@@ -33,12 +33,12 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jScrollPane10" min="-2" pref="675" max="-2" attributes="0"/>
+          <Component id="jScrollPane10" min="-2" pref="680" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jScrollPane10" alignment="0" pref="842" max="32767" attributes="0"/>
+          <Component id="jScrollPane10" alignment="0" min="-2" pref="842" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -1288,7 +1288,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="Internal_Gestion_Panel_Employ1" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="8" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -1865,7 +1865,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="Internal_Gestion_Panel_Employ2" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="8" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -1873,7 +1873,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="Internal_Gestion_Panel_Employ2" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="279" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -2294,7 +2294,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="Internal_Gestion_Panel_Employ3" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="47" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -2302,7 +2302,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="Internal_Gestion_Panel_Employ3" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="230" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -2745,7 +2745,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="Internal_Gestion_Panel_Employ4" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="8" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -2753,7 +2753,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="Internal_Gestion_Panel_Employ4" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="188" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -4771,7 +4771,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="Internal_Gestion_Panel_Employ9" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="37" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -4779,7 +4779,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="Internal_Gestion_Panel_Employ9" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="114" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
