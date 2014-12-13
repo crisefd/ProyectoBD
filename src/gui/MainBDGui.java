@@ -7,6 +7,8 @@ package gui;
 
 import controlador.*;
 import java.util.ArrayList;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import logica.Empleado;
 
@@ -22,7 +24,13 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
      * Creates new customizer MainBDGui
      */
     public MainBDGui() {
+        JFrame frame = new JFrame();
+        
         initComponents();
+        frame.add(this);
+        frame.setVisible(true);
+       // System.out.println(this.isVisible()+"");
+        
     }
     
     public void setObject(Object bean) {
@@ -414,6 +422,11 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
         jLabel11.setText("ID Usuer");
 
         Search_User.setText("Search");
+        Search_User.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Search_UserActionPerformed(evt);
+            }
+        });
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1162,7 +1175,7 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
                     .addGroup(Employ_Search1Layout.createSequentialGroup()
                         .addGap(21, 21, 21)
                         .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 568, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(137, Short.MAX_VALUE))
         );
         Employ_Search1Layout.setVerticalGroup(
             Employ_Search1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1399,9 +1412,8 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
                 .addContainerGap()
                 .addGroup(Internal_Gestion_Panel_Employ1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(Employ_Create1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(Internal_Gestion_Panel_Employ1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(Employ_Update_Delete1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Employ_Search1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(Employ_Update_Delete1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Employ_Search1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         Internal_Gestion_Panel_Employ1Layout.setVerticalGroup(
@@ -1497,7 +1509,7 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
                     .addGroup(Employ_Search2Layout.createSequentialGroup()
                         .addGap(39, 39, 39)
                         .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 523, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         Employ_Search2Layout.setVerticalGroup(
             Employ_Search2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2794,7 +2806,7 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                .addGap(0, 1, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(Internal_Gestion_Panel_Employ5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel8Layout.setVerticalGroup(
@@ -2874,7 +2886,7 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
                         .addComponent(jToggleButton1)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Employ_Search8Layout.createSequentialGroup()
-                .addContainerGap(11, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane31, javax.swing.GroupLayout.PREFERRED_SIZE, 595, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -3259,7 +3271,7 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
                         .addGroup(Internal_Gestion_Panel_Employ8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(Employ_Search8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(Employ_Update_Delete6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(0, 3, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         Internal_Gestion_Panel_Employ8Layout.setVerticalGroup(
@@ -3528,7 +3540,7 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
                     .addGroup(Employ_Search9Layout.createSequentialGroup()
                         .addGap(39, 39, 39)
                         .addComponent(jScrollPane36, javax.swing.GroupLayout.PREFERRED_SIZE, 523, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         Employ_Search9Layout.setVerticalGroup(
             Employ_Search9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3725,18 +3737,20 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
                         .addContainerGap()
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 634, Short.MAX_VALUE))
                     .addGroup(Internal_Reports_Panel_Schedule_MedicalLayout.createSequentialGroup()
-                        .addGap(136, 136, 136)
-                        .addComponent(Doctor_Name_Schedule_Label)
-                        .addGap(27, 27, 27)
-                        .addComponent(Doctor_Name_Schedule_Field, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(29, 29, 29)
-                        .addComponent(Doctor_Month_Schedule_Labe)
-                        .addGap(37, 37, 37)
-                        .addComponent(Doctor_Month_Schedule_ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(Internal_Reports_Panel_Schedule_MedicalLayout.createSequentialGroup()
-                        .addGap(277, 277, 277)
-                        .addComponent(Generate_Schedule_Medical)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGroup(Internal_Reports_Panel_Schedule_MedicalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(Internal_Reports_Panel_Schedule_MedicalLayout.createSequentialGroup()
+                                .addGap(136, 136, 136)
+                                .addComponent(Doctor_Name_Schedule_Label)
+                                .addGap(27, 27, 27)
+                                .addComponent(Doctor_Name_Schedule_Field, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(29, 29, 29)
+                                .addComponent(Doctor_Month_Schedule_Labe)
+                                .addGap(37, 37, 37)
+                                .addComponent(Doctor_Month_Schedule_ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(Internal_Reports_Panel_Schedule_MedicalLayout.createSequentialGroup()
+                                .addGap(277, 277, 277)
+                                .addComponent(Generate_Schedule_Medical)))
+                        .addGap(0, 109, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         Internal_Reports_Panel_Schedule_MedicalLayout.setVerticalGroup(
@@ -4034,11 +4048,17 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 680, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 680, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 842, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 842, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -4190,6 +4210,16 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
 
     private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
         // TODO add your handling code here:
+        ControladorArea ca = new ControladorArea();
+        String id_area = jTextField21.getText();
+        String nombre = jTextField23.getText();
+        String descripcion = jTextArea2.getText();
+        if(id_area != null && nombre != null && descripcion != null){
+            ca.insertarArea(id_area, nombre, descripcion);
+        }else{
+            JOptionPane.showMessageDialog(Gestion_Panel, "Hay campos en blanco");
+        }
+        
     }//GEN-LAST:event_jButton23ActionPerformed
 
     private void jTextField21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField21ActionPerformed
@@ -4312,7 +4342,41 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
         // TODO add your handling code here:
     }//GEN-LAST:event_Search_Employ_Field16ActionPerformed
 
+    private void Search_UserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Search_UserActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Search_UserActionPerformed
+    
+   public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(GestionprogramasGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(GestionprogramasGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(GestionprogramasGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(GestionprogramasGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
 
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new MainBDGui();
+            }
+        });
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable Count_Dates_Table;
     private javax.swing.JComboBox Doctor_Month_Schedule_ComboBox;
@@ -4333,8 +4397,6 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
     private javax.swing.JPanel Employ_Search3;
     private javax.swing.JPanel Employ_Search4;
     private javax.swing.JPanel Employ_Search5;
-    private javax.swing.JPanel Employ_Search6;
-    private javax.swing.JPanel Employ_Search7;
     private javax.swing.JPanel Employ_Search8;
     private javax.swing.JPanel Employ_Search9;
     private javax.swing.JTable Employ_Table;
@@ -4359,8 +4421,6 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
     private javax.swing.JPanel Internal_Gestion_Panel_Employ3;
     private javax.swing.JPanel Internal_Gestion_Panel_Employ4;
     private javax.swing.JPanel Internal_Gestion_Panel_Employ5;
-    private javax.swing.JPanel Internal_Gestion_Panel_Employ6;
-    private javax.swing.JPanel Internal_Gestion_Panel_Employ7;
     private javax.swing.JPanel Internal_Gestion_Panel_Employ8;
     private javax.swing.JPanel Internal_Gestion_Panel_Employ9;
     private javax.swing.JPanel Internal_Gestion_Panel_User_Security;
@@ -4381,8 +4441,6 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
     private javax.swing.JButton Search_Employ3;
     private javax.swing.JButton Search_Employ4;
     private javax.swing.JButton Search_Employ5;
-    private javax.swing.JButton Search_Employ6;
-    private javax.swing.JButton Search_Employ7;
     private javax.swing.JButton Search_Employ8;
     private javax.swing.JButton Search_Employ9;
     private javax.swing.JTextField Search_Employ_Field;
@@ -4390,8 +4448,6 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
     private javax.swing.JTextField Search_Employ_Field10;
     private javax.swing.JTextField Search_Employ_Field11;
     private javax.swing.JTextField Search_Employ_Field12;
-    private javax.swing.JTextField Search_Employ_Field13;
-    private javax.swing.JTextField Search_Employ_Field14;
     private javax.swing.JTextField Search_Employ_Field15;
     private javax.swing.JTextField Search_Employ_Field16;
     private javax.swing.JTextField Search_Employ_Field17;
@@ -4437,8 +4493,6 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
     private javax.swing.JButton jButton33;
     private javax.swing.JButton jButton34;
     private javax.swing.JButton jButton35;
-    private javax.swing.JButton jButton36;
-    private javax.swing.JButton jButton37;
     private javax.swing.JButton jButton38;
     private javax.swing.JButton jButton39;
     private javax.swing.JButton jButton4;
@@ -4457,8 +4511,6 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
     private javax.swing.JButton jButton9;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JComboBox jComboBox10;
-    private javax.swing.JComboBox jComboBox11;
-    private javax.swing.JComboBox jComboBox12;
     private javax.swing.JComboBox jComboBox13;
     private javax.swing.JComboBox jComboBox14;
     private javax.swing.JComboBox jComboBox2;
@@ -4536,8 +4588,6 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
     private javax.swing.JLabel jLabel65;
     private javax.swing.JLabel jLabel66;
     private javax.swing.JLabel jLabel67;
-    private javax.swing.JLabel jLabel68;
-    private javax.swing.JLabel jLabel69;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel70;
     private javax.swing.JLabel jLabel71;
@@ -4588,12 +4638,8 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
     private javax.swing.JScrollPane jScrollPane21;
     private javax.swing.JScrollPane jScrollPane22;
     private javax.swing.JScrollPane jScrollPane23;
-    private javax.swing.JScrollPane jScrollPane24;
     private javax.swing.JScrollPane jScrollPane25;
     private javax.swing.JScrollPane jScrollPane26;
-    private javax.swing.JScrollPane jScrollPane27;
-    private javax.swing.JScrollPane jScrollPane28;
-    private javax.swing.JScrollPane jScrollPane29;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane30;
     private javax.swing.JScrollPane jScrollPane31;
@@ -4616,8 +4662,6 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
     private javax.swing.JTable jTable13;
     private javax.swing.JTable jTable14;
     private javax.swing.JTable jTable15;
-    private javax.swing.JTable jTable16;
-    private javax.swing.JTable jTable17;
     private javax.swing.JTable jTable18;
     private javax.swing.JTable jTable2;
     private javax.swing.JTable jTable20;
@@ -4637,8 +4681,6 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
     private javax.swing.JTextArea jTextArea4;
     private javax.swing.JTextArea jTextArea5;
     private javax.swing.JTextArea jTextArea6;
-    private javax.swing.JTextArea jTextArea7;
-    private javax.swing.JTextArea jTextArea8;
     private javax.swing.JTextArea jTextArea9;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
@@ -4670,8 +4712,6 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
     private javax.swing.JTextField jTextField34;
     private javax.swing.JTextField jTextField35;
     private javax.swing.JTextField jTextField36;
-    private javax.swing.JTextField jTextField37;
-    private javax.swing.JTextField jTextField38;
     private javax.swing.JTextField jTextField39;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField40;
