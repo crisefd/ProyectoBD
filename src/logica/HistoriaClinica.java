@@ -13,8 +13,15 @@ import java.util.Calendar;
  */
 public class HistoriaClinica {
     private String id, id_paciente;
-    private Calendar fechaApertura;
-
+    private String fechaApertura;
+    public HistoriaClinica(){
+        
+    }
+    public HistoriaClinica(String id,String fecha ,String id_pac){
+        this.id = id;
+        this.fechaApertura=fecha;
+        this.id_paciente= id_pac;
+    }
     /**
      * @return the id
      */
@@ -46,14 +53,14 @@ public class HistoriaClinica {
     /**
      * @return the fechaApertura
      */
-    public Calendar getFechaApertura() {
+    public String getFechaApertura() {
         return fechaApertura;
     }
 
     /**
      * @param fechaApertura the fechaApertura to set
      */
-    public void setFechaApertura(Calendar fechaApertura) {
+    public void setFechaApertura(String fechaApertura) {
         this.fechaApertura = fechaApertura;
     }
     

@@ -28,7 +28,7 @@ public class DaoCama {
 
      public int guardarCama(Cama c){
         String sql_guardar;
-        sql_guardar="INSERT INTO Cama(id_cama, id_area, descripcion, estado) VALUES ('" +
+        sql_guardar="INSERT INTO Cama(id_cama, id_area_fk, descripcion, estado) VALUES ('" +
                 c.obtIdCama() + "', '" + c.obtIdArea() +  "', '" +
                   c.obtDescripcion()+ "', '"  +
                  c.obtEstado() + "')";
@@ -104,5 +104,16 @@ public class DaoCama {
     
     public void cerrarConexionBD() {
         fachada.closeConection(fachada.getConnetion());
+    }
+    public static void main(String args[]){
+        DaoCama dao = new DaoCama();
+        Cama c = new Cama();
+        
+        c.setDescripcion("dos cama");
+        c.setEstado("ocu");
+        c.setId_area("444");
+        c.setId_cama("1235");
+        
+        dao.guardarCama(c);
     }
 }

@@ -101,5 +101,15 @@ public class DaoArea {
      public void cerrarConexionBD() {
         fachada.closeConection(fachada.getConnetion());
     }
+     public static void main(String args[]){
+         DaoArea dao= new DaoArea();
+         Area a = new Area();
+         
+         a.setId_area("222");
+         a.setDescripcion("cirugia");
+         a.setNombre("UCi");
+         
+         dao.guardarArea(a);
+      }
   
 }

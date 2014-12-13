@@ -92,4 +92,16 @@ public Campana consultarCampana(String id_campana){
  public void cerrarConexionBD() {
         fachada.closeConection(fachada.getConnetion());
     }
+ 
+ public static void main(String args[]){
+     DaoCampana dao = new DaoCampana();
+     Campana cam = new Campana();
+     
+     cam.setId("0000");
+     cam.setId_medico("1234");
+     cam.setNombre("campana1");
+     cam.setObjetivo("hacer nada");
+     
+     dao.guardarCampana(cam);
+ }
 }

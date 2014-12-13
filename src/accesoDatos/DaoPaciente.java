@@ -25,12 +25,12 @@ public class DaoPaciente {
 
      public int guardarPaciente(Paciente pac){
         String sql_guardar;
-        sql_guardar="INSERT INTO Persona(id_persona, nombre,direccion, telefono) VALUES ('" 
-                +pac.obtIdPersona() + "', '" + pac.obtNombre() +  "', '" + pac.obtDireccion() + "', '" + pac.obtTelefono() +"');";
-        sql_guardar="INSERT INTO Paciente(num_seg_soc, fecha_naci, actividad_economica, id_cama,fecha_asig_cama,id_persona,,nombre,direccion,telefono) VALUES ('" +
+//        sql_guardar="INSERT INTO Persona(id_persona, nombre,direccion, telefono) VALUES ('" 
+//                +pac.obtIdPersona() + "', '" + pac.obtNombre() +  "', '" + pac.obtDireccion() + "', '" + pac.obtTelefono() +"');";
+        sql_guardar="INSERT INTO Paciente(num_seg_soc, fecha_naci, actividad_economica, id_cama_fk,fecha_asig_cama,id_persona,nombre,direccion,telefono) VALUES ('" +
                 pac.obtyNum_seg_soc() + "', '" + pac.obtFechaNaci() +  "', '" + pac.obtActEconomica() + "', '"  + pac.obtId_cama() + "', '"+ pac.obtFechaAsigCama()+
-                "', '"+ pac.obtIdPersona() +"', '"+pac.obtNombre()+"', '"+pac.obtDireccion()+"', '"+pac.obtTelefono()+"');"
-                + "INSERT INTO";
+                "', '"+ pac.obtIdPersona() +"', '"+pac.obtNombre()+"', '"+pac.obtDireccion()+"', '"+pac.obtTelefono()+"');";
+                System.out.println(sql_guardar);
         try{
             Connection conn= fachada.conectar();
             Statement sentencia = conn.createStatement();
@@ -106,5 +106,21 @@ public class DaoPaciente {
 }
     public void cerrarConexionBD() {
         fachada.closeConection(fachada.getConnetion());
+    }
+    
+    public static void main(String args[]){
+        DaoPaciente dao= new DaoPaciente();
+        Paciente p = new Paciente();
+        
+        p.setActEconomica("estudiante");
+        p.setDireccion("calle 12");
+        p.setFechaAsigCama("12-12-2000");
+        p.setFechaNaci("12-08-2012");
+        p.setId_cama("01");
+        p.setId_persona("222");
+        p.setNombre("cristhian");
+        p.setNum_seg_soc("4");
+        p.setTelefono("3121111");
+        dao.guardarPaciente(p);
     }
 }

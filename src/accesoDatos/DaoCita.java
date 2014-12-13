@@ -31,8 +31,9 @@ public class DaoCita {
         String sql_guardar;
         sql_guardar="INSERT INTO Cita(hora, tipo, fecha, id_medico_fk, id_paciente_fk,costo_cita) VALUES ('" +
                 c.obtTiempo() + "', '" + c.getTipo() +  "', '" +
-                  c.getFecha()+ "', '"  + "', '" + c.getId_medico() +  "', '" + "', '" + c.getId_paciente() +  "', '"+
+                  c.getFecha()+  "', '" + c.getId_medico() + "', '" + c.getId_paciente() +  "', '"+
                  "2500" + "')";
+        System.out.println(sql_guardar);
         try{
             Connection conn= fachada.conectar();
             Statement sentencia = conn.createStatement();
@@ -101,5 +102,19 @@ public class DaoCita {
     
     public void cerrarConexionBD() {
         fachada.closeConection(fachada.getConnetion());
+    }
+    
+    public static void main(String asrg[]){
+        DaoCita dao = new DaoCita();
+        Cita c = new Cita();
+        
+        c.setCosto(112);
+        c.setFecha("12-10-2014");
+        c.setId_medico("1234");
+        c.setId_paciente("333");
+        c.setTiempo("08:00:00");
+        c.setTipo("externa");
+        dao.guardarCita(c);
+        
     }
 }

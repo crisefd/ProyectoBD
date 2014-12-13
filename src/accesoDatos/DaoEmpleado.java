@@ -29,11 +29,11 @@ public class DaoEmpleado {
         String sql_guardar;
         sql_guardar="INSERT INTO Persona(id_persona, nombre,direccion, telefono) VALUES ('" 
                 +emp.obtIdPersona() + "', '" + emp.obtNombre() +  "', '" + emp.obtDireccion() + "', '" + emp.obtTelefono() +"');";
-        sql_guardar+="INSERT INTO Empleado(id_persona, nombre,id_empleado,direccion, telefono, cargo, salario, email, id_area_fk, perfil_seguridad) VALUES ('" 
-                +emp.obtIdPersona() + "', '" + emp.obtNombre() + "', '" + emp.obtIdPersona() +  "', '" + emp.obtDireccion() + "', '" + emp.obtTelefono() +"', '"+emp.obtCargo() + "', '" + emp.obtSalario() +  "', '" +
+        sql_guardar+="INSERT INTO Empleado( id_empleado, cargo, salario, email, id_area_fk, perfil_seguridad) VALUES ('" 
+                +emp.obtIdPersona() + "', '"+emp.obtCargo() + "', '" + emp.obtSalario() +  "', '" +
                  emp.obtEmail() + "', '"  +
                  emp.obtIdArea() + "', '"  +
-                 "0" +"')";
+                 emp.obtSeguridad()  +"')";
         try{
             Connection conn= fachada.conectar();
             Statement sentencia = conn.createStatement();

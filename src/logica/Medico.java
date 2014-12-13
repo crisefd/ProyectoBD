@@ -12,6 +12,9 @@ package logica;
 public class Medico extends Empleado {
     private String especializacion, numLicencia, universidad;
 
+    public Medico(){
+        
+    }
     public Medico(String id_persona, String nombre, String direccion, 
             String telefono, String id_area, String cargo, String email,
             double salario, String especializacion, String numLicencia, String universidad) {
@@ -25,21 +28,63 @@ public class Medico extends Empleado {
      * @return the especializacion
      */
     public String obtEspecializacion() {
-        return especializacion;
+        return getEspecializacion();
     }
 
     /**
      * @return the numLicencia
      */
     public String obtNumLicencia() {
-        return numLicencia;
+        return getNumLicencia();
     }
 
     /**
      * @return the universidad
      */
     public String obtUniversidad() {
+        return getUniversidad();
+    }
+
+    /**
+     * @return the especializacion
+     */
+    public String getEspecializacion() {
+        return especializacion;
+    }
+
+    /**
+     * @param especializacion the especializacion to set
+     */
+    public void setEspecializacion(String especializacion) {
+        this.especializacion = especializacion;
+    }
+
+    /**
+     * @return the numLicencia
+     */
+    public String getNumLicencia() {
+        return numLicencia;
+    }
+
+    /**
+     * @param numLicencia the numLicencia to set
+     */
+    public void setNumLicencia(String numLicencia) {
+        this.numLicencia = numLicencia;
+    }
+
+    /**
+     * @return the universidad
+     */
+    public String getUniversidad() {
         return universidad;
+    }
+
+    /**
+     * @param universidad the universidad to set
+     */
+    public void setUniversidad(String universidad) {
+        this.universidad = universidad;
     }
     
 }
