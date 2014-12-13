@@ -33,11 +33,11 @@ public class ControladorArea{
 
         
         //Se llama al dao para guardar
-        System.out.println("Se va a insertar un Empleado");
+        System.out.println("Se va a insertar un area");
         
         int result =daoArea.guardarArea(a);
 
-        System.out.println("Se  insertó  un  nuevo programa");
+        System.out.println("Se  insertó  un  nuevo area");
         
         return result;
 
