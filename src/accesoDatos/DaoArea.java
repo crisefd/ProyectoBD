@@ -30,7 +30,7 @@ public class DaoArea {
         String sql_guardar;
         sql_guardar="INSERT INTO Area(id_area, nombre, descripcion) VALUES ('" +
                 a.obtIdArea() + "', '" + a.obtNombre() +  "', '" +
-                  a.descripcion() + "')";
+                  a.descripcion() + "');";
         try{
             Connection conn= fachada.conectar();
             Statement sentencia = conn.createStatement();
