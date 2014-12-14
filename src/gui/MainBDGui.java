@@ -555,7 +555,7 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
                         .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(143, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         User_Security_Update_DeleteLayout.setVerticalGroup(
             User_Security_Update_DeleteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -812,7 +812,7 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
                     .addGroup(Employ_Update_DeleteLayout.createSequentialGroup()
                         .addGap(42, 42, 42)
                         .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 526, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(172, Short.MAX_VALUE))
+                .addContainerGap(66, Short.MAX_VALUE))
         );
         Employ_Update_DeleteLayout.setVerticalGroup(
             Employ_Update_DeleteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1102,9 +1102,9 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
             .addGroup(Internal_Gestion_Panel_EmployLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(Internal_Gestion_Panel_EmployLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Employ_Search, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Employ_Update_Delete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Employ_Create, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(Employ_Create, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Employ_Search, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         Internal_Gestion_Panel_EmployLayout.setVerticalGroup(
@@ -1189,7 +1189,7 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
                     .addGroup(Employ_Search1Layout.createSequentialGroup()
                         .addGap(21, 21, 21)
                         .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 568, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(137, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
         Employ_Search1Layout.setVerticalGroup(
             Employ_Search1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1276,7 +1276,7 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
                 .addGroup(Employ_Update_Delete1Layout.createSequentialGroup()
                     .addGap(21, 21, 21)
                     .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 568, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(22, Short.MAX_VALUE)))
+                    .addContainerGap(30, Short.MAX_VALUE)))
         );
         Employ_Update_Delete1Layout.setVerticalGroup(
             Employ_Update_Delete1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1382,7 +1382,7 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
                     .addGroup(Employ_Create1Layout.createSequentialGroup()
                         .addGap(262, 262, 262)
                         .addComponent(jButton16)))
-                .addContainerGap(87, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         Employ_Create1Layout.setVerticalGroup(
             Employ_Create1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1424,11 +1424,11 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
             Internal_Gestion_Panel_Employ1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Internal_Gestion_Panel_Employ1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(Internal_Gestion_Panel_Employ1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(Employ_Create1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Employ_Update_Delete1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(Internal_Gestion_Panel_Employ1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(Employ_Update_Delete1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Employ_Create1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Employ_Search1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(117, Short.MAX_VALUE))
         );
         Internal_Gestion_Panel_Employ1Layout.setVerticalGroup(
             Internal_Gestion_Panel_Employ1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1745,7 +1745,7 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(Internal_Gestion_Panel_Employ2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 57, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3647,8 +3647,8 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
         Gestion_PanelLayout.setHorizontalGroup(
             Gestion_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Gestion_PanelLayout.createSequentialGroup()
-                .addComponent(Internal_Gestion_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, 777, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(Internal_Gestion_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, 666, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 112, Short.MAX_VALUE))
         );
         Gestion_PanelLayout.setVerticalGroup(
             Gestion_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -4095,16 +4095,12 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(61, 61, 61)
-                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 804, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 693, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 917, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 939, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
