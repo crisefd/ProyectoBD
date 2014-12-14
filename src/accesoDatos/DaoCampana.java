@@ -89,6 +89,93 @@ public Campana consultarCampana(String id_campana){
         return null;
 }
 
+public Campana consultarCampanaNombre(String nombre){
+        Campana c = new Campana();
+        String sql_select;
+        sql_select = "SELECT id_campana, nombre,objetivo, id_medico_encargado_fk FROM Campana WHERE nombre='" + nombre + "'";
+        try {
+            Connection conn = fachada.conectar();
+            System.out.println("consultando en la bd");
+            Statement sentencia = conn.createStatement();
+            ResultSet tabla = sentencia.executeQuery(sql_select);
+
+            while (tabla.next()) {
+                c.setId(tabla.getString(1));
+                c.setNombre(tabla.getString(2));
+                c.setObjetivo(tabla.getString(3));
+                c.setId_medico(tabla.getString(4));
+            }
+            conn.close();
+            System.out.println("Conexion cerrada");
+
+
+            return c;
+        } catch (SQLException s) {
+            System.out.println(s);
+        } catch (Exception s) {
+            System.out.println(s);
+        }
+        return null;
+}
+
+public Campana consultarCampanaIdMedico(String idMedico){
+        Campana c = new Campana();
+        String sql_select;
+        sql_select = "SELECT id_campana, nombre,objetivo, id_medico_encargado_fk FROM Campana WHERE id_medico_encargado_fk='" +idMedico + "'";
+        try {
+            Connection conn = fachada.conectar();
+            System.out.println("consultando en la bd");
+            Statement sentencia = conn.createStatement();
+            ResultSet tabla = sentencia.executeQuery(sql_select);
+
+            while (tabla.next()) {
+                c.setId(tabla.getString(1));
+                c.setNombre(tabla.getString(2));
+                c.setObjetivo(tabla.getString(3));
+                c.setId_medico(tabla.getString(4));
+            }
+            conn.close();
+            System.out.println("Conexion cerrada");
+
+
+            return c;
+        } catch (SQLException s) {
+            System.out.println(s);
+        } catch (Exception s) {
+            System.out.println(s);
+        }
+        return null;
+}
+
+public Campana consultarCampanaNombreMedico(String nombre){
+        Campana c = new Campana();
+        String sql_select;
+        sql_select = "select campana.id_campana, campana.nombre, campana.objetivo from campana, medico where campana.id_medico_encargado_fk=medico.id_persona and medico.nombre=" + nombre + "'";
+        try {
+            Connection conn = fachada.conectar();
+            System.out.println("consultando en la bd");
+            Statement sentencia = conn.createStatement();
+            ResultSet tabla = sentencia.executeQuery(sql_select);
+
+            while (tabla.next()) {
+                c.setId(tabla.getString(1));
+                c.setNombre(tabla.getString(2));
+                c.setObjetivo(tabla.getString(3));
+                c.setId_medico(tabla.getString(4));
+            }
+            conn.close();
+            System.out.println("Conexion cerrada");
+
+
+            return c;
+        } catch (SQLException s) {
+            System.out.println(s);
+        } catch (Exception s) {
+            System.out.println(s);
+        }
+        return null;
+}
+
  public void cerrarConexionBD() {
         fachada.closeConection(fachada.getConnetion());
     }
