@@ -49,7 +49,12 @@ public class ControladorCita{
       
        return lista;
     }
-    
+    public ArrayList<Cita> consultarCitasMedicoMes(String id_med, String mes){
+        Cita c = new Cita();
+        ArrayList<Cita> lista = daoCita.consultarCitasMedicoMes(id_med, mes);
+      
+       return lista;
+    }
     
     
     
