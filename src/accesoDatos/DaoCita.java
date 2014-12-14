@@ -127,7 +127,30 @@ public ArrayList<Cita> consultarCitasMedicoMes(String id_medico, String mes){
          catch(Exception e){ System.out.println(e); }
          return array;
     }
-    
+
+public ArrayList<Cita> consultarCitasIdMed(String id_medico){
+        ArrayList<Cita> array= new ArrayList<Cita>();
+        String sql_select;
+        sql_select = "SELECT hora, tipo, fecha, id_medico_fk, id_paciente_fk,costo_cita FROM Cita WHERE id_medico='" + id_medico + "'";
+         try{
+            Connection conn= fachada.conectar();
+            Statement sentencia = conn.createStatement();
+            ResultSet tabla = sentencia.executeQuery(sql_select);
+            
+            //
+            while(tabla.next()){
+               Cita c= new Cita(tabla.getString(1), tabla.getString(2), tabla.getString(3), tabla.getString(4), tabla.getString(5));
+               array.add(c);
+               System.out.println(tabla.getString(2));
+            }
+             conn.close();
+             System.out.println("Conexion cerrada");
+
+         }
+         catch(SQLException e){ System.out.println(e); }
+         catch(Exception e){ System.out.println(e); }
+         return array;
+    }
     public void cerrarConexionBD() {
         fachada.closeConection(fachada.getConnetion());
     }

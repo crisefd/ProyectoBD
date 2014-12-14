@@ -5570,18 +5570,13 @@
                                       </Group>
                                       <Group type="102" alignment="1" attributes="0">
                                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                          <Component id="Medical_Record_IdPatient_Label" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="102" alignment="1" attributes="0">
-                                                  <Component id="Generate_Medical_Record" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="274" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" alignment="1" attributes="0">
-                                                  <Component id="Medical_Record_IdPatient_Label" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                                                  <Component id="Medical_Record_IdPatient_Field" min="-2" pref="90" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="226" max="-2" attributes="0"/>
-                                              </Group>
+                                              <Component id="Generate_Medical_Record" min="-2" max="-2" attributes="0"/>
+                                              <Component id="Medical_Record_IdPatient_Field" min="-2" pref="90" max="-2" attributes="0"/>
                                           </Group>
+                                          <EmptySpace min="-2" pref="261" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -5614,6 +5609,9 @@
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Generate"/>
                           </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Generate_Medical_RecordActionPerformed"/>
+                          </Events>
                         </Component>
                         <Component class="javax.swing.JTextField" name="Medical_Record_IdPatient_Field">
                           <Events>

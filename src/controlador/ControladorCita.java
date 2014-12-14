@@ -55,6 +55,12 @@ public class ControladorCita{
       
        return lista;
     }
+    public ArrayList<Cita> consultarCitasIdMed(String id_med){
+        Cita c = new Cita();
+        ArrayList<Cita> lista = daoCita.consultarCitas();
+      
+       return lista;
+    }
     
     
     

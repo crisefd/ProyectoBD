@@ -3831,6 +3831,11 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
         Medical_Record_IdPatient_Label.setText("ID Patient");
 
         Generate_Medical_Record.setText("Generate");
+        Generate_Medical_Record.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Generate_Medical_RecordActionPerformed(evt);
+            }
+        });
 
         Medical_Record_IdPatient_Field.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3886,15 +3891,12 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Internal_Reports_Panel_Medical_RecordLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(Medical_Record_IdPatient_Label)
+                        .addGap(31, 31, 31)
                         .addGroup(Internal_Reports_Panel_Medical_RecordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Internal_Reports_Panel_Medical_RecordLayout.createSequentialGroup()
-                                .addComponent(Generate_Medical_Record)
-                                .addGap(274, 274, 274))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Internal_Reports_Panel_Medical_RecordLayout.createSequentialGroup()
-                                .addComponent(Medical_Record_IdPatient_Label)
-                                .addGap(32, 32, 32)
-                                .addComponent(Medical_Record_IdPatient_Field, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(226, 226, 226))))))
+                            .addComponent(Generate_Medical_Record)
+                            .addComponent(Medical_Record_IdPatient_Field, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(261, 261, 261))))
         );
         Internal_Reports_Panel_Medical_RecordLayout.setVerticalGroup(
             Internal_Reports_Panel_Medical_RecordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -4656,6 +4658,13 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
         cc.consultarCitasMedicoMes(id_med, mes);
         
     }//GEN-LAST:event_Generate_Schedule_MedicalActionPerformed
+
+    private void Generate_Medical_RecordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Generate_Medical_RecordActionPerformed
+        // TODO add your handling code here:
+        ControladorCita cc = new ControladorCita();
+        String id_med = Medical_Record_IdPatient_Field.getText();
+        cc.consultarCitasIdMed(id_med);
+    }//GEN-LAST:event_Generate_Medical_RecordActionPerformed
     
    public static void main(String args[]) {
         /* Set the Nimbus look and feel */
