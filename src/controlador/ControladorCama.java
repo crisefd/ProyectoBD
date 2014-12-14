@@ -35,13 +35,18 @@ public class ControladorCama{
 
     }//end
 
-    public Cama consultarCama(String id_cama){
-
-        Cama c = new Cama();    
-
-        c = daoCama.consultarCama(id_cama);
+    public ArrayList<Cama> consultarCama(String id_cama){
+        
+        ArrayList<Cama> cama= daoCama.consultarCamasPorID(id_cama);
       
-       return c;
+       return cama;
+    }
+     public ArrayList<Cama> consultarCamaArea(String area_cama){
+
+        
+        ArrayList<Cama> cama= daoCama.consultarCamasPorID(area_cama);
+      
+       return cama;
     }
     
     
