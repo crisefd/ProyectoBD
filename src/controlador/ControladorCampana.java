@@ -31,7 +31,7 @@ public class ControladorCampana{
 
     }
 
-    public Campana consultarCampana(String id_campana){
+    public Campana consultarCampanaId(String id_campana){
 
         Campana c = new Campana();    
 
@@ -40,13 +40,42 @@ public class ControladorCampana{
        return c;
     }
     
+    public Campana consultarCampanaNombre(String nombre){
+
+        Campana c = new Campana();    
+
+        c = daoCampana.consultarCampanaNombre(nombre);
+      
+       return c;
+    }
     
-    public ArrayList<Campana> consultarCamas(){
+    public Campana consultarCampanaIdMedico(String idMedico){
+
+        Campana c = new Campana();    
+
+        c = daoCampana.consultarCampanaIdMedico(idMedico);
+      
+       return c;
+    }
+    
+    public Campana consultarCampanaNombreMedico(String nombre){
+
+        Campana c = new Campana();    
+
+        c = daoCampana.consultarCampanaNombreMedico(nombre);
+      
+       return c;
+    }
+    
+    
+    public ArrayList<Campana> consultarCampanas(){
         Area a = new Area();
         ArrayList<Campana> lista = daoCampana.consultarcampanas();
       
        return lista;
     }
+    
+    
 
     public void cerrarConexionBD(){
         daoCampana.cerrarConexionBD();
