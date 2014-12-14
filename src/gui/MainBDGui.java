@@ -2094,7 +2094,7 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
             jTable12.getColumnModel().getColumn(3).setResizable(false);
         }
 
-        jComboBox8.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ID Medicine", "Name" }));
+        jComboBox8.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ID Medicina", "Nombre" }));
 
         javax.swing.GroupLayout Employ_Search4Layout = new javax.swing.GroupLayout(Employ_Search4);
         Employ_Search4.setLayout(Employ_Search4Layout);
@@ -4596,44 +4596,44 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
 
     private void Search_Employ4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Search_Employ4ActionPerformed
         // TODO add your handling code here:
-        /*
+       
         ControladorMedicamento med = new ControladorMedicamento();         
         
         String parametro =(String)jComboBox8.getSelectedItem();
-        if(parametro.equals("ID Medicine")){
-            ArrayList<Medicamento> arr = med.consultarMedicamento(Search_Employ_Field8.getText());
+        if(parametro.equals("ID Medicina")){
+            ArrayList<Medicamento> arr = med.consultarMedicamentoPorID(Search_Employ_Field8.getText());
             Object[][]matrix = new Object[arr.size()][4]; int k = 0;
-            /*for(Medicamento m: arr){
+            for(Medicamento m: arr){
                 Object[] row = new Object[4];
-                row[0] = m.obtIdCama();
-                row[2] = m.obtEstado();
-                row[1] = m.obtDescripcion();
-                row[3] = m.obtIdArea();
+                row[0] = m.obtId();
+                row[1] = m.obtNombre();
+                row[2] = m.obtDescripcion();
+                row[3] = m.obtCosto();
                 matrix[k] = row;
                 k++;
             }
            DefaultTableModel t = new DefaultTableModel(matrix, new String [] {
-            "ID Cama", "Estado", "Descripción", "Area"
+            "ID Medicamento", "Nombre ", "Descripción", "Costo"
         });
-          jTable6.setModel(t);
+          jTable12.setModel(t);
         }
-        if(parametro.equals("Area")){
-             //ArrayList<Cama> arr = Cc.consultarCamaArea(Search_Employ_Field4.getText());
+        if(parametro.equals("Nombre")){
+            ArrayList<Medicamento> arr = med.consultarMedicamentoPorNombre(Search_Employ_Field8.getText());
             Object[][]matrix = new Object[arr.size()][4]; int k = 0;
-            for(Cama c: arr){
+            for(Medicamento m: arr){
                 Object[] row = new Object[4];
-                row[0] = c.obtIdCama();
-                row[2] = c.obtEstado();
-                row[1] = c.obtDescripcion();
-                row[3] = c.obtIdArea();
+                row[0] = m.obtId();
+                row[1] = m.obtNombre();
+                row[2] = m.obtDescripcion();
+                row[3] = m.obtCosto();
                 matrix[k] = row;
                 k++;
             }
            DefaultTableModel t = new DefaultTableModel(matrix, new String [] {
-            "ID Cama", "Estado", "Descripción", "Area"
+            "ID Medicamento", "Nombre ", "Descripción", "Costo"
         });
-          jTable6.setModel(t);
-        }*/
+          jTable12.setModel(t);
+        }
     }//GEN-LAST:event_Search_Employ4ActionPerformed
     
    public static void main(String args[]) {
