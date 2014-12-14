@@ -2054,6 +2054,11 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
         });
 
         Search_Employ4.setText("Search");
+        Search_Employ4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Search_Employ4ActionPerformed(evt);
+            }
+        });
 
         jTable12.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -4588,6 +4593,48 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void Search_Employ4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Search_Employ4ActionPerformed
+        // TODO add your handling code here:
+        /*
+        ControladorMedicamento med = new ControladorMedicamento();         
+        
+        String parametro =(String)jComboBox8.getSelectedItem();
+        if(parametro.equals("ID Medicine")){
+            ArrayList<Medicamento> arr = med.consultarMedicamento(Search_Employ_Field8.getText());
+            Object[][]matrix = new Object[arr.size()][4]; int k = 0;
+            /*for(Medicamento m: arr){
+                Object[] row = new Object[4];
+                row[0] = m.obtIdCama();
+                row[2] = m.obtEstado();
+                row[1] = m.obtDescripcion();
+                row[3] = m.obtIdArea();
+                matrix[k] = row;
+                k++;
+            }
+           DefaultTableModel t = new DefaultTableModel(matrix, new String [] {
+            "ID Cama", "Estado", "Descripción", "Area"
+        });
+          jTable6.setModel(t);
+        }
+        if(parametro.equals("Area")){
+             //ArrayList<Cama> arr = Cc.consultarCamaArea(Search_Employ_Field4.getText());
+            Object[][]matrix = new Object[arr.size()][4]; int k = 0;
+            for(Cama c: arr){
+                Object[] row = new Object[4];
+                row[0] = c.obtIdCama();
+                row[2] = c.obtEstado();
+                row[1] = c.obtDescripcion();
+                row[3] = c.obtIdArea();
+                matrix[k] = row;
+                k++;
+            }
+           DefaultTableModel t = new DefaultTableModel(matrix, new String [] {
+            "ID Cama", "Estado", "Descripción", "Area"
+        });
+          jTable6.setModel(t);
+        }*/
+    }//GEN-LAST:event_Search_Employ4ActionPerformed
     
    public static void main(String args[]) {
         /* Set the Nimbus look and feel */
