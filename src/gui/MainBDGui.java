@@ -4188,6 +4188,9 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
         ControladorCama cc = new ControladorCama();
         String numero = jTextField19.getText();
         String status = (String)jComboBox9.getSelectedItem();
+        String Descripcion = jTextField20.getText();
+        String Area = jTextField37.getText();
+        cc.insertarCama(numero, Area, Descripcion, status);
         
     }//GEN-LAST:event_jButton20ActionPerformed
 
