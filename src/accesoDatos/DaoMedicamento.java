@@ -10,7 +10,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import logica.Area;
 import logica.Medicamento;
 
 
@@ -66,8 +65,9 @@ public class DaoMedicamento {
          return array;
     }
     
-    public Medicamento consultarArea(String id){
+    public ArrayList<Medicamento> consultarMedicamentoPorID(String id){
         Medicamento m= new Medicamento();
+        ArrayList<Medicamento> array= new ArrayList<Medicamento>();
         String sql_select;
         sql_select = "SELECT * from Medicamento WHERE id_medicamento='" + id + "'";
         try {
@@ -80,6 +80,7 @@ public class DaoMedicamento {
                 m.setId(tabla.getString(1));
                 m.setNombre(tabla.getString(2));
                 m.setDescripcion(tabla.getString(3));
+                array.add(m);
 //
 //                e.setNombre(tabla.getString(2));
 //
@@ -89,13 +90,46 @@ public class DaoMedicamento {
                 System.out.println("OK");
             }
 
-            return m;
+            
         } catch (SQLException s) {
             System.out.println(s);
         } catch (Exception s) {
             System.out.println(s);
         }
-        return null;
+        return array;
+}
+    public ArrayList<Medicamento> consultarMedicamentoPorNombre(String nombre){
+        Medicamento m= new Medicamento();
+        ArrayList<Medicamento> array= new ArrayList<Medicamento>();
+        String sql_select;
+        sql_select = "SELECT * from Medicamento WHERE nombre_medicamento='" + nombre + "'";
+        try {
+            Connection conn = fachada.conectar();
+            System.out.println("consultando en la bd");
+            Statement sentencia = conn.createStatement();
+            ResultSet tabla = sentencia.executeQuery(sql_select);
+
+            while (tabla.next()) {
+                m.setId(tabla.getString(1));
+                m.setNombre(tabla.getString(2));
+                m.setDescripcion(tabla.getString(3));
+                array.add(m);
+//
+//                e.setNombre(tabla.getString(2));
+//
+//                e.setNivel(tabla.getString(3));
+//                e.setCreditos(tabla.getInt(4));
+
+                System.out.println("OK");
+            }
+
+            
+        } catch (SQLException s) {
+            System.out.println(s);
+        } catch (Exception s) {
+            System.out.println(s);
+        }
+        return array;
 }
     
      public void cerrarConexionBD() {
