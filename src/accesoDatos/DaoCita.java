@@ -10,9 +10,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Calendar;
 import logica.Cama;
 import logica.Cita;
 import logica.Empleado;
+import java.util.Date;
 
 
 
@@ -99,6 +101,32 @@ public class DaoCita {
         }
         return null;
 }
+public ArrayList<Cita> consultarCitasMedicoMes(String id_medico, String mes){
+    ArrayList<Cita> array= new ArrayList<Cita>();
+    Date fecha= new Date();
+    String año=""+fecha.getYear();
+    String patronMes = "%/"+mes+"/"+año;
+    String sql_select;
+    sql_select = "SELECT hora, tipo, fecha, id_medico_fk, id_paciente_fk,costo_cita FROM Cita WHERE (id_medico='" + id_medico + "' && fecha LIKE '"+ patronMes+ "'";
+       try{
+            Connection conn= fachada.conectar();
+            Statement sentencia = conn.createStatement();
+            ResultSet tabla = sentencia.executeQuery(sql_select);
+            
+            //
+            while(tabla.next()){
+               Cita c= new Cita(tabla.getString(1), tabla.getString(2), tabla.getString(3), tabla.getString(4), tabla.getString(5));
+               array.add(c);
+               System.out.println(tabla.getString(2));
+            }
+             conn.close();
+             System.out.println("Conexion cerrada");
+
+         }
+         catch(SQLException e){ System.out.println(e); }
+         catch(Exception e){ System.out.println(e); }
+         return array;
+    }
     
     public void cerrarConexionBD() {
         fachada.closeConection(fachada.getConnetion());
