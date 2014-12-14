@@ -11,9 +11,7 @@ import java.util.StringTokenizer;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import logica.Empleado;
-import logica.Enfermero;
-import logica.Medico;
+import logica.*;
 
 /**
  *
@@ -185,6 +183,8 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
         jLabel41 = new javax.swing.JLabel();
         jButton20 = new javax.swing.JButton();
         jComboBox9 = new javax.swing.JComboBox();
+        jLabel44 = new javax.swing.JLabel();
+        jTextField37 = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         Internal_Gestion_Panel_Employ3 = new javax.swing.JPanel();
         Employ_Update_Delete3 = new javax.swing.JPanel();
@@ -871,6 +871,11 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
         jLabel25.setText("Securyty Profile");
 
         jComboBox4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Administrador BD", "Jefe Hospital", "Secretario", "Medico", "Enfermero" }));
+        jComboBox4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox4ActionPerformed(evt);
+            }
+        });
 
         jLabel26.setText("ID Boss");
 
@@ -1092,7 +1097,6 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
                 .addComponent(jButton11))
         );
 
-        jLabel23.getAccessibleContext().setAccessibleName("Address");
         jLabel25.getAccessibleContext().setAccessibleName("Security Profile");
 
         javax.swing.GroupLayout Internal_Gestion_Panel_EmployLayout = new javax.swing.GroupLayout(Internal_Gestion_Panel_Employ);
@@ -1104,7 +1108,7 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
                 .addGroup(Internal_Gestion_Panel_EmployLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Employ_Search, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Employ_Update_Delete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Employ_Create, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(Employ_Create, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         Internal_Gestion_Panel_EmployLayout.setVerticalGroup(
@@ -1471,23 +1475,28 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
         });
 
         Search_Employ2.setText("Search");
+        Search_Employ2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Search_Employ2ActionPerformed(evt);
+            }
+        });
 
         jTable6.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Number", "Description", "Status"
+                "Number", "Description", "Status", "Area"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -1503,9 +1512,10 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
             jTable6.getColumnModel().getColumn(0).setResizable(false);
             jTable6.getColumnModel().getColumn(1).setResizable(false);
             jTable6.getColumnModel().getColumn(2).setResizable(false);
+            jTable6.getColumnModel().getColumn(3).setResizable(false);
         }
 
-        jComboBox6.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Number", "Status", " " }));
+        jComboBox6.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Numero", "Estado" }));
 
         javax.swing.GroupLayout Employ_Search2Layout = new javax.swing.GroupLayout(Employ_Search2);
         Employ_Search2.setLayout(Employ_Search2Layout);
@@ -1559,17 +1569,17 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
 
         jTable9.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Number", "Description", "Status"
+                "Number", "Description", "Status", "Area"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -1581,6 +1591,7 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
             jTable9.getColumnModel().getColumn(0).setResizable(false);
             jTable9.getColumnModel().getColumn(1).setResizable(false);
             jTable9.getColumnModel().getColumn(2).setResizable(false);
+            jTable9.getColumnModel().getColumn(3).setResizable(false);
         }
 
         javax.swing.GroupLayout Employ_Update_Delete2Layout = new javax.swing.GroupLayout(Employ_Update_Delete2);
@@ -1648,28 +1659,35 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
 
         jComboBox9.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Free", "occupied" }));
 
+        jLabel44.setText("Area");
+
         javax.swing.GroupLayout Employ_Create2Layout = new javax.swing.GroupLayout(Employ_Create2);
         Employ_Create2.setLayout(Employ_Create2Layout);
         Employ_Create2Layout.setHorizontalGroup(
             Employ_Create2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Employ_Create2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton20)
+                .addGap(240, 240, 240))
+            .addGroup(Employ_Create2Layout.createSequentialGroup()
                 .addGap(31, 31, 31)
-                .addComponent(jLabel39)
-                .addGap(33, 33, 33)
-                .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(Employ_Create2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(Employ_Create2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(Employ_Create2Layout.createSequentialGroup()
+                        .addComponent(jLabel44)
+                        .addGap(32, 32, 32)
+                        .addComponent(jTextField37, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(Employ_Create2Layout.createSequentialGroup()
+                        .addComponent(jLabel39)
+                        .addGap(33, 33, 33)
+                        .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(38, 38, 38)
                         .addComponent(jLabel40)
                         .addGap(32, 32, 32)
-                        .addComponent(jTextField20, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(38, 38, 38)
-                        .addComponent(jLabel41)
-                        .addGap(18, 18, 18)
-                        .addComponent(jComboBox9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(Employ_Create2Layout.createSequentialGroup()
-                        .addGap(81, 81, 81)
-                        .addComponent(jButton20)))
+                        .addComponent(jTextField20, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(38, 38, 38)
+                .addComponent(jLabel41)
+                .addGap(18, 18, 18)
+                .addComponent(jComboBox9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         Employ_Create2Layout.setVerticalGroup(
@@ -1683,9 +1701,13 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
                     .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel39)
                     .addComponent(jComboBox9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(Employ_Create2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField37, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel44))
                 .addGap(18, 18, 18)
                 .addComponent(jButton20)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout Internal_Gestion_Panel_Employ2Layout = new javax.swing.GroupLayout(Internal_Gestion_Panel_Employ2);
@@ -1708,8 +1730,7 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Employ_Update_Delete2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(23, 23, 23)
-                .addComponent(Employ_Create2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(Employ_Create2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -1724,7 +1745,7 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(Internal_Gestion_Panel_Employ2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 277, Short.MAX_VALUE))
         );
 
         Internal_Gestion_Panel.addTab("Beds", jPanel2);
@@ -1902,6 +1923,11 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
         });
 
         Search_Employ3.setText("Search");
+        Search_Employ3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Search_Employ3ActionPerformed(evt);
+            }
+        });
 
         jTable8.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -4476,6 +4502,59 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
         
         
     }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void Search_Employ3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Search_Employ3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Search_Employ3ActionPerformed
+
+    private void Search_Employ2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Search_Employ2ActionPerformed
+         // TODO add your handling code here:
+        ControladorCama Cc = new ControladorCama();
+        String numero;   
+        String status; 
+        String description;  
+        
+        String parametro = Search_Employ_Field4.getText();
+        if(parametro.equals("Numero")){
+            ArrayList<Cama> arr = Cc.consultarCama(Search_Employ_Field4.getText());
+            Object[][]matrix = new Object[arr.size()][4]; int k = 0;
+            for(Cama c: arr){
+                Object[] row = new Object[4];
+                row[0] = c.obtIdCama();
+                row[2] = c.obtEstado();
+                row[1] = c.obtDescripcion();
+                row[3] = c.obtIdArea();
+                matrix[k] = row;
+                k++;
+            }
+           DefaultTableModel t = new DefaultTableModel(matrix, new String [] {
+            "ID Cama", "Estado", "Descripción", "Area"
+        });
+          jTable6.setModel(t);
+        }
+        if(parametro.equals("Area")){
+             ArrayList<Cama> arr = Cc.consultarCamaArea(Search_Employ_Field4.getText());
+            Object[][]matrix = new Object[arr.size()][4]; int k = 0;
+            for(Cama c: arr){
+                Object[] row = new Object[4];
+                row[0] = c.obtIdCama();
+                row[2] = c.obtEstado();
+                row[1] = c.obtDescripcion();
+                row[3] = c.obtIdArea();
+                matrix[k] = row;
+                k++;
+            }
+           DefaultTableModel t = new DefaultTableModel(matrix, new String [] {
+            "ID Cama", "Estado", "Descripción", "Area"
+        });
+          jTable6.setModel(t);
+        }
+        
+    }//GEN-LAST:event_Search_Employ2ActionPerformed
+
+    private void jComboBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox4ActionPerformed
     
    public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -4693,6 +4772,7 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
+    private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel47;
@@ -4843,6 +4923,7 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
     private javax.swing.JTextField jTextField34;
     private javax.swing.JTextField jTextField35;
     private javax.swing.JTextField jTextField36;
+    private javax.swing.JTextField jTextField37;
     private javax.swing.JTextField jTextField39;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField40;
