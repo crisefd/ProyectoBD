@@ -16,7 +16,17 @@ import accesoDatos.DaoMedicamento;
 public class ControladorMedicamento {
     
     DaoMedicamento daoMedicamento;
-    
+    public int  insertarMedicamento(String id_med, String nombre,String descripcion, double costo){
+        Medicamento med = new Medicamento(id_med, nombre,descripcion, costo);        
+
+       
+        
+        int result =daoMedicamento.guardarMedicamento(med);
+
+        
+        return result;  
+
+    }
     public ArrayList<Medicamento> consultarMedicamentoPorID(String id_med){
         
         ArrayList<Medicamento> med= daoMedicamento.consultarMedicamentoPorID(id_med);
