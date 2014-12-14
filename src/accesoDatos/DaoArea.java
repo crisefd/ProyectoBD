@@ -86,7 +86,7 @@ public class DaoArea {
 //                e.setNivel(tabla.getString(3));
 //                e.setCreditos(tabla.getInt(4));
 
-                System.out.println("OK");
+                //System.out.println("OK");
             }
 
             return a;

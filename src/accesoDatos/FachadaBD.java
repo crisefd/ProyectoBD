@@ -19,9 +19,9 @@ public class FachadaBD {
 //            url="jdbc:postgresql://pgsql:5432/crisefd";
 //            usuario="crisefd";
 //            password="crisefd";
-            url="jdbc:postgresql://localhost:5432/postgres";
+            url="jdbc:postgresql://localhost:5432/Hospital";
             usuario="postgres";
-            password="1234";
+            password="postgres";
         }
         
         
@@ -43,6 +43,8 @@ public class FachadaBD {
                   //Crear objeto Statement para realizar queries a la base de datos
              } catch( Exception e ) {
                 System.out.println( "No se pudo abrir la bd." );
+                e.printStackTrace();
+                System.exit(1);
                 return null;
              }
 

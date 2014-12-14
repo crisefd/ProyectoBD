@@ -27,13 +27,13 @@ public class DaoEmpleado {
 
      public int guardarEmpleado(Empleado emp){
         String sql_guardar;
-        sql_guardar="INSERT INTO Persona(id_persona, nombre,direccion, telefono) VALUES ('" 
-                +emp.obtIdPersona() + "', '" + emp.obtNombre() +  "', '" + emp.obtDireccion() + "', '" + emp.obtTelefono() +"');";
-        sql_guardar+="INSERT INTO Empleado( id_empleado, cargo, salario, email, id_area_fk, perfil_seguridad) VALUES ('" 
-                +emp.obtIdPersona() + "', '"+emp.obtCargo() + "', '" + emp.obtSalario() +  "', '" +
-                 emp.obtEmail() + "', '"  +
-                 emp.obtIdArea() + "', '"  +
-                 emp.obtSeguridad()  +"')";
+       
+        sql_guardar ="INSERT INTO Empleado( id_persona, nombre, direccion,telefono, cargo,salario,email,perfil_seguridad, id_area_fk) VALUES ('" 
+                +emp.obtIdPersona() + ", '"+emp.obtNombre()+"','"+ 
+                emp.obtDireccion()+"', '"+emp.obtTelefono()+"','"+
+                emp.obtCargo()+"', '"+ emp.obtSalario()+ "', '"+ 
+                emp.obtEmail()+"', '"+ emp.obtSeguridad() + "', '"+ 
+                emp.obtIdArea()+ "'"+ ");";
         try{
             Connection conn= fachada.conectar();
             Statement sentencia = conn.createStatement();
@@ -49,7 +49,7 @@ public class DaoEmpleado {
     public ArrayList<Empleado> consultarEmpleados(){
         ArrayList<Empleado> array= new ArrayList<Empleado>();
         String sql_select;
-        sql_select="SELECT id_empleado, nombre,direccion, telefono, id_area_fk, cargo, email, salario FROM Empleado";
+        sql_select="SELECT id_persona, nombre,cargo, id_area_fk FROM Empleado;";
          try{
             Connection conn= fachada.conectar();
             Statement sentencia = conn.createStatement();
@@ -57,9 +57,13 @@ public class DaoEmpleado {
             
             //
             while(tabla.next()){
-               Empleado e= new Empleado(tabla.getString(1), tabla.getString(2), tabla.getString(3), tabla.getString(4),tabla.getString(5),tabla.getString(6),  tabla.getString(7), tabla.getDouble(8));
+               Empleado e = new Empleado();
+               e.setId_persona(tabla.getString(1));
+               e.setNombre(tabla.getString(2));
+               e.setCargo(tabla.getString(3));
+               e.setId_area(tabla.getString(4));
                array.add(e);
-               System.out.println(tabla.getString(2));
+              // System.out.println(tabla.getString(2));
             }
              conn.close();
              System.out.println("Conexion cerrada");

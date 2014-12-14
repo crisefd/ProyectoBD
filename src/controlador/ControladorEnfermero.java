@@ -26,7 +26,7 @@ public class ControladorEnfermero {
     
     public int  insertarEnfermero(String id_persona, String nombre,String direccion, String telefono,String id_area_fk,String cargo,  String email,double salario,int anos_exp,String id_enfermero, String[] habilidades){
         Enfermero e = new Enfermero(id_persona,nombre, direccion, telefono, id_area_fk, cargo, email,salario,anos_exp, habilidades);        
-        
+        e.setPerfilSeguridad("3");
         int result =daoEnfermero.guardarEnfermero(e);
         
         return result;
@@ -45,11 +45,10 @@ public class ControladorEnfermero {
     public ArrayList<Enfermero> consultarEnfermeros(){
         Enfermero e = new Enfermero();
         
-         System.out.println("Se va a consultar un empleado");
 
-       // ArrayList<Enfermero> lista = daoEnfermero.consultarEnfermero();
+        ArrayList<Enfermero> lista = daoEnfermero.consultarEnfermeros();
       
-       return null;
+       return lista;
     }
     
 
@@ -57,4 +56,6 @@ public class ControladorEnfermero {
         daoEnfermero.cerrarConexionBD();
     }
 
+    
+    
 }

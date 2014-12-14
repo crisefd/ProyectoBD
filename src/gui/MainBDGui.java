@@ -28,7 +28,9 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
         
         initComponents();
         frame.add(this);
+        frame.pack();
         frame.setVisible(true);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
        // System.out.println(this.isVisible()+"");
         
     }

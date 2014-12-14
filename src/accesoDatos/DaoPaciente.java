@@ -116,8 +116,8 @@ public class DaoPaciente {
         p.setDireccion("calle 12");
         p.setFechaAsigCama("12-12-2000");
         p.setFechaNaci("12-08-2012");
-        p.setId_cama("01");
-        p.setId_persona("222");
+        p.setId_cama("123");
+        p.setId_persona("123");
         p.setNombre("cristhian");
         p.setNum_seg_soc("4");
         p.setTelefono("3121111");

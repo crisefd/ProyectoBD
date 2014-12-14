@@ -50,7 +50,7 @@ public class ControladorEmpleado {
     }
     
     public ArrayList<Empleado> consultarEmpleados(){
-        Empleado e = new Empleado();
+       // Empleado e = new Empleado();
         
          System.out.println("Se va a consultar un empleado");
 

@@ -64,4 +64,5 @@ public class ControladorArea{
         daoArea.cerrarConexionBD();
     }
     
+    
 }//fin clase

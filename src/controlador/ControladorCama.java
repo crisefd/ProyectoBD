@@ -26,13 +26,10 @@ public class ControladorCama{
     public int  insertarCama(String id_cama, String id_area_fk,String descripcion, String estado){
         Cama c = new Cama(id_cama,id_area_fk, descripcion, estado);        
 
-        
-        //Se llama al dao para guardar
-        System.out.println("Se va a insertar un Empleado");
+       
         
         int result =daoCama.guardarCama(c);
 
-        System.out.println("Se  insertó  un  nuevo programa");
         
         return result;
 
@@ -59,4 +56,5 @@ public class ControladorCama{
         daoCama.cerrarConexionBD();
     }
 
+    
 }

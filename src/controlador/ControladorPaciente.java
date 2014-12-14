@@ -22,7 +22,7 @@ public class ControladorPaciente {
     }
     
     
-    public int  insertarPaciente(String id_persona, String nombre, String direccion, String telefono,String numero_seg_soc,  String fecha_naci,String actividad_economica, String cama_fk, String fecha_asig_cama){
+    public int  guardarPaciente(String id_persona, String nombre, String direccion, String telefono,String numero_seg_soc,  String fecha_naci,String actividad_economica, String cama_fk, String fecha_asig_cama){
         Paciente p = new Paciente(id_persona, nombre, direccion, telefono, numero_seg_soc, fecha_naci, actividad_economica, cama_fk, fecha_asig_cama);        
 
         
@@ -45,5 +45,7 @@ public class ControladorPaciente {
     public void cerrarConexionBD(){
         daoPaciente.cerrarConexionBD();
     }
+    
+   
 
 }
