@@ -10,7 +10,7 @@ package logica;
  * @author crisefd
  */
 public class Empleado extends Persona {
-    private String cargo, email, id_area, perfilSeguridad;
+    private String cargo, email, id_area, perfilSeguridad, id_jefe;
     private double salario;
 
     public Empleado(String id_persona, String nombre, String direccion, String telefono,String id_area,String cargo,  String email, double salario) {
@@ -22,6 +22,12 @@ public class Empleado extends Persona {
     }
     public Empleado(){
         
+    }
+    public String getIdJefe(){
+        return id_jefe;
+    }
+    public void setIdJefe(String id_jefe){
+        this.id_jefe = id_jefe;
     }
     public String obtCargo(){
         return cargo;

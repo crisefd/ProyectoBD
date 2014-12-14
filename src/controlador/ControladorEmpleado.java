@@ -22,14 +22,13 @@ public class ControladorEmpleado {
     }
     
     
-    public int  insertarEmpleado(String id_persona, String nombre, String direccion, String telefono,String id_area,String cargo,  String email, double salario){
-        Empleado e = new Empleado(id_persona,nombre, direccion, telefono, id_area, cargo, email, salario);        
+    public int  insertarEmpleado(Empleado emp){        
 
         
         //Se llama al dao para guardar
         System.out.println("Se va a insertar un Empleado");
         
-        int result =daoEmpleado.guardarEmpleado(e);
+        int result =daoEmpleado.guardarEmpleado(emp);
 
         System.out.println("Se  insertó  un  nuevo programa");
         
@@ -47,6 +46,11 @@ public class ControladorEmpleado {
         e = daoEmpleado.consultarEmpleado(id_persona);
       
        return e;
+    }
+    
+    public ArrayList<Empleado> consultarEmpleadoPorId(String id){
+        ArrayList<Empleado> emps= daoEmpleado.consultarEmpleadosPorId(id);
+        return emps;
     }
     
     public ArrayList<Empleado> consultarEmpleados(){

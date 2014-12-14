@@ -24,14 +24,16 @@ public class ControladorEnfermero {
     }
     
     
-    public int  insertarEnfermero(String id_persona, String nombre,String direccion, String telefono,String id_area_fk,String cargo,  String email,double salario,int anos_exp,String id_enfermero, String[] habilidades){
-        Enfermero e = new Enfermero(id_persona,nombre, direccion, telefono, id_area_fk, cargo, email,salario,anos_exp, habilidades);        
-        e.setPerfilSeguridad("3");
-        int result =daoEnfermero.guardarEnfermero(e);
+    public int  insertarEnfermero(Enfermero enf){
+       // Enfermero e = new Enfermero(id_persona,nombre, direccion, telefono, id_area_fk, cargo, email,salario,anos_exp, habilidades);        
+        enf.setPerfilSeguridad("3");
+        int result =daoEnfermero.guardarEnfermero(enf);
         
         return result;
 
     }//end
+    
+   
 
     public Enfermero consultarEnfermero(String id_enfermero){
         Enfermero e = new Enfermero();

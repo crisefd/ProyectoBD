@@ -7,10 +7,13 @@ package gui;
 
 import controlador.*;
 import java.util.ArrayList;
+import java.util.StringTokenizer;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import logica.Empleado;
+import logica.Enfermero;
+import logica.Medico;
 
 /**
  *
@@ -116,9 +119,9 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
         jTextField30 = new javax.swing.JTextField();
         jLabel46 = new javax.swing.JLabel();
         jTextField29 = new javax.swing.JTextField();
-        jLabel44 = new javax.swing.JLabel();
         jTextField28 = new javax.swing.JTextField();
         jLabel45 = new javax.swing.JLabel();
+        jLabel68 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         jSpinner1 = new javax.swing.JSpinner();
         jLabel30 = new javax.swing.JLabel();
@@ -552,7 +555,7 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
                         .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addContainerGap(143, Short.MAX_VALUE))
         );
         User_Security_Update_DeleteLayout.setVerticalGroup(
             User_Security_Update_DeleteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -666,6 +669,11 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
         });
 
         Search_Employ.setText("Search");
+        Search_Employ.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Search_EmployActionPerformed(evt);
+            }
+        });
 
         jTable3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -765,7 +773,7 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
                 {null, null, null, null, null, null, null}
             },
             new String [] {
-                "ID Employee", "Name", "Telephone", "Charge", "Area", "E-mail", "Adress"
+                "ID Employee", "Name", "Telephone", "Charge", "Area", "E-mail", "Address"
             }
         ) {
             Class[] types = new Class [] {
@@ -808,7 +816,7 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
                     .addGroup(Employ_Update_DeleteLayout.createSequentialGroup()
                         .addGap(42, 42, 42)
                         .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 523, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(168, Short.MAX_VALUE))
         );
         Employ_Update_DeleteLayout.setVerticalGroup(
             Employ_Update_DeleteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -832,6 +840,11 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
         jLabel22.setText("Charge");
 
         jButton9.setText("Start");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
 
         jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Doctor", "Nurse", "Other" }));
 
@@ -851,21 +864,19 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
 
         jLabel21.setText("E-mail");
 
-        jLabel23.setText("Adress");
+        jLabel23.setText("Address");
 
         jLabel24.setText("Salary");
 
         jLabel25.setText("Securyty Profile");
 
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Administrador BD", "Jefe Hospital", "Secretario", "Medico", "Enfermero" }));
 
         jLabel26.setText("ID Boss");
 
         jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Doctor", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 3, 11))); // NOI18N
 
-        jLabel46.setText("Telephone");
-
-        jLabel44.setText("ID Employee");
+        jLabel46.setText("Universidad");
 
         jTextField28.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -873,26 +884,26 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
             }
         });
 
-        jLabel45.setText("Name");
+        jLabel45.setText("# Lic");
+
+        jLabel68.setText("Especializacion");
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel44)
-                .addGap(18, 18, 18)
-                .addComponent(jTextField28, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel68)
+                .addGap(1, 1, 1)
+                .addComponent(jTextField28, javax.swing.GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel45)
-                .addGap(18, 18, 18)
-                .addComponent(jTextField29, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField29, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel46)
                 .addGap(18, 18, 18)
-                .addComponent(jTextField30, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(jTextField30, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -900,10 +911,10 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel44)
                         .addComponent(jTextField28, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel45)
-                        .addComponent(jTextField29, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jTextField29, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel68))
                     .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel46)
                         .addComponent(jTextField30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -1010,19 +1021,17 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
                                         .addGroup(Employ_CreateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGroup(Employ_CreateLayout.createSequentialGroup()
-                                                .addComponent(jLabel23)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(jLabel23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addGap(18, 18, 18)
                                                 .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                                 .addGap(18, 18, 18)
                                 .addGroup(Employ_CreateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(Employ_CreateLayout.createSequentialGroup()
-                                        .addComponent(jLabel25)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(Employ_CreateLayout.createSequentialGroup()
-                                        .addComponent(jLabel24)
-                                        .addGap(54, 54, 54)
-                                        .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(jLabel25)
+                                    .addComponent(jLabel24))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(Employ_CreateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jComboBox4, 0, 1, Short.MAX_VALUE)
+                                    .addComponent(jTextField11, javax.swing.GroupLayout.DEFAULT_SIZE, 79, Short.MAX_VALUE)))
                             .addGroup(Employ_CreateLayout.createSequentialGroup()
                                 .addGap(103, 103, 103)
                                 .addComponent(jButton9))))
@@ -1083,6 +1092,9 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
                 .addComponent(jButton11))
         );
 
+        jLabel23.getAccessibleContext().setAccessibleName("Address");
+        jLabel25.getAccessibleContext().setAccessibleName("Security Profile");
+
         javax.swing.GroupLayout Internal_Gestion_Panel_EmployLayout = new javax.swing.GroupLayout(Internal_Gestion_Panel_Employ);
         Internal_Gestion_Panel_Employ.setLayout(Internal_Gestion_Panel_EmployLayout);
         Internal_Gestion_Panel_EmployLayout.setHorizontalGroup(
@@ -1092,7 +1104,7 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
                 .addGroup(Internal_Gestion_Panel_EmployLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Employ_Search, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Employ_Update_Delete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Employ_Create, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(Employ_Create, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap())
         );
         Internal_Gestion_Panel_EmployLayout.setVerticalGroup(
@@ -1101,8 +1113,8 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
                 .addContainerGap()
                 .addComponent(Employ_Search, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Employ_Update_Delete, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(Employ_Update_Delete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Employ_Create, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -2800,7 +2812,7 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(Employ_Update_Delete5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(Employ_Create5, javax.swing.GroupLayout.PREFERRED_SIZE, 227, Short.MAX_VALUE))
+                .addComponent(Employ_Create5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
@@ -3603,14 +3615,14 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
         Gestion_PanelLayout.setHorizontalGroup(
             Gestion_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Gestion_PanelLayout.createSequentialGroup()
-                .addComponent(Internal_Gestion_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, 656, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 44, Short.MAX_VALUE))
+                .addComponent(Internal_Gestion_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, 777, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         Gestion_PanelLayout.setVerticalGroup(
             Gestion_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Gestion_PanelLayout.createSequentialGroup()
-                .addComponent(Internal_Gestion_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, 813, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 615, Short.MAX_VALUE))
+                .addComponent(Internal_Gestion_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 566, Short.MAX_VALUE))
         );
 
         Global_Panel.addTab("GESTION", Gestion_Panel);
@@ -4033,13 +4045,13 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
             Report_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Report_PanelLayout.createSequentialGroup()
                 .addComponent(Internal_Reports_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, 659, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 41, Short.MAX_VALUE))
+                .addGap(0, 118, Short.MAX_VALUE))
         );
         Report_PanelLayout.setVerticalGroup(
             Report_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Report_PanelLayout.createSequentialGroup()
                 .addComponent(Internal_Reports_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 758, Short.MAX_VALUE))
+                .addGap(0, 771, Short.MAX_VALUE))
         );
 
         Global_Panel.addTab("REPORTS", Report_Panel);
@@ -4050,16 +4062,16 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 680, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(61, 61, 61)
+                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 804, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(28, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 842, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 917, Short.MAX_VALUE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -4352,6 +4364,118 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
     private void Search_UserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Search_UserActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_Search_UserActionPerformed
+
+    private void Search_EmployActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Search_EmployActionPerformed
+        // TODO add your handling code here:
+        ControladorEmpleado ce = new ControladorEmpleado();
+        String item = (String)jComboBox1.getSelectedItem();
+        if(item.equalsIgnoreCase("ID Employee")){
+            ArrayList<Empleado> arr = ce.consultarEmpleadoPorId(Search_Employ_Field.getText());
+            Object[][]matrix = new Object[arr.size()][7]; int k = 0;
+            for(Empleado e: arr){
+                Object[] row = new Object[7];
+                row[0] = e.obtIdPersona();
+                row[1] = e.obtNombre();
+                row[2] = e.obtTelefono();
+                row[3] = e.obtCargo();
+                row[4] = e.obtIdArea();
+                row[5] = e.obtEmail();
+                row[6] = e.obtDireccion();
+                matrix[k] = row;
+                k++;
+            }
+           DefaultTableModel t = new DefaultTableModel(matrix, new String [] {
+            "ID Employee", "Name", "Telephone", "Charge", "Area", "E-mail", "Address"
+        });
+          jTable3.setModel(t);
+          
+            
+        }
+        //, "Name", "Telephone", " "
+    }//GEN-LAST:event_Search_EmployActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        // TODO add your handling code here:
+       
+        String id_persona = jTextField2.getText();
+        String nombre =jTextField3.getText();
+        String telefono =jTextField4.getText();
+        String salario = jTextField11.getText();
+        String area = jTextField7.getText();
+        String email = jTextField9.getText();
+        String direccion = jTextField10.getText();
+        String cargo = (String)jComboBox3.getSelectedItem();
+        String perfil = (String)jComboBox4.getSelectedItem();
+        String id_jefe = jTextField12.getText();
+        int anos_exp = Integer.parseInt((String)jSpinner1.getValue());
+        String txtHabilidades = jTextArea1.getText();
+        StringTokenizer stk = new StringTokenizer(txtHabilidades, ",");
+        String []arrHabilidades = new String[stk.countTokens()];
+        int k =0;
+        while(stk.hasMoreTokens()){
+            arrHabilidades[k] = stk.nextToken();
+            k++;
+        }
+        String universidad = jTextField30.getText();
+        String numLic = jTextField29.getText();
+        String especializacion = jTextField28.getText();
+        if(perfil.equals("Medico")){
+            Medico med = new Medico();
+            med.setId_persona(id_persona);
+            med.setNombre(nombre);
+            med.setTelefono(telefono);
+            med.setSalario(Double.parseDouble(salario));
+            med.setId_area(area);
+            med.setEmail(email);
+            med.setDireccion(direccion);
+            med.setCargo(cargo);
+            med.setPerfilSeguridad(perfil);
+            med.setUniversidad(universidad);
+            med.setNumLicencia(numLic);
+            med.setEspecializacion(especializacion);
+            ControladorMedico cm = new ControladorMedico();
+            cm.insertarMedico(med);
+            
+        }else{
+            if(perfil.equals("Enfermero")){
+                ControladorEnfermero ce = new ControladorEnfermero();
+                Enfermero enf = new Enfermero();
+                enf.setId_persona(id_persona);
+                enf.setNombre(nombre);
+                enf.setTelefono(telefono);
+                enf.setCargo(cargo);
+                enf.setSalario(Double.parseDouble(salario));
+                enf.setId_area(area);
+                enf.setEmail(email);
+                enf.setDireccion(direccion);
+                enf.setCargo(cargo);
+                enf.setPerfilSeguridad(perfil);
+                enf.setHabilidades(arrHabilidades);
+                enf.setAnosExp(anos_exp);
+                ce.insertarEnfermero(enf);
+                
+            }else{
+                ControladorEmpleado ce = new ControladorEmpleado();
+                Empleado emp = new Empleado();
+                emp.setId_persona(id_persona);
+                emp.setNombre(nombre);
+                emp.setDireccion(direccion);
+                emp.setTelefono(telefono);
+                emp.setCargo(cargo);
+                emp.setSalario(Double.parseDouble(salario));
+                emp.setEmail(email);
+                emp.setPerfilSeguridad(perfil);
+                emp.setId_area(area);
+                emp.setIdJefe(id_jefe);
+                ce.insertarEmpleado(emp);
+                
+                
+            }
+        }
+        
+        
+        
+    }//GEN-LAST:event_jButton9ActionPerformed
     
    public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -4569,7 +4693,6 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
-    private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel47;
@@ -4595,6 +4718,7 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
     private javax.swing.JLabel jLabel65;
     private javax.swing.JLabel jLabel66;
     private javax.swing.JLabel jLabel67;
+    private javax.swing.JLabel jLabel68;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel70;
     private javax.swing.JLabel jLabel71;

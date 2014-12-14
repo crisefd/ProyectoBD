@@ -25,9 +25,9 @@ public class ControladorMedico {
     }
     
     
-    public int  insertarMedico(String id_persona, String nombre, String direccion, String telefono, String id_area, String cargo, String email,double salario, String especializacion, String numLicencia, String universidad){
-        Medico m = new Medico(id_persona, nombre,direccion, telefono,id_area, cargo,email,salario, especializacion, numLicencia, universidad);        
-        m.setPerfilSeguridad("2");
+    public int  insertarMedico(Medico m){
+       // Medico m = new Medico(id_persona, nombre,direccion, telefono,id_area, cargo,email,salario, especializacion, numLicencia, universidad);        
+       // m.setPerfilSeguridad("2");
         int result =daoMedico.guardarMedico(m);
         
         return result;
@@ -58,9 +58,9 @@ public class ControladorMedico {
     }
 
     
-    public static void main(String args[]){
-        ControladorMedico ca = new ControladorMedico();
-        ca.insertarMedico("123", "Fabian", "calle 70", "6620721", "444", "jefe", "fabian@",440000, "ginecologo", "12345", "ICESI");
-//System.out.print(ca.consultarCama().obtNombre());
-    }
+//    public static void main(String args[]){
+//        ControladorMedico ca = new ControladorMedico();
+//        ca.insertarMedico("123", "Fabian", "calle 70", "6620721", "444", "jefe", "fabian@",440000, "ginecologo", "12345", "ICESI");
+////System.out.print(ca.consultarCama().obtNombre());
+//    }
 }

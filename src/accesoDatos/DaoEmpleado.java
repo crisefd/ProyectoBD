@@ -73,6 +73,37 @@ public class DaoEmpleado {
          catch(Exception e){ System.out.println(e); }
          return array;
     }
+    
+    public ArrayList<Empleado> consultarEmpleadosPorId(String id){
+        ArrayList<Empleado> array= new ArrayList<Empleado>();
+        String sql_select;
+        sql_select="SELECT id_persona, nombre,telefono,cargo, id_area_fk, email, direccion FROM Empleado WHERE id_persona ='"+id+"';";
+         try{
+            Connection conn= fachada.conectar();
+            Statement sentencia = conn.createStatement();
+            ResultSet tabla = sentencia.executeQuery(sql_select);
+            
+            //
+            while(tabla.next()){
+               Empleado e = new Empleado();
+               e.setId_persona(tabla.getString(1));
+               e.setNombre(tabla.getString(2));
+               e.setTelefono(tabla.getString(3));
+               e.setCargo(tabla.getString(4));
+               e.setId_area(tabla.getString(5));
+               e.setEmail(tabla.getString(6));
+               e.setDireccion(tabla.getString(7));
+               array.add(e);
+              // System.out.println(tabla.getString(2));
+            }
+             conn.close();
+             System.out.println("Conexion cerrada");
+
+         }
+         catch(SQLException e){ System.out.println(e); }
+         catch(Exception e){ System.out.println(e); }
+         return array;
+    }
 
 
 public Empleado consultarEmpleado(String id_empleado){
