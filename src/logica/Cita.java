@@ -65,6 +65,9 @@ public class Cita {
     public String getFecha() {
         return fecha;
     }
+    public Double getCosto() {
+        return costo;
+    }
 
     /**
      * @param tiempo the tiempo to set

@@ -279,6 +279,8 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
         jLabel57 = new javax.swing.JLabel();
         jLabel60 = new javax.swing.JLabel();
         jTextField33 = new javax.swing.JTextField();
+        jLabel61 = new javax.swing.JLabel();
+        jTextField34 = new javax.swing.JTextField();
         jButton32 = new javax.swing.JButton();
         jLabel62 = new javax.swing.JLabel();
         jTextField22 = new javax.swing.JTextField();
@@ -2092,7 +2094,7 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
             jTable12.getColumnModel().getColumn(3).setResizable(false);
         }
 
-        jComboBox8.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ID Medicina", "Nombre" }));
+        jComboBox8.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ID Medicine", "Name" }));
 
         javax.swing.GroupLayout Employ_Search4Layout = new javax.swing.GroupLayout(Employ_Search4);
         Employ_Search4.setLayout(Employ_Search4Layout);
@@ -2110,7 +2112,7 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
                     .addGroup(Employ_Search4Layout.createSequentialGroup()
                         .addGap(39, 39, 39)
                         .addComponent(jScrollPane19, javax.swing.GroupLayout.PREFERRED_SIZE, 523, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
         Employ_Search4Layout.setVerticalGroup(
             Employ_Search4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2697,6 +2699,14 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
             }
         });
 
+        jLabel61.setText("Hour");
+
+        jTextField34.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField34ActionPerformed(evt);
+            }
+        });
+
         jButton32.setText("Add Cause");
         jButton32.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2731,6 +2741,10 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jTextField25, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(Employ_Create5Layout.createSequentialGroup()
+                                .addComponent(jLabel60, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextField33, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(Employ_Create5Layout.createSequentialGroup()
                                 .addComponent(jLabel64)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel65))))
@@ -2743,35 +2757,34 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
                                 .addGap(10, 10, 10)
                                 .addComponent(jButton32))
                             .addComponent(jTextField22, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGroup(Employ_Create5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Employ_Create5Layout.createSequentialGroup()
+                .addGap(46, 46, 46)
+                .addGroup(Employ_Create5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(Employ_Create5Layout.createSequentialGroup()
+                        .addGroup(Employ_Create5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel56)
+                            .addComponent(jLabel61))
+                        .addGap(29, 29, 29)
+                        .addGroup(Employ_Create5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(Employ_Create5Layout.createSequentialGroup()
+                                .addComponent(jTextField31, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(40, 40, 40)
+                                .addComponent(jLabel57)
+                                .addGap(18, 18, 18)
+                                .addComponent(jTextField32, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jTextField34, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(Employ_Create5Layout.createSequentialGroup()
                         .addGroup(Employ_Create5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(Employ_Create5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(Employ_Create5Layout.createSequentialGroup()
-                                    .addGap(58, 58, 58)
+                                    .addGap(12, 12, 12)
                                     .addComponent(jLabel63))
                                 .addComponent(jLabel55, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(Employ_Create5Layout.createSequentialGroup()
-                                .addGap(58, 58, 58)
+                                .addGap(12, 12, 12)
                                 .addComponent(jButton31)))
                         .addGap(41, 41, 41)
-                        .addComponent(jScrollPane22, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Employ_Create5Layout.createSequentialGroup()
-                        .addGap(45, 45, 45)
-                        .addGroup(Employ_Create5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(Employ_Create5Layout.createSequentialGroup()
-                                .addComponent(jLabel56)
-                                .addGap(29, 29, 29)
-                                .addComponent(jTextField31, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(Employ_Create5Layout.createSequentialGroup()
-                                .addComponent(jLabel60, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField33, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(40, 40, 40)
-                        .addComponent(jLabel57)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextField32, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(55, Short.MAX_VALUE))
+                        .addComponent(jScrollPane22, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         Employ_Create5Layout.setVerticalGroup(
             Employ_Create5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2787,7 +2800,9 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(Employ_Create5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel60)
-                    .addComponent(jTextField33, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField33, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel61)
+                    .addComponent(jTextField34, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(Employ_Create5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(Employ_Create5Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -3735,20 +3750,20 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
 
         Schedule_Medical_Table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Day", "ID Patient", "Patient Name"
+                "Day", "Time", "ID Patient", "Patient Name"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -3763,7 +3778,9 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
         if (Schedule_Medical_Table.getColumnModel().getColumnCount() > 0) {
             Schedule_Medical_Table.getColumnModel().getColumn(0).setResizable(false);
             Schedule_Medical_Table.getColumnModel().getColumn(1).setResizable(false);
+            Schedule_Medical_Table.getColumnModel().getColumn(1).setHeaderValue("Time");
             Schedule_Medical_Table.getColumnModel().getColumn(2).setResizable(false);
+            Schedule_Medical_Table.getColumnModel().getColumn(3).setResizable(false);
         }
 
         Doctor_Month_Schedule_ComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Jaunary", "Febrauary", "March", "April", "May", "June", "August", "September", "October", "November", "December" }));
@@ -3791,7 +3808,7 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
                             .addGroup(Internal_Reports_Panel_Schedule_MedicalLayout.createSequentialGroup()
                                 .addGap(277, 277, 277)
                                 .addComponent(Generate_Schedule_Medical)))
-                        .addGap(0, 109, Short.MAX_VALUE)))
+                        .addGap(0, 185, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         Internal_Reports_Panel_Schedule_MedicalLayout.setVerticalGroup(
@@ -3856,6 +3873,7 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
         jScrollPane3.setViewportView(Medical_Record_Table);
         if (Medical_Record_Table.getColumnModel().getColumnCount() > 0) {
             Medical_Record_Table.getColumnModel().getColumn(0).setResizable(false);
+            Medical_Record_Table.getColumnModel().getColumn(0).setHeaderValue("Time");
             Medical_Record_Table.getColumnModel().getColumn(1).setResizable(false);
             Medical_Record_Table.getColumnModel().getColumn(2).setResizable(false);
             Medical_Record_Table.getColumnModel().getColumn(3).setResizable(false);
@@ -3875,12 +3893,15 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Internal_Reports_Panel_Medical_RecordLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(Medical_Record_IdPatient_Label)
-                        .addGap(31, 31, 31)
                         .addGroup(Internal_Reports_Panel_Medical_RecordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Generate_Medical_Record)
-                            .addComponent(Medical_Record_IdPatient_Field, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(261, 261, 261))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Internal_Reports_Panel_Medical_RecordLayout.createSequentialGroup()
+                                .addComponent(Generate_Medical_Record)
+                                .addGap(274, 274, 274))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Internal_Reports_Panel_Medical_RecordLayout.createSequentialGroup()
+                                .addComponent(Medical_Record_IdPatient_Label)
+                                .addGap(32, 32, 32)
+                                .addComponent(Medical_Record_IdPatient_Field, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(226, 226, 226))))))
         );
         Internal_Reports_Panel_Medical_RecordLayout.setVerticalGroup(
             Internal_Reports_Panel_Medical_RecordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -4635,6 +4656,11 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
         }
     }//GEN-LAST:event_Search_Employ4ActionPerformed
 
+    private void jTextField34ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField34ActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jTextField34ActionPerformed
+
     private void Generate_Schedule_MedicalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Generate_Schedule_MedicalActionPerformed
         // TODO add your handling code here:
         ControladorCita cc = new ControladorCita();
@@ -4642,32 +4668,55 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
         String id_med = Doctor_Name_Schedule_Field.getText();
         String mes = Doctor_Month_Schedule_ComboBox.getSelectedItem().toString();
         ArrayList<Cita> arr = cc.consultarCitasMedicoMes(id_med, mes);
-        Object[][]matrix = new Object[arr.size()][3]; int k = 0;
+        Object[][]matrix = new Object[arr.size()][4]; int k = 0;
         for(Cita c: arr){
                 Object[] row = new Object[4];
                 row[0] = c.getFecha();
-                row[1] = c.getId_paciente();
-                row[2] = cp.consultarPaciente(c.getId_paciente()).obtNombre();  
+                row[1] = c.obtTiempo();
+                row[2] = c.getId_paciente();
+                row[3] = cp.consultarPaciente(c.getId_paciente()).obtNombre();  
                 matrix[k] = row;
                 k++;
             }
-           DefaultTableModel t = new DefaultTableModel(matrix, new String [] {
-            "Date", "ID Medico", "ID Paciente", "Nombre Paciente"
+                DefaultTableModel t = new DefaultTableModel(matrix, new String [] {
+            "Date","Hora", "ID Medico", "ID Paciente", "Nombre Paciente"
         });
           Schedule_Medical_Table.setModel(t);
         
+                                                           
         
     }//GEN-LAST:event_Generate_Schedule_MedicalActionPerformed
 
     private void Generate_Medical_RecordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Generate_Medical_RecordActionPerformed
         // TODO add your handling code here:
+        
         ControladorCita cc = new ControladorCita();
+        ControladorMedico cm = new ControladorMedico();
         String id_med = Medical_Record_IdPatient_Field.getText();
-        cc.consultarCitasIdMed(id_med);
+        ArrayList<Cita> arr = cc.consultarCitasIdPac(id_med);
+        Object[][]matrix = new Object[arr.size()][3]; int k = 0;
+        for(Cita c: arr){
+                Object[] row = new Object[6];
+                row[0] = c.obtTiempo();
+                row[1] = c.getFecha();
+                row[2] = c.getId_medico();
+                row[3] = cm.consultarMedico(c.getId_medico()).obtNombre();
+                row[4] = c.getCosto();
+                row[5] = "not implemented yet";
+                matrix[k] = row;
+                k++;
+            }
+                DefaultTableModel t = new DefaultTableModel(matrix, new String [] {
+            "Date", "ID Medico", "ID Paciente", "Nombre Paciente"
+        });
+          Schedule_Medical_Table.setModel(t);
     }//GEN-LAST:event_Generate_Medical_RecordActionPerformed
 
     private void Generate_Count_DatesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Generate_Count_DatesActionPerformed
         // TODO add your handling code here:
+       
+        ControladorCita cc = new ControladorCita();
+        
     }//GEN-LAST:event_Generate_Count_DatesActionPerformed
     
    public static void main(String args[]) {
@@ -4905,6 +4954,7 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
     private javax.swing.JLabel jLabel59;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel60;
+    private javax.swing.JLabel jLabel61;
     private javax.swing.JLabel jLabel62;
     private javax.swing.JLabel jLabel63;
     private javax.swing.JLabel jLabel64;
@@ -5033,6 +5083,7 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
     private javax.swing.JTextField jTextField31;
     private javax.swing.JTextField jTextField32;
     private javax.swing.JTextField jTextField33;
+    private javax.swing.JTextField jTextField34;
     private javax.swing.JTextField jTextField35;
     private javax.swing.JTextField jTextField36;
     private javax.swing.JTextField jTextField37;
