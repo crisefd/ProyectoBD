@@ -2682,6 +2682,7 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
             }
         });
 
+        jTextField32.setText("dd/MM/yyyy");
         jTextField32.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField32ActionPerformed(evt);
@@ -3741,6 +3742,11 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
         });
 
         Generate_Schedule_Medical.setText("Generate");
+        Generate_Schedule_Medical.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Generate_Schedule_MedicalActionPerformed(evt);
+            }
+        });
 
         Schedule_Medical_Table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -4641,6 +4647,15 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
           jTable12.setModel(t);
         }
     }//GEN-LAST:event_Search_Employ4ActionPerformed
+
+    private void Generate_Schedule_MedicalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Generate_Schedule_MedicalActionPerformed
+        // TODO add your handling code here:
+        ControladorCita cc = new ControladorCita();
+        String id_med = Doctor_Name_Schedule_Field.getText();
+        String mes = Doctor_Month_Schedule_ComboBox.getSelectedItem().toString();
+        cc.consultarCitasMedicoMes(id_med, mes);
+        
+    }//GEN-LAST:event_Generate_Schedule_MedicalActionPerformed
     
    public static void main(String args[]) {
         /* Set the Nimbus look and feel */

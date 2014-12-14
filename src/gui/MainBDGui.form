@@ -3965,6 +3965,9 @@
                                   </Events>
                                 </Component>
                                 <Component class="javax.swing.JTextField" name="jTextField32">
+                                  <Properties>
+                                    <Property name="text" type="java.lang.String" value="dd/MM/yyyy"/>
+                                  </Properties>
                                   <Events>
                                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField32ActionPerformed"/>
                                   </Events>
@@ -5473,6 +5476,9 @@
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Generate"/>
                           </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Generate_Schedule_MedicalActionPerformed"/>
+                          </Events>
                         </Component>
                         <Container class="javax.swing.JScrollPane" name="jScrollPane2">
                           <AuxValues>
