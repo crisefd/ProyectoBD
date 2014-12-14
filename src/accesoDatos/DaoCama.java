@@ -102,6 +102,63 @@ public class DaoCama {
         return null;
 }
     
+    public ArrayList<Cama> consultarCamasPorID(String id_cama){
+        ArrayList<Cama> array= new ArrayList<Cama>();
+        String sql_select;
+        sql_select= "SELECT id_cama,id_area, descripcion,estado FROM Cama WHERE id_cama='" + id_cama + "'";
+        try{
+            Connection conn= fachada.conectar();
+            Statement sentencia = conn.createStatement();
+            ResultSet tabla = sentencia.executeQuery(sql_select);
+            
+            //
+            while(tabla.next()){
+               Cama c = new Cama();
+                c.setId_cama(tabla.getString(1));
+                c.setId_area(tabla.getString(2));
+                c.setDescripcion(tabla.getString(3));
+                c.setEstado(tabla.getString(4));
+                array.add(c);
+              // System.out.println(tabla.getString(2));
+            }
+             conn.close();
+             System.out.println("Conexion cerrada");
+
+         }
+         catch(SQLException e){ System.out.println(e); }
+         catch(Exception e){ System.out.println(e); }
+         return array;
+        
+    }
+     public ArrayList<Cama> consultarCamasPorArea(String Area_cama){
+        ArrayList<Cama> array= new ArrayList<Cama>();
+        String sql_select;
+        sql_select= "SELECT id_cama,id_area, descripcion,estado FROM Cama WHERE id_area='" + Area_cama + "'";
+        try{
+            Connection conn= fachada.conectar();
+            Statement sentencia = conn.createStatement();
+            ResultSet tabla = sentencia.executeQuery(sql_select);
+            
+            //
+            while(tabla.next()){
+               Cama c = new Cama();
+                c.setId_cama(tabla.getString(1));
+                c.setId_area(tabla.getString(2));
+                c.setDescripcion(tabla.getString(3));
+                c.setEstado(tabla.getString(4));
+                array.add(c);
+              // System.out.println(tabla.getString(2));
+            }
+             conn.close();
+             System.out.println("Conexion cerrada");
+
+         }
+         catch(SQLException e){ System.out.println(e); }
+         catch(Exception e){ System.out.println(e); }
+         return array;
+        
+    }
+    
     public void cerrarConexionBD() {
         fachada.closeConection(fachada.getConnetion());
     }
