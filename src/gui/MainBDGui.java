@@ -2112,7 +2112,7 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
                     .addGroup(Employ_Search4Layout.createSequentialGroup()
                         .addGap(39, 39, 39)
                         .addComponent(jScrollPane19, javax.swing.GroupLayout.PREFERRED_SIZE, 523, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addContainerGap(43, Short.MAX_VALUE))
         );
         Employ_Search4Layout.setVerticalGroup(
             Employ_Search4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -4209,6 +4209,12 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
 
     private void jButton27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton27ActionPerformed
         // TODO add your handling code here:
+        ControladorMedicamento cmed = new ControladorMedicamento();
+        String IdMed = jTextField24.getText();
+        String nombre = jTextField26.getText();
+        String Descripcion = jTextArea3.getText();
+        double costo =  Double.parseDouble(jTextField27.getText());
+        cmed.insertarMedicamento(IdMed, nombre, Descripcion,costo);
     }//GEN-LAST:event_jButton27ActionPerformed
 
     private void jTextField26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField26ActionPerformed
