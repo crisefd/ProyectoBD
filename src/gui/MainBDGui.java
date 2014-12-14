@@ -4102,6 +4102,7 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
 
     private void Generate_Employ_TableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Generate_Employ_TableActionPerformed
         // TODO add your handling code here:
+        System.out.println("XXX");
         ControladorEmpleado ce = new ControladorEmpleado();
         ArrayList<Empleado> arr = ce.consultarEmpleados();
         Object[][] matrix = new Object[arr.size()][4];
@@ -4140,6 +4141,10 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
 
     private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
         // TODO add your handling code here:
+        ControladorCama cc = new ControladorCama();
+        String numero = jTextField19.getText();
+        String status = (String)jComboBox9.getSelectedItem();
+        
     }//GEN-LAST:event_jButton20ActionPerformed
 
     private void Search_Employ_Field8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Search_Employ_Field8ActionPerformed
