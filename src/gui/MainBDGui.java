@@ -752,6 +752,11 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
 
         jButton8.setForeground(new java.awt.Color(0, 204, 0));
         jButton8.setText("Update");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
 
         Search_Employ_Field1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -785,15 +790,6 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
             }
         });
         jScrollPane8.setViewportView(jTable4);
-        if (jTable4.getColumnModel().getColumnCount() > 0) {
-            jTable4.getColumnModel().getColumn(0).setResizable(false);
-            jTable4.getColumnModel().getColumn(1).setResizable(false);
-            jTable4.getColumnModel().getColumn(2).setResizable(false);
-            jTable4.getColumnModel().getColumn(3).setResizable(false);
-            jTable4.getColumnModel().getColumn(4).setResizable(false);
-            jTable4.getColumnModel().getColumn(5).setResizable(false);
-            jTable4.getColumnModel().getColumn(6).setResizable(false);
-        }
 
         javax.swing.GroupLayout Employ_Update_DeleteLayout = new javax.swing.GroupLayout(Employ_Update_Delete);
         Employ_Update_Delete.setLayout(Employ_Update_DeleteLayout);
@@ -815,8 +811,8 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
                         .addComponent(jButton7))
                     .addGroup(Employ_Update_DeleteLayout.createSequentialGroup()
                         .addGap(42, 42, 42)
-                        .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 523, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(168, Short.MAX_VALUE))
+                        .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 526, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(172, Short.MAX_VALUE))
         );
         Employ_Update_DeleteLayout.setVerticalGroup(
             Employ_Update_DeleteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1551,9 +1547,19 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
         Employ_Update_Delete2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Update & Delete", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 3, 11))); // NOI18N
 
         jButton15.setText("Search");
+        jButton15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton15ActionPerformed(evt);
+            }
+        });
 
         jButton17.setForeground(new java.awt.Color(0, 204, 0));
         jButton17.setText("Update");
+        jButton17.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton17ActionPerformed(evt);
+            }
+        });
 
         Search_Employ_Field5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -4509,10 +4515,7 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
 
     private void Search_Employ2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Search_Employ2ActionPerformed
          // TODO add your handling code here:
-        ControladorCama Cc = new ControladorCama();
-        String numero;   
-        String status; 
-        String description;  
+        ControladorCama Cc = new ControladorCama();         
         
         String parametro = Search_Employ_Field4.getText();
         if(parametro.equals("Numero")){
@@ -4555,6 +4558,37 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
     private void jComboBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox4ActionPerformed
+
+    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
+        // TODO add your handling code here:
+        ControladorCama Cc = new ControladorCama();
+        
+        ArrayList<Cama> arr = Cc.consultarCama(Search_Employ_Field4.getText());
+            Object[][]matrix = new Object[arr.size()][4]; int k = 0;
+            for(Cama c: arr){
+                Object[] row = new Object[4];
+                row[0] = c.obtIdCama();
+                row[2] = c.obtEstado();
+                row[1] = c.obtDescripcion();
+                row[3] = c.obtIdArea();
+                matrix[k] = row;
+                k++;
+            }
+           DefaultTableModel t = new DefaultTableModel(matrix, new String [] {
+            "ID Cama", "Estado", "Descripción", "Area"
+        });
+          jTable9.setModel(t);
+    }//GEN-LAST:event_jButton15ActionPerformed
+
+    private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
+        // TODO add your handling code here:
+        
+       // HERE
+    }//GEN-LAST:event_jButton17ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton8ActionPerformed
     
    public static void main(String args[]) {
         /* Set the Nimbus look and feel */
