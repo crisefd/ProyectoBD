@@ -1,3 +1,8 @@
+*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package accesoDatos;
 
 import java.sql.Connection;
@@ -5,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Date;
 import logica.Cama;
 import logica.Cita;
 import logica.Empleado;
@@ -27,7 +33,7 @@ public class DaoCita {
         sql_guardar="INSERT INTO Cita(hora, tipo, fecha, id_medico_fk, id_paciente_fk,costo_cita) VALUES ('" +
                 c.obtTiempo() + "', '" + c.getTipo() +  "', '" +
                   c.getFecha()+  "', '" + c.getId_medico() + "', '" + c.getId_paciente() +  "', '"+
-                 "2500" + "')";
+                 "3000" + "')";
         System.out.println(sql_guardar);
         try{
             Connection conn= fachada.conectar();
@@ -66,10 +72,11 @@ public class DaoCita {
     }
     
     
-    public Cita consultarCita(String id_cita){
-        Cita c = new Cita();
+    public ArrayList<Cita> consultarCitaPorIdPaciente(String id_paciente){
+        
         String sql_select;
-        sql_select = "SELECT hora, tipo, fecha, id_medico_fk, id_paciente_fk,costo_cita FROM Cita WHERE id_medico='" + id_cita + "'";
+        ArrayList<Cita> citas = new ArrayList<Cita>();
+        sql_select = "SELECT hora, tipo, fecha, id_medico_fk, id_paciente_fk,costo_cita FROM Cita WHERE id_paciente_fk='" + id_paciente + "'";
         try {
             Connection conn = fachada.conectar();
             System.out.println("consultando en la bd");
@@ -77,26 +84,101 @@ public class DaoCita {
             ResultSet tabla = sentencia.executeQuery(sql_select);
 
             while (tabla.next()) {
+                Cita c = new Cita();
                 c.setTiempo(tabla.getString(1));
                 c.setTipo(tabla.getString(2));
                 c.setFecha(tabla.getString(3));
                 c.setId_medico(tabla.getString(4));
                 c.setId_paciente(tabla.getString(5));
                 c.setCosto(tabla.getDouble(6));
+                citas.add(c);
                 System.out.println("OK");
             }
 
-            return c;
+          //  return c;
         } catch (SQLException s) {
             System.out.println(s);
         } catch (Exception s) {
             System.out.println(s);
         }
-        return null;
+        return citas;
 }
     
+    public ArrayList<Cita> consultarCitaPorIdMedico(String id_medico){
+        
+        String sql_select;
+        ArrayList<Cita> citas = new ArrayList<Cita>();
+        sql_select = "SELECT hora, tipo, fecha, id_medico_fk, id_paciente_fk,costo_cita FROM Cita WHERE id_medico_fk='" + id_medico + "'";
+        try {
+            Connection conn = fachada.conectar();
+            System.out.println("consultando en la bd");
+            Statement sentencia = conn.createStatement();
+            ResultSet tabla = sentencia.executeQuery(sql_select);
+
+            while (tabla.next()) {
+                Cita c = new Cita();
+                c.setTiempo(tabla.getString(1));
+                c.setTipo(tabla.getString(2));
+                c.setFecha(tabla.getString(3));
+                c.setId_medico(tabla.getString(4));
+                c.setId_paciente(tabla.getString(5));
+                c.setCosto(tabla.getDouble(6));
+                citas.add(c);
+                System.out.println("OK");
+            }
+
+          //  return c;
+        } catch (SQLException s) {
+            System.out.println(s);
+        } catch (Exception s) {
+            System.out.println(s);
+        }
+        return citas;
+}
+    
+    public void cerrarConexionBD() {
+        fachada.closeConection(fachada.getConnetion());
+    }
     
     
+    
+    public ArrayList<Cita> consultarCitasMedicoMes(String id_medico, String mes){
+    ArrayList<Cita> array= new ArrayList<Cita>();
+    Date fecha= new Date();
+    String ano=""+(fecha.getYear() + 1900);
+    
+    String sql_select;
+    sql_select = "SELECT hora, EXTRACT(DAY FROM fecha), id_paciente_fk FROM Cita WHERE id_medico_fk='" + id_medico + "' AND EXTRACT(YEAR FROM fecha)= '"+ano+"' AND EXTRACT(MONTH FROM fecha)= '"+mes+"';";
+    System.out.println(sql_select);
+       try{
+            Connection conn= fachada.conectar();
+            Statement sentencia = conn.createStatement();
+            ResultSet tabla = sentencia.executeQuery(sql_select);
+            
+            //
+            while(tabla.next()){
+               Cita c= new Cita();
+               c.setTiempo(tabla.getString(1));
+               c.setDia(tabla.getString(2));
+               c.setId_paciente(tabla.getString(3));
+               array.add(c);
+              // System.out.println(tabla.getString(2));
+            }
+             conn.close();
+             System.out.println("Conexion cerrada");
+
+         }
+         catch(SQLException e){ 
+             System.out.println(e); 
+         }
+         catch(Exception e){ 
+             System.out.println(e); 
+         }
+       System.out.println("size->: "+array.size());
+         return array;
+    }
+    
+   
     public ArrayList<String> consultarNumeroCitasMedico(String numeroMes, String numeroAno){
         int numero=0;
           ArrayList<String> array= new ArrayList<String>();
@@ -121,22 +203,4 @@ public class DaoCita {
         return null;
 }
     
-    public void cerrarConexionBD() {
-        fachada.closeConection(fachada.getConnetion());
-    }
-    
-    public static void main(String asrg[]){
-        DaoCita dao = new DaoCita();
-//        Cita c = new Cita();
-//        
-//        c.setCosto(112);
-//        c.setFecha("12-10-2014");
-//        c.setId_medico("1234");
-//        c.setId_paciente("333");
-//        c.setTiempo("08:00:00");
-//        c.setTipo("externa");
-//        dao.guardarCita(c);
-       System.out.println( dao.consultarNumeroCitasMedico("01","2015").get(0));
-        
-    }
 }
