@@ -36,14 +36,13 @@ public class ControladorEmpleado {
 
     }//end
 
-    public Empleado consultarEmpleado(String id_persona){
+    public ArrayList<Empleado> consultarEmpleadoPorNombre(String nombre_persona){
         Vector v= new Vector();
 
-        Empleado e = new Empleado();
         
          System.out.println("Se va a consultar un empleado");
 
-        e = daoEmpleado.consultarEmpleado(id_persona);
+        ArrayList<Empleado> e = daoEmpleado.consultarEmpleadoPorNombre(nombre_persona);
       
        return e;
     }
