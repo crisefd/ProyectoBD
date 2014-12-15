@@ -2,7 +2,6 @@ package controlador;
 import accesoDatos.DaoArea;
 import accesoDatos.DaoEmpleado;
 import accesoDatos.DaoHistoria;
-import accesoDatos.DaoPrograma;
 import java.util.ArrayList;
 import java.util.Vector;
 import logica.Area;
@@ -23,7 +22,7 @@ public class ControladorHistoria{
     }
     
     
-    public int  insertarHIstoria(String id_area, String nombre,String descripcion){
+    public int  insertarHistoria(String id_area, String nombre,String descripcion){
         HistoriaClinica a = new HistoriaClinica(id_area,nombre, descripcion);        
 
         
