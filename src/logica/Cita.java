@@ -17,6 +17,7 @@ public class Cita {
     private String tipo, id_medico, id_paciente;
     private String fecha;
     private double costo=2500;
+    private String dia = "";
     
     public Cita(String tiempo, String fecha, String tipo, String id_medico, String id_paciente){
        this.tiempo = tiempo;
@@ -30,6 +31,13 @@ public class Cita {
     public Cita(){
         
     }
+    public String getDia(){
+        return dia;
+    }
+    public void setDia(String dia){
+        this.dia =  dia;
+    }
+    
 
     /**
      * @return the time
@@ -64,9 +72,6 @@ public class Cita {
      */
     public String getFecha() {
         return fecha;
-    }
-    public Double getCosto() {
-        return costo;
     }
 
     /**
