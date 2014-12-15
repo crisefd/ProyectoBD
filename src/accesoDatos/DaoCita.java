@@ -203,4 +203,54 @@ public class DaoCita {
         return null;
 }
     
+    
+    public ArrayList<Double> promedioCostosMensual(String id_user){
+    ArrayList<Double> costos = new ArrayList<Double>();
+    double costoCita = 0 ,costoMedicamento = 0;
+    Date fecha= new Date();
+    String mes=""+fecha.getMonth();
+    String sql_select;
+        sql_select = "SELECT AVG(Cita.costo_cita), AVG(Medicamento.costo_medicamento) FROM (Cita NATURAL JOIN Medicamento) WHERE Cita.id_paciente_fk= '"+id_user+"'AND EXTRACT(MONTH FROM fecha)= '"+mes+"';";
+    try{
+            Connection conn= fachada.conectar();
+            Statement sentencia = conn.createStatement();
+            ResultSet tabla = sentencia.executeQuery(sql_select);
+            conn.close();
+             System.out.println("Conexion cerrada");
+             
+            costoCita= Double.parseDouble( tabla.getString(0));
+            costoMedicamento = Double.parseDouble(tabla.getString(0));
+
+         }
+         catch(SQLException e){ System.out.println(e); }
+         catch(Exception e){ System.out.println(e); }
+         costos.add(costoCita);
+         costos.add(costoMedicamento);
+    return costos;
+}
+public ArrayList<Double> promedioCostosAnual(String id_user){
+    ArrayList<Double> costos = new ArrayList<Double>();
+    double costoCita = 0 ,costoMedicamento = 0;
+    Date fecha= new Date();
+    String year=""+fecha.getYear();
+    String sql_select;
+        sql_select = "SELECT AVG(Cita.costo_cita), AVG(Medicamento.costo_medicamento) FROM (Cita NATURAL JOIN Medicamento) WHERE Cita.id_paciente_fk= '"+id_user+"'AND EXTRACT(YEAR FROM fecha)= '"+year+"';";
+    try{
+            Connection conn= fachada.conectar();
+            Statement sentencia = conn.createStatement();
+            ResultSet tabla = sentencia.executeQuery(sql_select);
+            conn.close();
+             System.out.println("Conexion cerrada");
+             
+            costoCita= Double.parseDouble( tabla.getString(0));
+            costoMedicamento = Double.parseDouble(tabla.getString(0));
+
+         }
+         catch(SQLException e){ System.out.println(e); }
+         catch(Exception e){ System.out.println(e); }
+         costos.add(costoCita);
+         costos.add(costoMedicamento);
+    return costos;
+}
+    
 }
