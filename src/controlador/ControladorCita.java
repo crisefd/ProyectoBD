@@ -66,7 +66,22 @@ public class ControladorCita{
        return lista;
     }
     
-    
+        public ArrayList<String> promedioCostoMensual(String id_user){
+       ArrayList<String> costos = new ArrayList<String>();
+        Double costoMedicamento = daoCita.promedioCostosMensual(id_user).get(1);
+        Double costoCita = daoCita.promedioCostosMensual(id_user).get(0);
+        costos.add(costoMedicamento.toString());
+        costos.add(costoCita.toString());
+        return costos;
+    }
+    public ArrayList<String> promedioCostoAnual(String id_user){
+       ArrayList<String> costos = new ArrayList<String>();
+        Double costoMedicamento = daoCita.promedioCostosAnual(id_user).get(1);
+        Double costoCita = daoCita.promedioCostosAnual(id_user).get(0);
+        costos.add(costoMedicamento.toString());
+        costos.add(costoCita.toString());
+        return costos;
+    }
     
 
     public void cerrarConexionBD(){
