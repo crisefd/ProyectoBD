@@ -11,7 +11,12 @@ import java.util.StringTokenizer;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import logica.*;
+import logica.Campana;
+import logica.Causa;
+import logica.Cita;
+import logica.Empleado;
+import logica.Enfermero;
+import logica.Medico;
 
 /**
  *
@@ -183,8 +188,6 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
         jLabel41 = new javax.swing.JLabel();
         jButton20 = new javax.swing.JButton();
         jComboBox9 = new javax.swing.JComboBox();
-        jLabel44 = new javax.swing.JLabel();
-        jTextField37 = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         Internal_Gestion_Panel_Employ3 = new javax.swing.JPanel();
         Employ_Update_Delete3 = new javax.swing.JPanel();
@@ -555,7 +558,7 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
                         .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(132, Short.MAX_VALUE))
         );
         User_Security_Update_DeleteLayout.setVerticalGroup(
             User_Security_Update_DeleteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -713,7 +716,7 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
             jTable3.getColumnModel().getColumn(6).setResizable(false);
         }
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ID Employee", "Name", "Telephone", " " }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ID Employee", "Name", "Telephone", "" }));
 
         javax.swing.GroupLayout Employ_SearchLayout = new javax.swing.GroupLayout(Employ_Search);
         Employ_Search.setLayout(Employ_SearchLayout);
@@ -752,11 +755,6 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
 
         jButton8.setForeground(new java.awt.Color(0, 204, 0));
         jButton8.setText("Update");
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
-            }
-        });
 
         Search_Employ_Field1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -790,6 +788,15 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
             }
         });
         jScrollPane8.setViewportView(jTable4);
+        if (jTable4.getColumnModel().getColumnCount() > 0) {
+            jTable4.getColumnModel().getColumn(0).setResizable(false);
+            jTable4.getColumnModel().getColumn(1).setResizable(false);
+            jTable4.getColumnModel().getColumn(2).setResizable(false);
+            jTable4.getColumnModel().getColumn(3).setResizable(false);
+            jTable4.getColumnModel().getColumn(4).setResizable(false);
+            jTable4.getColumnModel().getColumn(5).setResizable(false);
+            jTable4.getColumnModel().getColumn(6).setResizable(false);
+        }
 
         javax.swing.GroupLayout Employ_Update_DeleteLayout = new javax.swing.GroupLayout(Employ_Update_Delete);
         Employ_Update_Delete.setLayout(Employ_Update_DeleteLayout);
@@ -811,8 +818,8 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
                         .addComponent(jButton7))
                     .addGroup(Employ_Update_DeleteLayout.createSequentialGroup()
                         .addGap(42, 42, 42)
-                        .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 526, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(66, Short.MAX_VALUE))
+                        .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 523, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(168, Short.MAX_VALUE))
         );
         Employ_Update_DeleteLayout.setVerticalGroup(
             Employ_Update_DeleteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -867,11 +874,6 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
         jLabel25.setText("Securyty Profile");
 
         jComboBox4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Administrador BD", "Jefe Hospital", "Secretario", "Medico", "Enfermero" }));
-        jComboBox4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox4ActionPerformed(evt);
-            }
-        });
 
         jLabel26.setText("ID Boss");
 
@@ -1102,9 +1104,9 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
             .addGroup(Internal_Gestion_Panel_EmployLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(Internal_Gestion_Panel_EmployLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Employ_Search, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Employ_Update_Delete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Employ_Create, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Employ_Search, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(Employ_Create, javax.swing.GroupLayout.DEFAULT_SIZE, 745, Short.MAX_VALUE))
                 .addContainerGap())
         );
         Internal_Gestion_Panel_EmployLayout.setVerticalGroup(
@@ -1133,6 +1135,11 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
         });
 
         Search_Employ1.setText("Search");
+        Search_Employ1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Search_Employ1ActionPerformed(evt);
+            }
+        });
 
         jTable5.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1171,7 +1178,7 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
             jTable5.getColumnModel().getColumn(6).setResizable(false);
         }
 
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ID Patient", "Insurance number", "Name", "Telephone", " " }));
+        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ID Patient", "Insurance number", "Name", "Telephone", "" }));
 
         javax.swing.GroupLayout Employ_Search1Layout = new javax.swing.GroupLayout(Employ_Search1);
         Employ_Search1.setLayout(Employ_Search1Layout);
@@ -1189,7 +1196,7 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
                     .addGroup(Employ_Search1Layout.createSequentialGroup()
                         .addGap(21, 21, 21)
                         .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 568, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(137, Short.MAX_VALUE))
         );
         Employ_Search1Layout.setVerticalGroup(
             Employ_Search1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1276,7 +1283,7 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
                 .addGroup(Employ_Update_Delete1Layout.createSequentialGroup()
                     .addGap(21, 21, 21)
                     .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 568, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(30, Short.MAX_VALUE)))
+                    .addContainerGap(22, Short.MAX_VALUE)))
         );
         Employ_Update_Delete1Layout.setVerticalGroup(
             Employ_Update_Delete1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1382,7 +1389,7 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
                     .addGroup(Employ_Create1Layout.createSequentialGroup()
                         .addGap(262, 262, 262)
                         .addComponent(jButton16)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(87, Short.MAX_VALUE))
         );
         Employ_Create1Layout.setVerticalGroup(
             Employ_Create1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1424,11 +1431,11 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
             Internal_Gestion_Panel_Employ1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Internal_Gestion_Panel_Employ1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(Internal_Gestion_Panel_Employ1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(Employ_Update_Delete1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Employ_Create1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(Internal_Gestion_Panel_Employ1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(Employ_Create1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Employ_Update_Delete1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Employ_Search1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(117, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         Internal_Gestion_Panel_Employ1Layout.setVerticalGroup(
             Internal_Gestion_Panel_Employ1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1471,28 +1478,23 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
         });
 
         Search_Employ2.setText("Search");
-        Search_Employ2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Search_Employ2ActionPerformed(evt);
-            }
-        });
 
         jTable6.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Number", "Description", "Status", "Area"
+                "Number", "Description", "Status"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -1508,10 +1510,9 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
             jTable6.getColumnModel().getColumn(0).setResizable(false);
             jTable6.getColumnModel().getColumn(1).setResizable(false);
             jTable6.getColumnModel().getColumn(2).setResizable(false);
-            jTable6.getColumnModel().getColumn(3).setResizable(false);
         }
 
-        jComboBox6.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Numero", "Estado" }));
+        jComboBox6.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Number", "Status", " " }));
 
         javax.swing.GroupLayout Employ_Search2Layout = new javax.swing.GroupLayout(Employ_Search2);
         Employ_Search2.setLayout(Employ_Search2Layout);
@@ -1547,19 +1548,9 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
         Employ_Update_Delete2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Update & Delete", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 3, 11))); // NOI18N
 
         jButton15.setText("Search");
-        jButton15.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton15ActionPerformed(evt);
-            }
-        });
 
         jButton17.setForeground(new java.awt.Color(0, 204, 0));
         jButton17.setText("Update");
-        jButton17.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton17ActionPerformed(evt);
-            }
-        });
 
         Search_Employ_Field5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1575,17 +1566,17 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
 
         jTable9.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Number", "Description", "Status", "Area"
+                "Number", "Description", "Status"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -1597,7 +1588,6 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
             jTable9.getColumnModel().getColumn(0).setResizable(false);
             jTable9.getColumnModel().getColumn(1).setResizable(false);
             jTable9.getColumnModel().getColumn(2).setResizable(false);
-            jTable9.getColumnModel().getColumn(3).setResizable(false);
         }
 
         javax.swing.GroupLayout Employ_Update_Delete2Layout = new javax.swing.GroupLayout(Employ_Update_Delete2);
@@ -1665,35 +1655,28 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
 
         jComboBox9.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Free", "occupied" }));
 
-        jLabel44.setText("Area");
-
         javax.swing.GroupLayout Employ_Create2Layout = new javax.swing.GroupLayout(Employ_Create2);
         Employ_Create2.setLayout(Employ_Create2Layout);
         Employ_Create2Layout.setHorizontalGroup(
             Employ_Create2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Employ_Create2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton20)
-                .addGap(240, 240, 240))
-            .addGroup(Employ_Create2Layout.createSequentialGroup()
                 .addGap(31, 31, 31)
-                .addGroup(Employ_Create2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addComponent(jLabel39)
+                .addGap(33, 33, 33)
+                .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(Employ_Create2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(Employ_Create2Layout.createSequentialGroup()
-                        .addComponent(jLabel44)
-                        .addGap(32, 32, 32)
-                        .addComponent(jTextField37, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(Employ_Create2Layout.createSequentialGroup()
-                        .addComponent(jLabel39)
-                        .addGap(33, 33, 33)
-                        .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(38, 38, 38)
                         .addComponent(jLabel40)
                         .addGap(32, 32, 32)
-                        .addComponent(jTextField20, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(38, 38, 38)
-                .addComponent(jLabel41)
-                .addGap(18, 18, 18)
-                .addComponent(jComboBox9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextField20, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(38, 38, 38)
+                        .addComponent(jLabel41)
+                        .addGap(18, 18, 18)
+                        .addComponent(jComboBox9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(Employ_Create2Layout.createSequentialGroup()
+                        .addGap(81, 81, 81)
+                        .addComponent(jButton20)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         Employ_Create2Layout.setVerticalGroup(
@@ -1707,13 +1690,9 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
                     .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel39)
                     .addComponent(jComboBox9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(Employ_Create2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField37, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel44))
                 .addGap(18, 18, 18)
                 .addComponent(jButton20)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout Internal_Gestion_Panel_Employ2Layout = new javax.swing.GroupLayout(Internal_Gestion_Panel_Employ2);
@@ -1736,7 +1715,8 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Employ_Update_Delete2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(23, 23, 23)
-                .addComponent(Employ_Create2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(Employ_Create2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -1745,13 +1725,13 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(Internal_Gestion_Panel_Employ2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 57, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(Internal_Gestion_Panel_Employ2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 277, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         Internal_Gestion_Panel.addTab("Beds", jPanel2);
@@ -1929,11 +1909,6 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
         });
 
         Search_Employ3.setText("Search");
-        Search_Employ3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Search_Employ3ActionPerformed(evt);
-            }
-        });
 
         jTable8.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -2054,11 +2029,6 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
         });
 
         Search_Employ4.setText("Search");
-        Search_Employ4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Search_Employ4ActionPerformed(evt);
-            }
-        });
 
         jTable12.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -2361,6 +2331,11 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
         });
 
         Search_Employ5.setText("Search");
+        Search_Employ5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Search_Employ5ActionPerformed(evt);
+            }
+        });
 
         jTable13.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -2399,7 +2374,7 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
             jTable13.getColumnModel().getColumn(6).setResizable(false);
         }
 
-        jComboBox10.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ID Patient", "ID Doctor", "Date" }));
+        jComboBox10.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ID Patient", "ID Doctor" }));
 
         jLabel66.setText("ID Cause");
 
@@ -2682,7 +2657,6 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
             }
         });
 
-        jTextField32.setText("dd/MM/yyyy");
         jTextField32.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField32ActionPerformed(evt);
@@ -2737,10 +2711,6 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
                         .addGap(31, 31, 31)
                         .addGroup(Employ_Create5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(Employ_Create5Layout.createSequentialGroup()
-                                .addComponent(jLabel54, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField25, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(Employ_Create5Layout.createSequentialGroup()
                                 .addComponent(jLabel60, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jTextField33, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -2756,10 +2726,23 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
                             .addGroup(Employ_Create5Layout.createSequentialGroup()
                                 .addGap(10, 10, 10)
                                 .addComponent(jButton32))
-                            .addComponent(jTextField22, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(46, 46, 46)
-                .addGroup(Employ_Create5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jTextField22, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(Employ_Create5Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel54, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextField25, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(46, 46, 46)
+                .addGroup(Employ_Create5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Employ_Create5Layout.createSequentialGroup()
+                        .addGroup(Employ_Create5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton31)
+                            .addGroup(Employ_Create5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel55, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel63, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(41, 41, 41)
+                        .addComponent(jScrollPane22, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Employ_Create5Layout.createSequentialGroup()
                         .addGroup(Employ_Create5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel56)
                             .addComponent(jLabel61))
@@ -2771,20 +2754,8 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
                                 .addComponent(jLabel57)
                                 .addGap(18, 18, 18)
                                 .addComponent(jTextField32, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jTextField34, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(Employ_Create5Layout.createSequentialGroup()
-                        .addGroup(Employ_Create5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(Employ_Create5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(Employ_Create5Layout.createSequentialGroup()
-                                    .addGap(12, 12, 12)
-                                    .addComponent(jLabel63))
-                                .addComponent(jLabel55, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(Employ_Create5Layout.createSequentialGroup()
-                                .addGap(12, 12, 12)
-                                .addComponent(jButton31)))
-                        .addGap(41, 41, 41)
-                        .addComponent(jScrollPane22, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jTextField34, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(65, Short.MAX_VALUE))
         );
         Employ_Create5Layout.setVerticalGroup(
             Employ_Create5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2805,9 +2776,6 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
                     .addComponent(jTextField34, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(Employ_Create5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(Employ_Create5Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel55))
-                    .addGroup(Employ_Create5Layout.createSequentialGroup()
                         .addGap(30, 30, 30)
                         .addGroup(Employ_Create5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel64)
@@ -2826,8 +2794,11 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
                                 .addComponent(jButton31, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(Employ_Create5Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(jScrollPane22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jScrollPane22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(Employ_Create5Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel55)))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout Internal_Gestion_Panel_Employ5Layout = new javax.swing.GroupLayout(Internal_Gestion_Panel_Employ5);
@@ -2836,10 +2807,11 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
             Internal_Gestion_Panel_Employ5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Internal_Gestion_Panel_Employ5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(Internal_Gestion_Panel_Employ5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(Employ_Update_Delete5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Employ_Search5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Employ_Create5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(Internal_Gestion_Panel_Employ5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Employ_Create5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(Internal_Gestion_Panel_Employ5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(Employ_Update_Delete5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Employ_Search5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         Internal_Gestion_Panel_Employ5Layout.setVerticalGroup(
@@ -2858,8 +2830,8 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(Internal_Gestion_Panel_Employ5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 82, Short.MAX_VALUE)
+                .addComponent(Internal_Gestion_Panel_Employ5, javax.swing.GroupLayout.PREFERRED_SIZE, 676, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3453,7 +3425,7 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
             }
         });
 
-        jLabel88.setText("Description");
+        jLabel88.setText("Goal");
 
         jLabel89.setText("Name");
 
@@ -3538,23 +3510,28 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
         });
 
         Search_Employ9.setText("Search");
+        Search_Employ9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Search_Employ9ActionPerformed(evt);
+            }
+        });
 
         jTable20.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "ID Campaing", "Name", "ID Doctor", "Name Doctor", "Goal"
+                "ID Campaing", "Name", "ID Doctor", "Goal"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -3571,10 +3548,19 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
             jTable20.getColumnModel().getColumn(1).setResizable(false);
             jTable20.getColumnModel().getColumn(2).setResizable(false);
             jTable20.getColumnModel().getColumn(3).setResizable(false);
+            //jTable20.getColumnModel().getColumn(4).setResizable(false);
+        }
+        /*
+        if (jTable20.getColumnModel().getColumnCount() > 0) {
+            jTable20.getColumnModel().getColumn(0).setResizable(false);
+            jTable20.getColumnModel().getColumn(1).setResizable(false);
+            jTable20.getColumnModel().getColumn(2).setResizable(false);
+            jTable20.getColumnModel().getColumn(3).setResizable(false);
             jTable20.getColumnModel().getColumn(4).setResizable(false);
         }
+        */
 
-        jComboBox14.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ID Campaing", "Name", "ID Doctor", "Name Doctor" }));
+        jComboBox14.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ID Campaing", "Name", "ID Doctor" }));
 
         javax.swing.GroupLayout Employ_Search9Layout = new javax.swing.GroupLayout(Employ_Search9);
         Employ_Search9.setLayout(Employ_Search9Layout);
@@ -3653,8 +3639,8 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
         Gestion_PanelLayout.setHorizontalGroup(
             Gestion_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Gestion_PanelLayout.createSequentialGroup()
-                .addComponent(Internal_Gestion_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, 666, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 112, Short.MAX_VALUE))
+                .addComponent(Internal_Gestion_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, 766, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 62, Short.MAX_VALUE))
         );
         Gestion_PanelLayout.setVerticalGroup(
             Gestion_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3750,20 +3736,20 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
 
         Schedule_Medical_Table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Day", "Time", "ID Patient", "Patient Name"
+                "Day", "Time", "ID Patient"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -3778,12 +3764,10 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
         if (Schedule_Medical_Table.getColumnModel().getColumnCount() > 0) {
             Schedule_Medical_Table.getColumnModel().getColumn(0).setResizable(false);
             Schedule_Medical_Table.getColumnModel().getColumn(1).setResizable(false);
-            Schedule_Medical_Table.getColumnModel().getColumn(1).setHeaderValue("Time");
             Schedule_Medical_Table.getColumnModel().getColumn(2).setResizable(false);
-            Schedule_Medical_Table.getColumnModel().getColumn(3).setResizable(false);
         }
 
-        Doctor_Month_Schedule_ComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Jaunary", "Febrauary", "March", "April", "May", "June", "August", "September", "October", "November", "December" }));
+        Doctor_Month_Schedule_ComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
 
         javax.swing.GroupLayout Internal_Reports_Panel_Schedule_MedicalLayout = new javax.swing.GroupLayout(Internal_Reports_Panel_Schedule_Medical);
         Internal_Reports_Panel_Schedule_Medical.setLayout(Internal_Reports_Panel_Schedule_MedicalLayout);
@@ -3808,7 +3792,7 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
                             .addGroup(Internal_Reports_Panel_Schedule_MedicalLayout.createSequentialGroup()
                                 .addGap(277, 277, 277)
                                 .addComponent(Generate_Schedule_Medical)))
-                        .addGap(0, 185, Short.MAX_VALUE)))
+                        .addGap(0, 171, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         Internal_Reports_Panel_Schedule_MedicalLayout.setVerticalGroup(
@@ -3832,11 +3816,6 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
         Medical_Record_IdPatient_Label.setText("ID Patient");
 
         Generate_Medical_Record.setText("Generate");
-        Generate_Medical_Record.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Generate_Medical_RecordActionPerformed(evt);
-            }
-        });
 
         Medical_Record_IdPatient_Field.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3873,7 +3852,6 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
         jScrollPane3.setViewportView(Medical_Record_Table);
         if (Medical_Record_Table.getColumnModel().getColumnCount() > 0) {
             Medical_Record_Table.getColumnModel().getColumn(0).setResizable(false);
-            Medical_Record_Table.getColumnModel().getColumn(0).setHeaderValue("Time");
             Medical_Record_Table.getColumnModel().getColumn(1).setResizable(false);
             Medical_Record_Table.getColumnModel().getColumn(2).setResizable(false);
             Medical_Record_Table.getColumnModel().getColumn(3).setResizable(false);
@@ -3920,11 +3898,6 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
         Internal_Reports_Panel.addTab("Medical Record", Internal_Reports_Panel_Medical_Record);
 
         Generate_Count_Dates.setText("Generate");
-        Generate_Count_Dates.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Generate_Count_DatesActionPerformed(evt);
-            }
-        });
 
         Count_Dates_Table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -4100,7 +4073,7 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
             Report_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Report_PanelLayout.createSequentialGroup()
                 .addComponent(Internal_Reports_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, 659, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 118, Short.MAX_VALUE))
+                .addGap(0, 169, Short.MAX_VALUE))
         );
         Report_PanelLayout.setVerticalGroup(
             Report_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -4118,12 +4091,16 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 693, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(61, 61, 61)
+                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 855, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 939, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 917, Short.MAX_VALUE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -4153,6 +4130,84 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
         // TODO add your handling code here:
+        System.out.println("HHH");
+        String id_persona = jTextField2.getText();
+        String nombre =jTextField3.getText();
+        String telefono =jTextField4.getText();
+        String salario = jTextField11.getText();
+        String area = jTextField7.getText();
+        String email = jTextField9.getText();
+        String direccion = jTextField10.getText();
+        String cargo = (String)jComboBox3.getSelectedItem();
+        String perfil = (String)jComboBox4.getSelectedItem();
+        String id_jefe = jTextField12.getText();
+        int anos_exp = (Integer)jSpinner1.getValue();
+        String txtHabilidades = jTextArea1.getText();
+        StringTokenizer stk = new StringTokenizer(txtHabilidades, ",");
+        String []arrHabilidades = new String[stk.countTokens()];
+        int k =0;
+        while(stk.hasMoreTokens()){
+            arrHabilidades[k] = stk.nextToken();
+            k++;
+        }
+        String universidad = jTextField30.getText();
+        String numLic = jTextField29.getText();
+        String especializacion = jTextField28.getText();
+        if(perfil.equals("Medico")){
+            Medico med = new Medico();
+            med.setId_persona(id_persona);
+            med.setNombre(nombre);
+            med.setTelefono(telefono);
+            med.setSalario(Double.parseDouble(salario));
+            med.setId_area(area);
+            med.setEmail(email);
+            med.setDireccion(direccion);
+            med.setCargo(cargo);
+            med.setPerfilSeguridad(perfil);
+            med.setUniversidad(universidad);
+            med.setNumLicencia(numLic);
+            med.setEspecializacion(especializacion);
+            ControladorMedico cm = new ControladorMedico();
+            cm.insertarMedico(med);
+            
+        }else{
+            if(perfil.equals("Enfermero")){
+                ControladorEnfermero ce = new ControladorEnfermero();
+                Enfermero enf = new Enfermero();
+                enf.setId_persona(id_persona);
+                enf.setNombre(nombre);
+                enf.setTelefono(telefono);
+                enf.setCargo(cargo);
+                enf.setSalario(Double.parseDouble(salario));
+                enf.setId_area(area);
+                enf.setEmail(email);
+                enf.setDireccion(direccion);
+                enf.setCargo(cargo);
+                enf.setPerfilSeguridad(perfil);
+                enf.setHabilidades(arrHabilidades);
+                enf.setAnosExp(anos_exp);
+                ce.insertarEnfermero(enf);
+                
+            }else{
+                ControladorEmpleado ce = new ControladorEmpleado();
+                Empleado emp = new Empleado();
+                emp.setId_persona(id_persona);
+                emp.setNombre(nombre);
+                emp.setDireccion(direccion);
+                emp.setTelefono(telefono);
+                emp.setCargo(cargo);
+                emp.setSalario(Double.parseDouble(salario));
+                emp.setEmail(email);
+                emp.setPerfilSeguridad(perfil);
+                emp.setId_area(area);
+                emp.setIdJefe(id_jefe);
+                ce.insertarEmpleado(emp);
+                
+                
+            }
+        }
+        
+        
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void Medical_Record_IdPatient_FieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Medical_Record_IdPatient_FieldActionPerformed
@@ -4207,9 +4262,6 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
         ControladorCama cc = new ControladorCama();
         String numero = jTextField19.getText();
         String status = (String)jComboBox9.getSelectedItem();
-        String Descripcion = jTextField20.getText();
-        String Area = jTextField37.getText();
-        cc.insertarCama(numero, Area, Descripcion, status);
         
     }//GEN-LAST:event_jButton20ActionPerformed
 
@@ -4227,12 +4279,6 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
 
     private void jButton27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton27ActionPerformed
         // TODO add your handling code here:
-        ControladorMedicamento cmed = new ControladorMedicamento();
-        String IdMed = jTextField24.getText();
-        String nombre = jTextField26.getText();
-        String Descripcion = jTextArea3.getText();
-        double costo =  Double.parseDouble(jTextField27.getText());
-        cmed.insertarMedicamento(IdMed, nombre, Descripcion,costo);
     }//GEN-LAST:event_jButton27ActionPerformed
 
     private void jTextField26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField26ActionPerformed
@@ -4257,6 +4303,37 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
 
     private void jButton31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton31ActionPerformed
         // TODO add your handling code here:
+        String idPaciente = jTextField25.getText();
+        String idMedico = jTextField31.getText();
+        String tipo = jTextField33.getText();
+        String fecha = jTextField32.getText();
+        String hora = jTextField34.getText();
+        ControladorCita cc = new ControladorCita();
+        ControladorCausa cca = new ControladorCausa();
+        if(idPaciente!=null && idMedico!=null && tipo!=null && fecha!=null && hora!=null){
+            
+            Cita cita = new Cita();
+            cita.setId_paciente(idPaciente);
+            cita.setId_medico(idMedico);
+            cita.setCosto(3000);
+            cita.setFecha(fecha);
+            cita.setTipo(tipo);
+            cita.setTiempo(hora);
+            cc.insertarCita(cita);
+            int numCausas = Integer.parseInt(JOptionPane.showInputDialog("Numero de causas:"));
+            int  j = 0;
+            String[]nombCausas = new String[numCausas];
+            String[]descrCausas = new String[numCausas];
+            Causa[]causas = new Causa[numCausas];
+            while(j < numCausas){
+                Causa causa = new Causa();
+                 causa.setNombre(JOptionPane.showInputDialog("Ingrese el nombre de la causa "+(j+1)));
+                 causa.setDescripcion(JOptionPane.showInputDialog("Ingrese la descripcion de la causa "+(j+1)));
+                 causas[j] = causa;
+                j++;
+            }
+            cca.insertarCausas(causas, cita);
+        }
     }//GEN-LAST:event_jButton31ActionPerformed
 
     private void jTextField31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField31ActionPerformed
@@ -4273,6 +4350,14 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
 
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
         // TODO add your handling code here:
+        String idPaciente = jTextField13.getText();
+        String nombPaciente = jTextField14.getText();
+        String telefono = jTextField15.getText();
+        String numSegSoc = jTextField16.getText();
+        String actividadEco = jTextField17.getText();
+        String direccion = jTextField18.getText();
+        
+        
     }//GEN-LAST:event_jButton16ActionPerformed
 
     private void jTextField13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField13ActionPerformed
@@ -4320,6 +4405,10 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
     private void jTextField33ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField33ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField33ActionPerformed
+
+    private void jTextField34ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField34ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField34ActionPerformed
 
     private void jButton32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton32ActionPerformed
         // TODO add your handling code here:
@@ -4407,6 +4496,28 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
 
     private void jButton47ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton47ActionPerformed
         // TODO add your handling code here:
+        ControladorCampana cc = new ControladorCampana();
+        String idCampana = jTextField47.getText();
+        String name = jTextField49.getText();
+        String idDoctor = jTextField48.getText();
+        String objetivo = jTextArea10.getText();
+        if(idCampana != null && name != null && idDoctor != null && objetivo != null){
+            Campana c = new Campana();
+            c.setId(idCampana);
+            c.setNombre(name);
+            c.setId_medico(idDoctor);
+            c.setObjetivo(objetivo);
+            cc.insertarCampana(c);
+            int cantidadPacientes = Integer.parseInt(JOptionPane.showInputDialog("Cantidad pacientes campana:"));
+            int z = 0;
+            String idsPacientes[] = new String[cantidadPacientes];
+            while(z < cantidadPacientes){
+                idsPacientes[z] = JOptionPane.showInputDialog("id del paciente"+(z+1)+":");
+                z++;
+            }
+            cc.insertarPacientesCampana(idsPacientes, idCampana);
+            
+        }
     }//GEN-LAST:event_jButton47ActionPerformed
 
     private void jTextField47ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField47ActionPerformed
@@ -4440,6 +4551,10 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
                 matrix[k] = row;
                 k++;
             }
+             if(item.equalsIgnoreCase("Name")){
+                 
+             }
+            
            DefaultTableModel t = new DefaultTableModel(matrix, new String [] {
             "ID Employee", "Name", "Telephone", "Charge", "Area", "E-mail", "Address"
         });
@@ -4453,271 +4568,190 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         // TODO add your handling code here:
        
-        String id_persona = jTextField2.getText();
-        String nombre =jTextField3.getText();
-        String telefono =jTextField4.getText();
-        String salario = jTextField11.getText();
-        String area = jTextField7.getText();
-        String email = jTextField9.getText();
-        String direccion = jTextField10.getText();
-        String cargo = (String)jComboBox3.getSelectedItem();
-        String perfil = (String)jComboBox4.getSelectedItem();
-        String id_jefe = jTextField12.getText();
-        int anos_exp = Integer.parseInt((String)jSpinner1.getValue());
-        String txtHabilidades = jTextArea1.getText();
-        StringTokenizer stk = new StringTokenizer(txtHabilidades, ",");
-        String []arrHabilidades = new String[stk.countTokens()];
-        int k =0;
-        while(stk.hasMoreTokens()){
-            arrHabilidades[k] = stk.nextToken();
-            k++;
-        }
-        String universidad = jTextField30.getText();
-        String numLic = jTextField29.getText();
-        String especializacion = jTextField28.getText();
-        if(perfil.equals("Medico")){
-            Medico med = new Medico();
-            med.setId_persona(id_persona);
-            med.setNombre(nombre);
-            med.setTelefono(telefono);
-            med.setSalario(Double.parseDouble(salario));
-            med.setId_area(area);
-            med.setEmail(email);
-            med.setDireccion(direccion);
-            med.setCargo(cargo);
-            med.setPerfilSeguridad(perfil);
-            med.setUniversidad(universidad);
-            med.setNumLicencia(numLic);
-            med.setEspecializacion(especializacion);
-            ControladorMedico cm = new ControladorMedico();
-            cm.insertarMedico(med);
-            
-        }else{
-            if(perfil.equals("Enfermero")){
-                ControladorEnfermero ce = new ControladorEnfermero();
-                Enfermero enf = new Enfermero();
-                enf.setId_persona(id_persona);
-                enf.setNombre(nombre);
-                enf.setTelefono(telefono);
-                enf.setCargo(cargo);
-                enf.setSalario(Double.parseDouble(salario));
-                enf.setId_area(area);
-                enf.setEmail(email);
-                enf.setDireccion(direccion);
-                enf.setCargo(cargo);
-                enf.setPerfilSeguridad(perfil);
-                enf.setHabilidades(arrHabilidades);
-                enf.setAnosExp(anos_exp);
-                ce.insertarEnfermero(enf);
-                
-            }else{
-                ControladorEmpleado ce = new ControladorEmpleado();
-                Empleado emp = new Empleado();
-                emp.setId_persona(id_persona);
-                emp.setNombre(nombre);
-                emp.setDireccion(direccion);
-                emp.setTelefono(telefono);
-                emp.setCargo(cargo);
-                emp.setSalario(Double.parseDouble(salario));
-                emp.setEmail(email);
-                emp.setPerfilSeguridad(perfil);
-                emp.setId_area(area);
-                emp.setIdJefe(id_jefe);
-                ce.insertarEmpleado(emp);
-                
-                
-            }
-        }
-        
-        
         
     }//GEN-LAST:event_jButton9ActionPerformed
 
-    private void Search_Employ3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Search_Employ3ActionPerformed
+    private void Search_Employ9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Search_Employ9ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Search_Employ3ActionPerformed
-
-    private void Search_Employ2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Search_Employ2ActionPerformed
-         // TODO add your handling code here:
-        ControladorCama Cc = new ControladorCama();         
-        
-        String parametro = Search_Employ_Field4.getText();
-        if(parametro.equals("Numero")){
-            ArrayList<Cama> arr = Cc.consultarCama(Search_Employ_Field4.getText());
+        ControladorCampana cc = new ControladorCampana();
+        String item = (String)jComboBox14.getSelectedItem();
+        if(item.equalsIgnoreCase("ID Campaing")){
+            ArrayList<Campana> arr = cc.consultarCampanasPorId(Search_Employ_Field17.getText());
             Object[][]matrix = new Object[arr.size()][4]; int k = 0;
-            for(Cama c: arr){
+            for(Campana e: arr){
                 Object[] row = new Object[4];
-                row[0] = c.obtIdCama();
-                row[2] = c.obtEstado();
-                row[1] = c.obtDescripcion();
-                row[3] = c.obtIdArea();
+                row[0] = e.obtId();
+                row[1] = e.obtNombre();
+                row[2] = e.obtId_medico();
+                row[3] = e.obtObjetivo();
+                
                 matrix[k] = row;
                 k++;
             }
            DefaultTableModel t = new DefaultTableModel(matrix, new String [] {
-            "ID Cama", "Estado", "Descripción", "Area"
+            "ID Campaing", "Name", "ID Doctor", "Goal"
         });
-          jTable6.setModel(t);
+          jTable20.setModel(t);
+          
+            
+        }else{
+            if (item.equalsIgnoreCase("Name")) {
+                System.out.println("Nombre:"+Search_Employ_Field17.getText());
+                ArrayList<Campana> arr = cc.consultarCampanasPorNombre(Search_Employ_Field17.getText());
+                Object[][] matrix = new Object[arr.size()][4];
+                int k = 0;
+                for (Campana e : arr) {
+                    Object[] row = new Object[4];
+                    row[0] = e.obtId();
+                    row[1] = e.obtNombre();
+                    row[2] = e.obtId_medico();
+                    row[3] = e.obtObjetivo();
+
+                    matrix[k] = row;
+                    k++;
+                }
+                DefaultTableModel t = new DefaultTableModel(matrix, new String[]{
+                    "ID Campaing", "Name", "ID Doctor", "Goal"
+                });
+                jTable20.setModel(t);
+
+            }else{
+                if(item.equalsIgnoreCase("ID Doctor")){
+                    System.out.println("id medico:"+Search_Employ_Field17.getText());
+                    ArrayList<Campana> arr = cc.consultarCampanasPorMedico(Search_Employ_Field17.getText());
+                    Object[][] matrix = new Object[arr.size()][4];
+                    int k = 0;
+                    for (Campana e : arr) {
+                        Object[] row = new Object[4];
+                        row[0] = e.obtId();
+                        row[1] = e.obtNombre();
+                        row[2] = e.obtId_medico();
+                        row[3] = e.obtObjetivo();
+
+                        matrix[k] = row;
+                        k++;
+                    }
+                    DefaultTableModel t = new DefaultTableModel(matrix, new String[]{
+                        "ID Campaing", "Name", "ID Doctor", "Goal"
+                    });
+                    jTable20.setModel(t);
+                }
+            }
         }
-        if(parametro.equals("Area")){
-             ArrayList<Cama> arr = Cc.consultarCamaArea(Search_Employ_Field4.getText());
-            Object[][]matrix = new Object[arr.size()][4]; int k = 0;
-            for(Cama c: arr){
-                Object[] row = new Object[4];
-                row[0] = c.obtIdCama();
-                row[2] = c.obtEstado();
-                row[1] = c.obtDescripcion();
-                row[3] = c.obtIdArea();
-                matrix[k] = row;
-                k++;
+    }//GEN-LAST:event_Search_Employ9ActionPerformed
+
+    private void Search_Employ5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Search_Employ5ActionPerformed
+        // TODO add your handling code here:
+        String item = (String)jComboBox10.getSelectedItem();
+        ControladorCita cc = new ControladorCita();
+        if(item.equalsIgnoreCase("ID Doctor")){
+            String idDoctor = Search_Employ_Field10.getText();
+           ArrayList<Cita> citas = cc.consultarCitasIdMed(idDoctor);
+           Object[][] matrix = new Object[citas.size()][8];
+                    int k = 0;
+                    for (Cita c : citas) {
+                        Object[] row = new Object[8];
+                        row[0] = c.getId_paciente();
+                        row[1] = "";
+                        row[2] = c.getId_medico();
+                        row[3] = "";
+                        row[4] = c.getTipo();
+                        row[5] = c.obtTiempo();
+                        row[6] = c.getFecha();
+                        row[7] = "";
+
+                        matrix[k] = row;
+                        k++;
+                    }
+                    DefaultTableModel t = new DefaultTableModel(matrix, new String[]{
+                       "ID Patient", "Name Patient", "ID Doctor", "Name Doctor", 
+                        "Type", "Hour", "Date", "Causes"
+                    });
+                    jTable13.setModel(t);
+           
+        }else{
+            if(item.equalsIgnoreCase("ID Patient")){
+                String idPaciente = Search_Employ_Field10.getText();
+                ArrayList<Cita> citas = cc.consultarCitasIdPac(idPaciente);
+                Object[][] matrix = new Object[citas.size()][8];
+                    int k = 0;
+                    for (Cita c : citas) {
+                        Object[] row = new Object[8];
+                        row[0] = c.getId_paciente();
+                        row[1] = "";
+                        row[2] = c.getId_medico();
+                        row[3] = "";
+                        row[4] = c.getTipo();
+                        row[5] = c.obtTiempo();
+                        row[6] = c.getFecha();
+                        row[7] = "";
+
+                        matrix[k] = row;
+                        k++;
+                    }
+                    DefaultTableModel t = new DefaultTableModel(matrix, new String[]{
+                       "ID Patient", "Name Patient", "ID Doctor", "Name Doctor", 
+                        "Type", "Hour", "Date", "Causes"
+                    });
+                    jTable13.setModel(t);
             }
-           DefaultTableModel t = new DefaultTableModel(matrix, new String [] {
-            "ID Cama", "Estado", "Descripción", "Area"
-        });
-          jTable6.setModel(t);
         }
         
-    }//GEN-LAST:event_Search_Employ2ActionPerformed
-
-    private void jComboBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox4ActionPerformed
-
-    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
-        // TODO add your handling code here:
-        ControladorCama Cc = new ControladorCama();
-        
-        ArrayList<Cama> arr = Cc.consultarCama(Search_Employ_Field4.getText());
-            Object[][]matrix = new Object[arr.size()][4]; int k = 0;
-            for(Cama c: arr){
-                Object[] row = new Object[4];
-                row[0] = c.obtIdCama();
-                row[2] = c.obtEstado();
-                row[1] = c.obtDescripcion();
-                row[3] = c.obtIdArea();
-                matrix[k] = row;
-                k++;
-            }
-           DefaultTableModel t = new DefaultTableModel(matrix, new String [] {
-            "ID Cama", "Estado", "Descripción", "Area"
-        });
-          jTable9.setModel(t);
-    }//GEN-LAST:event_jButton15ActionPerformed
-
-    private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
-        // TODO add your handling code here:
-        
-       // HERE
-    }//GEN-LAST:event_jButton17ActionPerformed
-
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton8ActionPerformed
-
-    private void Search_Employ4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Search_Employ4ActionPerformed
-        // TODO add your handling code here:
-       
-        ControladorMedicamento med = new ControladorMedicamento();         
-        
-        String parametro =(String)jComboBox8.getSelectedItem();
-        if(parametro.equals("ID Medicina")){
-            ArrayList<Medicamento> arr = med.consultarMedicamentoPorID(Search_Employ_Field8.getText());
-            Object[][]matrix = new Object[arr.size()][4]; int k = 0;
-            for(Medicamento m: arr){
-                Object[] row = new Object[4];
-                row[0] = m.obtId();
-                row[1] = m.obtNombre();
-                row[2] = m.obtDescripcion();
-                row[3] = m.obtCosto();
-                matrix[k] = row;
-                k++;
-            }
-           DefaultTableModel t = new DefaultTableModel(matrix, new String [] {
-            "ID Medicamento", "Nombre ", "Descripción", "Costo"
-        });
-          jTable12.setModel(t);
-        }
-        if(parametro.equals("Nombre")){
-            ArrayList<Medicamento> arr = med.consultarMedicamentoPorNombre(Search_Employ_Field8.getText());
-            Object[][]matrix = new Object[arr.size()][4]; int k = 0;
-            for(Medicamento m: arr){
-                Object[] row = new Object[4];
-                row[0] = m.obtId();
-                row[1] = m.obtNombre();
-                row[2] = m.obtDescripcion();
-                row[3] = m.obtCosto();
-                matrix[k] = row;
-                k++;
-            }
-           DefaultTableModel t = new DefaultTableModel(matrix, new String [] {
-            "ID Medicamento", "Nombre ", "Descripción", "Costo"
-        });
-          jTable12.setModel(t);
-        }
-    }//GEN-LAST:event_Search_Employ4ActionPerformed
-
-    private void jTextField34ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField34ActionPerformed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_jTextField34ActionPerformed
+    }//GEN-LAST:event_Search_Employ5ActionPerformed
 
     private void Generate_Schedule_MedicalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Generate_Schedule_MedicalActionPerformed
         // TODO add your handling code here:
-        ControladorCita cc = new ControladorCita();
-        ControladorPaciente cp =new ControladorPaciente();
-        String id_med = Doctor_Name_Schedule_Field.getText();
-        String mes = Doctor_Month_Schedule_ComboBox.getSelectedItem().toString();
-        ArrayList<Cita> arr = cc.consultarCitasMedicoMes(id_med, mes);
-        Object[][]matrix = new Object[arr.size()][4]; int k = 0;
-        for(Cita c: arr){
-                Object[] row = new Object[4];
-                row[0] = c.getFecha();
-                row[1] = c.obtTiempo();
-                row[2] = c.getId_paciente();
-                row[3] = cp.consultarPaciente(c.getId_paciente()).obtNombre();  
-                matrix[k] = row;
-                k++;
-            }
-                DefaultTableModel t = new DefaultTableModel(matrix, new String [] {
-            "Date","Hora", "ID Medico", "ID Paciente", "Nombre Paciente"
-        });
-          Schedule_Medical_Table.setModel(t);
-        
-                                                           
-        
+        String idMedico = Doctor_Name_Schedule_Field.getText();
+        String item = (String)Doctor_Month_Schedule_ComboBox.getSelectedItem();
+        if(idMedico != null){
+            ControladorCita cc = new ControladorCita();
+            ArrayList<Cita> citas = cc.consultarCitasMedicoMes(idMedico, item);
+            System.out.println("size: "+citas.size());
+            Object[][] matrix = new Object[citas.size()][3];
+                    int k = 0;
+                    for (Cita c : citas) {
+                        Object[] row = new Object[3];
+                        row[0] = c.getDia();
+                        row[1] = c.obtTiempo();
+                        row[2] = c.getId_paciente();
+                        matrix[k] = row;
+                        k++;
+                    }
+                    DefaultTableModel t = new DefaultTableModel(matrix, new String[]{
+                       "Day",  "Time", "ID Patient" 
+                        
+                    });
+                    Schedule_Medical_Table.setModel(t);
+            
+        }
     }//GEN-LAST:event_Generate_Schedule_MedicalActionPerformed
 
-    private void Generate_Medical_RecordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Generate_Medical_RecordActionPerformed
-        // TODO add your handling code here:
-        
-        ControladorCita cc = new ControladorCita();
-        ControladorMedico cm = new ControladorMedico();
-        String id_med = Medical_Record_IdPatient_Field.getText();
-        ArrayList<Cita> arr = cc.consultarCitasIdPac(id_med);
-        Object[][]matrix = new Object[arr.size()][3]; int k = 0;
-        for(Cita c: arr){
-                Object[] row = new Object[6];
-                row[0] = c.obtTiempo();
-                row[1] = c.getFecha();
-                row[2] = c.getId_medico();
-                row[3] = cm.consultarMedico(c.getId_medico()).obtNombre();
-                row[4] = c.getCosto();
-                row[5] = "not implemented yet";
+    private void Search_Employ1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Search_Employ1ActionPerformed
+       /*ControladorPaciente cp = new ControladorPaciente();
+        String item = (String)jComboBox5.getSelectedItem();
+        if(item.equalsIgnoreCase("ID Employee")){
+            ArrayList<Empleado> arr = cp.consultarEmpleadoPorId(Search_Employ_Field.getText());
+            Object[][]matrix = new Object[arr.size()][7]; int k = 0;
+            for(Empleado e: arr){
+                Object[] row = new Object[7];
+                row[0] = e.obtIdPersona();
+                row[1] = e.obtNombre();
+                row[2] = e.obtTelefono();
+                row[3] = e.obtCargo();
+                row[4] = e.obtIdArea();
+                row[5] = e.obtEmail();
+                row[6] = e.obtDireccion();
                 matrix[k] = row;
                 k++;
             }
-                DefaultTableModel t = new DefaultTableModel(matrix, new String [] {
-            "Date", "ID Medico", "ID Paciente", "Nombre Paciente"
+           DefaultTableModel t = new DefaultTableModel(matrix, new String [] {
+            "ID Employee", "Name", "Telephone", "Charge", "Area", "E-mail", "Address"
         });
-          Schedule_Medical_Table.setModel(t);
-    }//GEN-LAST:event_Generate_Medical_RecordActionPerformed
-
-    private void Generate_Count_DatesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Generate_Count_DatesActionPerformed
-        // TODO add your handling code here:
-       
-        ControladorCita cc = new ControladorCita();
-        
-    }//GEN-LAST:event_Generate_Count_DatesActionPerformed
+          jTable3.setModel(t);
+          
+            
+        }*/
+    }//GEN-LAST:event_Search_Employ1ActionPerformed
     
    public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -4733,13 +4767,13 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(GestionprogramasGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(GestionprogramasGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(GestionprogramasGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(GestionprogramasGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+           
         }
         //</editor-fold>
 
@@ -4935,7 +4969,6 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
-    private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel47;
@@ -5086,7 +5119,6 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
     private javax.swing.JTextField jTextField34;
     private javax.swing.JTextField jTextField35;
     private javax.swing.JTextField jTextField36;
-    private javax.swing.JTextField jTextField37;
     private javax.swing.JTextField jTextField39;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField40;
