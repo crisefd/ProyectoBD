@@ -43,11 +43,42 @@ public class DaoCama {
         catch(Exception e){ System.out.println(e); }
         return -1;
     }//fin guardar
+     
+     public int actualizarCama(Cama c){
+        String sql_guardar;
+        sql_guardar="UPDATE Cama SET id_area_fk= '" + c.obtIdArea() +  "',descripcion= '" +
+                  c.obtDescripcion()+ "',estado= '"  +
+                 c.obtEstado() + "' WHERE id_cama='"+c.obtIdCama()+"'";
+        try{
+            Connection conn= fachada.conectar();
+            Statement sentencia = conn.createStatement();
+            int numFilas = sentencia.executeUpdate(sql_guardar);
+            conn.close();
+            return numFilas;
+        }
+        catch(SQLException e){ System.out.println(e); }
+        catch(Exception e){ System.out.println(e); }
+        return -1;
+    }
+     public int borrarCama(Cama c){
+        String sql_guardar;
+        sql_guardar="UPDATE Cama SET logic_delete= FALSE WHERE id_cama='"+c.obtIdCama()+"'";
+        try{
+            Connection conn= fachada.conectar();
+            Statement sentencia = conn.createStatement();
+            int numFilas = sentencia.executeUpdate(sql_guardar);
+            conn.close();
+            return numFilas;
+        }
+        catch(SQLException e){ System.out.println(e); }
+        catch(Exception e){ System.out.println(e); }
+        return -1;
+    }
 
    public ArrayList<Cama> consultarCamas(){
         ArrayList<Cama> array= new ArrayList<Cama>();
         String sql_select;
-        sql_select="SELECT id_cama, id_area_fk,descripcion, estado FROM Cama";
+        sql_select="SELECT id_cama, id_area_fk,descripcion, estado FROM Cama WHERE logic_delete= TRUE";
          try{
             Connection conn= fachada.conectar();
             Statement sentencia = conn.createStatement();
@@ -72,7 +103,7 @@ public class DaoCama {
     public Cama consultarCama(String id_cama){
         Cama c = new Cama();
         String sql_select;
-        sql_select = "SELECT id_cama,id_area, descripcion,estado FROM Cama WHERE id_cama='" + id_cama + "'";
+        sql_select = "SELECT id_cama,id_area, descripcion,estado FROM Cama WHERE id_cama='" + id_cama + "' AND logic_delete= TRUE";
         try {
             Connection conn = fachada.conectar();
             System.out.println("consultando en la bd");
@@ -166,11 +197,13 @@ public class DaoCama {
         DaoCama dao = new DaoCama();
         Cama c = new Cama();
         
-        c.setDescripcion("dos cama");
+        c.setDescripcion("tres cama");
         c.setEstado("ocu");
         c.setId_area("444");
-        c.setId_cama("1235");
+        c.setId_cama("123");
         
         dao.guardarCama(c);
+        //dao.actualizarCama(c);
+        //dao.borrarCama(c);
     }
 }

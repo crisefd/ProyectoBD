@@ -42,6 +42,22 @@ public class DaoHistoria {
         catch(Exception e){ System.out.println(e); }
         return -1;
     }//fin guardar
+     public int actualizarHistoria(HistoriaClinica m){
+        String sql_guardar;
+        sql_guardar="UPDATE Historia_Clinica(id_hist_clinica, fecha_apertura, id_paciente_fk) VALUES ('" +
+                m.getId() + "', '" + m.getFechaApertura() +  "', '" +
+                  m.getId_paciente() + "')";
+        try{
+            Connection conn= fachada.conectar();
+            Statement sentencia = conn.createStatement();
+            int numFilas = sentencia.executeUpdate(sql_guardar);
+            conn.close();
+            return numFilas;
+        }
+        catch(SQLException e){ System.out.println(e); }
+        catch(Exception e){ System.out.println(e); }
+        return -1;
+    }
 
     public ArrayList<HistoriaClinica> consultarMedicamento(){
         ArrayList<HistoriaClinica> array= new ArrayList<HistoriaClinica>();

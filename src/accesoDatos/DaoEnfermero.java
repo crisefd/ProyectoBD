@@ -47,7 +47,7 @@ public class DaoEnfermero {
      
      private int asignarHabilidadEnfermero(String id, String hab){
          String sql_insert;
-         sql_insert="INSERT INTO Habilidades_Enfermero( id_enfermero_fk,habilidad) VALUES ('"+id+"','"+hab+"');";
+         sql_insert="INSERT INTO Habilidades_Enfermero( id_persona_fk,habilidad) VALUES ('"+id+"','"+hab+"');";
          try{
             Connection conn= fachada.conectar();
             Statement sentencia = conn.createStatement();
@@ -62,7 +62,7 @@ public class DaoEnfermero {
      
     private Object[] consultarHabilidadEnfermero(String idEnfermero){
        String sql_select;
-       sql_select="SELECT habilidad FROM Habilidades_Enfermero WHERE id_enfermero_fk="+idEnfermero+";";
+       sql_select="SELECT habilidad FROM Habilidades_Enfermero WHERE id_persona_fk="+idEnfermero+";";
        ArrayList<String> array= new ArrayList<String>();
        try{
             Connection conn= fachada.conectar();
@@ -93,7 +93,7 @@ public class DaoEnfermero {
         
         String sql_select;
         ArrayList<Enfermero> array = new ArrayList<Enfermero>();
-        sql_select="SELECT anos_exp,id_persona, nombre,direccion,telefono, cargo, salario, email, perfil_seguridad, id_area_fk FROM Enfermero;";
+        sql_select="SELECT anos_exp,id_persona, nombre,direccion,telefono, cargo, salario, email, perfil_seguridad, id_area_fk FROM Enfermero  logic_delete= TRUE;";
          try{
             Connection conn= fachada.conectar();
             Statement sentencia = conn.createStatement();
@@ -127,7 +127,7 @@ public class DaoEnfermero {
 public Enfermero consultarEnfermero(String id_empleado){
         Enfermero e = new Enfermero();
         String sql_select;
-        sql_select = "SELECT id_empleado, nombre, telefono, email, cargo, id_area_fk,anos_exp,id_enfermero FROM Enfermero WHERE id_empleado='" + id_empleado + "'";
+        sql_select = "SELECT id_empleado, nombre, telefono, email, cargo, id_area_fk,anos_exp,id_enfermero FROM Enfermero WHERE id_empleado='" + id_empleado + "' AND logic_delete= TRUE";
         Object h[];
         h=consultarHabilidadEnfermero(id_empleado);
         String habilidades[] = new String[h.length];
@@ -175,25 +175,25 @@ public Enfermero consultarEnfermero(String id_empleado){
     }
  public static void main(String args[]){
      DaoEnfermero dao=new DaoEnfermero();
-//     Enfermero e =new Enfermero();
-//     e.setId_persona("123");
-//     e.setId_area("444");
-//     e.setAnosExp(14);
-//     e.setCargo("general");
-//     e.setDireccion("calle 70");
-//     e.setEmail("correo");
-//     e.setIdEnfermero("123");
-//     e.setNombre("luis");
-//     e.setPerfilSeguridad("1");
-//     e.setTelefono("12345678");
-//     
-//     e.setSalario(123000);
-//     e.setHabilidades(new String[]{"injecccion","pediatria"});
-//     dao.guardarEnfermero(e);
+     Enfermero e =new Enfermero();
+     e.setId_persona("123");
+     e.setId_area("444");
+     e.setAnosExp(14);
+     e.setCargo("general");
+     e.setDireccion("calle 70");
+     e.setEmail("correo");
+     e.setIdEnfermero("123");
+     e.setNombre("luis");
+     e.setPerfilSeguridad("1");
+     e.setTelefono("12345678");
      
-      ArrayList<Enfermero> array = dao.consultarEnfermeros();
+     e.setSalario(123000);
+     e.setHabilidades(new String[]{"injecccion","pediatria"});
+     dao.guardarEnfermero(e);
+     
+      //ArrayList<Enfermero> array = dao.consultarEnfermeros();
       
-          System.out.println(array.get(0).obtNombre());
+         // System.out.println(array.get(0).obtNombre());
       
      
  }

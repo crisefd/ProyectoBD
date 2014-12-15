@@ -46,6 +46,22 @@ public class DaoCita {
         catch(Exception e){ System.out.println(e); }
         return -1;
     }//fin guardar
+     public int borrarCita(Cita c){
+        String sql_guardar;
+        sql_guardar="UPDATE Cita SET logic_delete=False WHERE hora='" +c.obtTiempo() + "'AND tipo= '" + c.getTipo() +  "'AND fecha= '" +
+                  c.getFecha()+  "' AND id_medico_fk ='" + c.getId_medico() + "' AND id_paciente_fk='" + c.getId_paciente() +  "';";                
+        System.out.println(sql_guardar);
+        try{
+            Connection conn= fachada.conectar();
+            Statement sentencia = conn.createStatement();
+            int numFilas = sentencia.executeUpdate(sql_guardar);
+            conn.close();
+            return numFilas;
+        }
+        catch(SQLException e){ System.out.println(e); }
+        catch(Exception e){ System.out.println(e); }
+        return -1;
+    }
 
    public ArrayList<Cita> consultarCitas(){
         ArrayList<Cita> array= new ArrayList<Cita>();

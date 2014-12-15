@@ -46,7 +46,7 @@ public class DaoArea {
     public ArrayList<Area> consultarAreas(){
         ArrayList<Area> array= new ArrayList<Area>();
         String sql_select;
-        sql_select="SELECT id_area, nombre, descripcion FROM Area";
+        sql_select="SELECT id_area, nombre, descripcion FROM Area WHERE  logic_delete= TRUE";
          try{
             Connection conn= fachada.conectar();
             Statement sentencia = conn.createStatement();
@@ -69,7 +69,7 @@ public class DaoArea {
     public Area consultarArea(String id_area){
         Area a = new Area();
         String sql_select;
-        sql_select = "SELECT id_area, nombre, descripcion from Area WHERE id_area='" + id_area + "'";
+        sql_select = "SELECT id_area, nombre, descripcion from Area WHERE id_area='" + id_area + "' AND logic_delete= TRUE";
         try {
             Connection conn = fachada.conectar();
             System.out.println("consultando en la bd");
@@ -97,6 +97,36 @@ public class DaoArea {
         }
         return null;
 }
+    public int actualizarArea(Area a){
+        String sql_guardar;
+        sql_guardar="UPDATE Area SET  nombre='"  + a.obtNombre() +  "',descripcion= '" +
+                  a.descripcion() + "' WHERE id_area='"+a.obtIdArea()+"';";
+        try{
+            Connection conn= fachada.conectar();
+            Statement sentencia = conn.createStatement();
+            int numFilas = sentencia.executeUpdate(sql_guardar);
+            conn.close();
+            return numFilas;
+        }
+        catch(SQLException e){ System.out.println(e); }
+        catch(Exception e){ System.out.println(e); }
+        return -1;
+    }
+    public int borrarArea(Area a){
+        String sql_guardar;
+        sql_guardar="UPDATE Area SET logic_delete=FALSE WHERE id_area='"+a.obtIdArea()+"';";
+        try{
+            Connection conn= fachada.conectar();
+            Statement sentencia = conn.createStatement();
+            int numFilas = sentencia.executeUpdate(sql_guardar);
+            conn.close();
+            return numFilas;
+        }
+        catch(SQLException e){ System.out.println(e); }
+        catch(Exception e){ System.out.println(e); }
+        return -1;
+    }
+    
     
      public void cerrarConexionBD() {
         fachada.closeConection(fachada.getConnetion());
@@ -105,11 +135,13 @@ public class DaoArea {
          DaoArea dao= new DaoArea();
          Area a = new Area();
          
-         a.setId_area("222");
-         a.setDescripcion("cirugia");
+         a.setId_area("444");
+         a.setDescripcion("espera");
          a.setNombre("UCi");
          
          dao.guardarArea(a);
+        //dao.actualizarArea(a);
+         //dao.borrarArea(a);
       }
   
 }

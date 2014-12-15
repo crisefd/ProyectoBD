@@ -19,9 +19,9 @@ public class FachadaBD {
 //            url="jdbc:postgresql://pgsql:5432/crisefd";
 //            usuario="crisefd";
 //            password="crisefd";
-            url="jdbc:postgresql://localhost:5432/Hospital";
+            url="jdbc:postgresql://localhost:5432/postgres";
             usuario="postgres";
-            password="postgres";
+            password="1234";
         }
         
         

@@ -49,6 +49,41 @@ public class DaoEmpleado {
         //guardarJefeEmpleado(emp.obtIdPersona(), emp.getIdJefe());
         return -1;
     }//fin guardar
+    public int actualizarEmpleado(Empleado emp){
+        String sql_guardar;
+       
+        sql_guardar ="UPDATE Empleado SET  nombre= '"+emp.obtNombre()+"', direccion='"+emp.obtDireccion()+"',telefono='"+emp.obtTelefono()+"',cargo='"+emp.obtCargo()+"',salario='"+emp.obtSalario()+ "',email='"+emp.obtEmail()+
+                "',perfil_seguridad='"+ emp.obtSeguridad() + "', id_area_fk='"+emp.obtIdArea()+"' WHERE id_persona='"+emp.obtIdPersona()+"';";  
+        System.out.println(sql_guardar);
+                
+        try{
+            Connection conn= fachada.conectar();
+            Statement sentencia = conn.createStatement();
+            int numFilas = sentencia.executeUpdate(sql_guardar);
+            conn.close();
+            return numFilas;
+        }
+        catch(SQLException e){ System.out.println(e); }
+        catch(Exception e){ System.out.println(e); }
+        return -1;
+    }
+ public int borrarEmpleado(Empleado emp){
+        String sql_guardar;
+       
+        sql_guardar = "UPDATE Empleado SET logic_delete=FALSE WHERE  id_persona='"+emp.obtIdPersona()+"';";
+                System.out.println(sql_guardar);
+                
+        try{
+            Connection conn= fachada.conectar();
+            Statement sentencia = conn.createStatement();
+            int numFilas = sentencia.executeUpdate(sql_guardar);
+            conn.close();
+            return numFilas;
+        }
+        catch(SQLException e){ System.out.println(e); }
+        catch(Exception e){ System.out.println(e); }
+        return -1;
+    }
 
     private int guardarJefeEmpleado(String idEmpleado, String idJefe) {
         String sql_guardar = "INSERT INTO Jefe_Empleado VALUES('" + idEmpleado + "', '"

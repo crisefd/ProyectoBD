@@ -57,6 +57,37 @@ public class DaoCampana {
         catch(Exception e){ System.out.println(e); }
         return -1;
     }//fin guardar
+     public int actualizarCampana(Campana camp){
+        String sql_guardar;
+        sql_guardar="UPDATE  Campana SET nombre='"  + camp.obtNombre() +  "',objetivo= '" + camp.obtObjetivo() + "',id_medico_encargado_fk= '" + camp.obtId_medico() +"'WHERE id_campana='"+camp.obtId()+"';";
+        
+        try{
+            Connection conn= fachada.conectar();
+            Statement sentencia = conn.createStatement();
+            int numFilas = sentencia.executeUpdate(sql_guardar);
+            conn.close();
+            return numFilas;
+        }
+        catch(SQLException e){ System.out.println(e); }
+        catch(Exception e){ System.out.println(e); }
+        return -1;
+    }
+      
+      public int borrarCampana(Campana camp){
+        String sql_guardar;
+        sql_guardar="UPDATE  Campana SET logic_delete= FALSE WHERE id_campana='"+camp.obtId()+"';";
+        
+        try{
+            Connection conn= fachada.conectar();
+            Statement sentencia = conn.createStatement();
+            int numFilas = sentencia.executeUpdate(sql_guardar);
+            conn.close();
+            return numFilas;
+        }
+        catch(SQLException e){ System.out.println(e); }
+        catch(Exception e){ System.out.println(e); }
+        return -1;
+    }
 
     public ArrayList<Campana> consultarCampanas(){
         ArrayList<Campana> array= new ArrayList<Campana>();

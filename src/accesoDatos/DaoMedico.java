@@ -44,6 +44,45 @@ public class DaoMedico {
         return -1;
     }//fin guardar
      
+     public int actualizarMedico(Medico med){
+        String sql_guardar = "";
+        sql_guardar += "UPDATE Medico SET nombre='"  + med.obtNombre() +  "',direccion= '" + med.obtDireccion() + "',telefono= '" + med.obtTelefono() + "',cargo= '" + med.obtCargo() + "',salario= '" + med.obtSalario()+ "',email= '" + med.obtEmail() + "', perfil_seguridad='" + med.obtSeguridad()
+                +"',id_area_fk= '"+ med.obtIdArea() +"',especializacion= '" + med.obtEspecializacion()  +"',num_licencia='"+ med.obtNumLicencia() +"',universidad='"+ med.obtUniversidad()+"' WHERE id_persona='"+med.obtIdPersona()+"';" ;
+        
+        System.out.println(sql_guardar);
+        
+       
+        try{
+            Connection conn= fachada.conectar();
+            Statement sentencia = conn.createStatement();
+            int numFilas = sentencia.executeUpdate(sql_guardar);
+            conn.close();
+            return numFilas;
+        }
+        catch(SQLException e){ System.out.println(e); }
+        catch(Exception e){ System.out.println(e); }
+        return -1;
+    }
+     
+     public int borrarMedico(Medico med){
+        String sql_guardar = "";
+        sql_guardar += "UPDATE Medico SET logic_delete=FALSE WHERE id_persona='"+med.obtIdPersona()+"';" ;
+        
+        System.out.println(sql_guardar);
+        
+       
+        try{
+            Connection conn= fachada.conectar();
+            Statement sentencia = conn.createStatement();
+            int numFilas = sentencia.executeUpdate(sql_guardar);
+            conn.close();
+            return numFilas;
+        }
+        catch(SQLException e){ System.out.println(e); }
+        catch(Exception e){ System.out.println(e); }
+        return -1;
+    }
+     
      
      
 
@@ -126,24 +165,26 @@ public Medico consultarMedico(String id_empleado){
     }
  public static void main(String args[]){
      DaoMedico dao=new DaoMedico();
-//     Medico e =new Medico();
-//                e.setId_persona("1234");
-//                e.setNombre("Fabian");
-//                e.setDireccion("Calle 70");
-//                e.setTelefono("445678");
-//                e.setCargo("Medico General");
-//                e.setSalario(1200000);
-//                e.setEmail("fabian@");
-//                e.setPerfilSeguridad("2");
-//                e.setId_area("444");
-//                e.setEspecializacion("Ginecologia");
-//                e.setNumLicencia("12345");
-//                e.setUniversidad("ICESI");
-//     dao.guardarMedico(e);
-     dao.consultarMedicos();
-        ArrayList<Medico> array = dao.consultarMedicos();
-      
-          System.out.println(array.get(0).obtNombre());
+     Medico e =new Medico();
+                e.setId_persona("1235");
+                e.setNombre("Fabian");
+                e.setDireccion("Calle 80");
+                e.setTelefono("445678");
+                e.setCargo("Medico novato");
+                e.setSalario(1200000);
+                e.setEmail("fabian@");
+                e.setPerfilSeguridad("2");
+                e.setId_area("444");
+                e.setEspecializacion("Ginecologia");
+                e.setNumLicencia("12345");
+                e.setUniversidad("ICESI");
+     //dao.guardarMedico(e);
+     //dao.actualizarMedico(e);
+                dao.borrarMedico(e);
+//     dao.consultarMedicos();
+//        ArrayList<Medico> array = dao.consultarMedicos();
+//      
+//          System.out.println(array.get(0).obtNombre());
  }
 }
 
