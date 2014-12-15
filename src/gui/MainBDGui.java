@@ -405,6 +405,8 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
+        jLabel44 = new javax.swing.JLabel();
+        jTextField37 = new javax.swing.JTextField();
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -1106,7 +1108,7 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
                 .addGroup(Internal_Gestion_Panel_EmployLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Employ_Search, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Employ_Update_Delete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Employ_Create, javax.swing.GroupLayout.DEFAULT_SIZE, 745, Short.MAX_VALUE))
+                    .addComponent(Employ_Create, javax.swing.GroupLayout.PREFERRED_SIZE, 745, Short.MAX_VALUE))
                 .addContainerGap())
         );
         Internal_Gestion_Panel_EmployLayout.setVerticalGroup(
@@ -3646,7 +3648,7 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
             Gestion_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Gestion_PanelLayout.createSequentialGroup()
                 .addComponent(Internal_Gestion_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 566, Short.MAX_VALUE))
+                .addGap(0, 569, Short.MAX_VALUE))
         );
 
         Global_Panel.addTab("GESTION", Gestion_Panel);
@@ -3711,7 +3713,7 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
                 .addContainerGap()
                 .addComponent(Generate_Employ_Table)
                 .addGap(5, 5, 5)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 592, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 602, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -3807,7 +3809,7 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
                 .addGap(11, 11, 11)
                 .addComponent(Generate_Schedule_Medical)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 536, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 540, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -3891,7 +3893,7 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
                 .addGap(18, 18, 18)
                 .addComponent(Generate_Medical_Record)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 528, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 531, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -3965,6 +3967,11 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
         jLabel2.setText("Date");
 
         jButton1.setText("Generate");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel3.setText("Medicine");
@@ -3973,6 +3980,11 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
         jLabel4.setText("Date");
 
         jButton2.setText("Generate");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel5.setText("Monthly Average");
@@ -3991,6 +4003,10 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
         jLabel10.setText("---");
+
+        jLabel44.setText("jLabel44");
+
+        jTextField37.setText("jTextField37");
 
         javax.swing.GroupLayout Internal_Reports_Panel_Average_CostsLayout = new javax.swing.GroupLayout(Internal_Reports_Panel_Average_Costs);
         Internal_Reports_Panel_Average_Costs.setLayout(Internal_Reports_Panel_Average_CostsLayout);
@@ -4030,7 +4046,12 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
                         .addComponent(jLabel6))
                     .addGroup(Internal_Reports_Panel_Average_CostsLayout.createSequentialGroup()
                         .addGap(299, 299, 299)
-                        .addComponent(jButton2)))
+                        .addComponent(jButton2))
+                    .addGroup(Internal_Reports_Panel_Average_CostsLayout.createSequentialGroup()
+                        .addGap(198, 198, 198)
+                        .addComponent(jLabel44)
+                        .addGap(119, 119, 119)
+                        .addComponent(jTextField37, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         Internal_Reports_Panel_Average_CostsLayout.setVerticalGroup(
@@ -4038,7 +4059,11 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
             .addGroup(Internal_Reports_Panel_Average_CostsLayout.createSequentialGroup()
                 .addGap(39, 39, 39)
                 .addComponent(jLabel5)
-                .addGap(47, 47, 47)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(Internal_Reports_Panel_Average_CostsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel44)
+                    .addComponent(jTextField37, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(19, 19, 19)
                 .addGroup(Internal_Reports_Panel_Average_CostsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(jLabel1))
@@ -4752,6 +4777,22 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
             
         }*/
     }//GEN-LAST:event_Search_Employ1ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        ControladorCita cc = new ControladorCita();
+        String id_user= jTextField37.getText();
+        cc.promedioCostoMensual(id_user);
+        jLabel7.setText(cc.promedioCostoMensual(id_user).get(0));
+        jLabel8.setText(cc.promedioCostoMensual(id_user).get(1));
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+       ControladorCita cc = new ControladorCita();
+        String id_user= jTextField37.getText();
+       cc.promedioCostoMensual(id_user);
+        jLabel9.setText(cc.promedioCostoAnual(id_user).get(0));
+        jLabel10.setText(cc.promedioCostoAnual(id_user).get(1));
+    }//GEN-LAST:event_jButton2ActionPerformed
     
    public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -4969,6 +5010,7 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
+    private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel47;
@@ -5119,6 +5161,7 @@ public class MainBDGui extends javax.swing.JPanel implements java.beans.Customiz
     private javax.swing.JTextField jTextField34;
     private javax.swing.JTextField jTextField35;
     private javax.swing.JTextField jTextField36;
+    private javax.swing.JTextField jTextField37;
     private javax.swing.JTextField jTextField39;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField40;
