@@ -8,7 +8,6 @@ package controlador;
 
 import accesoDatos.DaoArea;
 import accesoDatos.DaoEmpleado;
-import accesoDatos.DaoPrograma;
 import java.util.ArrayList;
 import java.util.Vector;
 import logica.Area;
