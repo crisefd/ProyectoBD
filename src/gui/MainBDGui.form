@@ -514,7 +514,7 @@
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="Employ_Search" alignment="0" max="32767" attributes="0"/>
                                       <Component id="Employ_Update_Delete" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="Employ_Create" alignment="0" pref="745" max="32767" attributes="0"/>
+                                      <Component id="Employ_Create" alignment="0" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                               </Group>
@@ -637,7 +637,7 @@
                                           <Renderer/>
                                         </Column>
                                         <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
-                                          <Title value="Charge"/>
+                                          <Title/>
                                           <Editor/>
                                           <Renderer/>
                                         </Column>
@@ -784,8 +784,16 @@
                               <SubComponents>
                                 <Component class="javax.swing.JTable" name="jTable4">
                                   <Properties>
-                                    <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                                      <Connection code="new javax.swing.table.DefaultTableModel(&#xa;    new Object [][] {&#xa;        {null, null, null, null, null, null, null},&#xa;        {null, null, null, null, null, null, null},&#xa;        {null, null, null, null, null, null, null},&#xa;        {null, null, null, null, null, null, null}&#xa;    },&#xa;    new String [] {&#xa;        &quot;ID Employee&quot;, &quot;Name&quot;, &quot;Telephone&quot;, &quot;Charge&quot;, &quot;Area&quot;, &quot;E-mail&quot;, &quot;Address&quot;&#xa;    }&#xa;) {&#xa;    Class[] types = new Class [] {&#xa;        java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class&#xa;    };&#xa;&#xa;    public Class getColumnClass(int columnIndex) {&#xa;        return types [columnIndex];&#xa;    }&#xa;}" type="code"/>
+                                    <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                                      <Table columnCount="7" rowCount="3">
+                                        <Column editable="true" title="ID Employee" type="java.lang.String"/>
+                                        <Column editable="true" title="Name" type="java.lang.String"/>
+                                        <Column editable="true" title="Telephone" type="java.lang.String"/>
+                                        <Column editable="true" title="Charge" type="java.lang.String"/>
+                                        <Column editable="true" title="Area" type="java.lang.String"/>
+                                        <Column editable="true" title="E-mail" type="java.lang.String"/>
+                                        <Column editable="true" title="Adress" type="java.lang.String"/>
+                                      </Table>
                                     </Property>
                                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                                       <TableColumnModel selectionModel="0">
@@ -3232,7 +3240,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
                                   <EmptySpace min="0" pref="82" max="32767" attributes="0"/>
-                                  <Component id="Internal_Gestion_Panel_Employ5" min="-2" pref="676" max="-2" attributes="0"/>
+                                  <Component id="Internal_Gestion_Panel_Employ5" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -3260,7 +3268,7 @@
                                               <Component id="Employ_Search5" alignment="0" max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <EmptySpace max="32767" attributes="0"/>
+                                      <EmptySpace pref="26" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
