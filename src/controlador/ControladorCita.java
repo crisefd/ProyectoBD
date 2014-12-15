@@ -24,8 +24,7 @@ public class ControladorCita{
     }
     
     
-    public int  insertarCita(String tiempo, String fecha, String tipo, String id_medico, String id_paciente){
-        Cita c = new Cita(tiempo,fecha,tipo,id_medico, id_paciente);        
+    public int  insertarCita(Cita c){      
 
        
         
@@ -35,13 +34,6 @@ public class ControladorCita{
 
     }//end
 
-    public Cita consultarCita(String id_cita){
-
-        Cita c = new Cita();        
-        c = daoCita.consultarCita(id_cita);
-      
-       return c;
-    }
     
     public ArrayList<Cita> consultarCitas(){
         Cita c = new Cita();
@@ -57,19 +49,19 @@ public class ControladorCita{
     }
     public ArrayList<Cita> consultarCitasIdMed(String id_med){
         Cita c = new Cita();
-        ArrayList<Cita> lista = daoCita.consultarCitasIdMed(id_med);
+        ArrayList<Cita> lista = daoCita.consultarCitaPorIdMedico(id_med);
       
        return lista;
     }
     public ArrayList<Cita> consultarCitasIdPac(String id_pac){
         Cita c = new Cita();
-        ArrayList<Cita> lista = daoCita.consultarCitas();
+        ArrayList<Cita> lista = daoCita.consultarCitaPorIdPaciente(id_pac);
       
        return lista;
     }
-     public ArrayList<Cita> consultarCitasCountIdMed(String id_med){
+     public ArrayList<String> consultarCitasCountIdMed(String numeroMes,String numeroAno){
         Cita c = new Cita();
-        ArrayList<Cita> lista = daoCita.consultarCitasIdMed(id_med);
+        ArrayList<String> lista = daoCita.consultarNumeroCitasMedico(numeroMes,numeroAno);
       
        return lista;
     }
@@ -82,4 +74,4 @@ public class ControladorCita{
     }
     
     
-}//fin clase
+}
